@@ -13,11 +13,11 @@ export default function ContactPage() {
   const offices = [
     {
       id: 1,
-      flag: '�🇦',
+      flag: '🇸🇦',
       city: 'Saudi Arabia (Headquarters)',
       country: 'Riyadh',
       address: 'PO Box – 8147, Riyadh – 14513, Kingdom of Saudi Arabia',
-      phone: '+44 (0) 3300946908',
+      phone: '+966 53 570 6708',
       email: 'info@clarustologistics.com',
       hours: 'Sun–Thu · 9:00–18:00',
       established: '1992',
@@ -27,7 +27,7 @@ export default function ContactPage() {
     },
     {
       id: 2,
-      flag: '�🇬🇧',
+      flag: '��🇧',
       city: 'United Kingdom',
       country: 'Glasgow',
       address: 'Suite 1/4, Park Lane House, 47 Broad Street, Glasgow, G40 2QW',
