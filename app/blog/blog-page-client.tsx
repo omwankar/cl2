@@ -159,7 +159,7 @@ export function BlogPageClient({
   return (
     <motion.main
       ref={rootRef}
-      className={`blog-premium-page min-h-screen overflow-x-hidden bg-[#F5F5F0] text-[#1A1A2E] cursor-auto ${bodyFontClass}`}
+      className={`blog-premium-page min-h-screen overflow-x-hidden break-normal bg-[#F5F5F0] text-[#1A1A2E] cursor-auto ${bodyFontClass}`}
       id="blog-search"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -406,12 +406,13 @@ export function BlogPageClient({
                             width={28}
                             height={28}
                             className="rounded-full"
+                            unoptimized
                           />
-                          <div className="text-xs text-slate-500">
-                            <p className="font-semibold text-slate-700">
+                          <div className="min-w-0 text-xs text-slate-500 break-normal">
+                            <p className="font-semibold text-slate-700 whitespace-nowrap overflow-hidden text-ellipsis">
                               {post.author.name}
                             </p>
-                            <p>
+                            <p className="whitespace-nowrap overflow-hidden text-ellipsis">
                               {post.date} • {post.readTime}
                             </p>
                           </div>
