@@ -71,7 +71,7 @@ export default function ContactPage() {
       city: 'India',
       country: 'Kerala',
       address: 'MMC/644E5, 1st Floor, Imperial Plaza, Velloorkunnam, Muvattupuzha, Kerala 686673',
-      phone: '',
+      phone: '+91 9048097981',
       email: '',
       hours: 'Mon–Sat · 9:30–18:30',
       lat: 9.9834,
