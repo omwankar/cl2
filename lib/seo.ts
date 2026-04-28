@@ -79,7 +79,7 @@ export function SEO({
       description: seoDescription,
       url: canonicalUrl,
       siteName: siteConfig.name,
-      type: openGraphType,
+      type: openGraphType as 'website' | 'article',
       locale,
       images: [
         {
@@ -91,7 +91,7 @@ export function SEO({
       ],
     },
     twitter: {
-      card: twitterCard,
+      card: twitterCard as 'summary_large_image' | 'summary',
       title: seoTitle,
       description: seoDescription,
       images: [imageUrl],

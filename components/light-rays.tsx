@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Renderer, Program, Mesh, Color, Vec2 } from 'ogl';
 
 export interface LightRaysProps {
   raysOrigin?: 'top-center' | 'center' | 'bottom-center';
@@ -29,9 +28,7 @@ export const LightRays: React.FC<LightRaysProps> = ({
   className = ''
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rendererRef = useRef<Renderer | null>(null);
-  const meshRef = useRef<Mesh | null>(null);
-  const mouseRef = useRef<Vec2>(new Vec2(0, 0));
+  const mouseRef = useRef({ x: 0, y: 0 });
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -42,9 +39,15 @@ export const LightRays: React.FC<LightRaysProps> = ({
     if (!isClient || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    let ctx: CanvasRenderingContext2D | null = null;
     
-    if (!ctx) return;
+    try {
+      ctx = canvas.getContext('2d');
+      if (!ctx) return;
+    } catch (error) {
+      console.warn('LightRays: Failed to get canvas context', error);
+      return;
+    }
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -63,9 +66,10 @@ export const LightRays: React.FC<LightRaysProps> = ({
     let time = 0;
 
     const animate = () => {
-      if (!ctx || !canvas.width || !canvas.height) return;
+      try {
+        if (!ctx || !canvas.width || !canvas.height) return;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Create gradient for rays
       const gradient = ctx.createLinearGradient(
@@ -75,10 +79,20 @@ export const LightRays: React.FC<LightRaysProps> = ({
         raysOrigin === 'top-center' ? canvas.height : raysOrigin === 'bottom-center' ? 0 : canvas.height / 2
       );
 
-      const color = new Color(raysColor);
-      gradient.addColorStop(0, `rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 0.3)`);
-      gradient.addColorStop(0.5, `rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 0.1)`);
-      gradient.addColorStop(1, `rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 0)`);
+      // Simple hex color parsing
+      const hexToRgb = (hex: string) => {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        } : { r: 245, g: 184, b: 0 }; // Default to gold color
+      };
+      
+      const color = hexToRgb(raysColor);
+      gradient.addColorStop(0, `rgba(${color.r}, ${color.g}, ${color.b}, 0.3)`);
+      gradient.addColorStop(0.5, `rgba(${color.r}, ${color.g}, ${color.b}, 0.1)`);
+      gradient.addColorStop(1, `rgba(${color.r}, ${color.g}, ${color.b}, 0)`);
 
       ctx.fillStyle = gradient;
 
@@ -131,7 +145,11 @@ export const LightRays: React.FC<LightRaysProps> = ({
       }
 
       time += 0.01;
-      animationId = requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
+      } catch (error) {
+        console.warn('LightRays: Animation error', error);
+        animationId = requestAnimationFrame(animate);
+      }
     };
 
     animate();

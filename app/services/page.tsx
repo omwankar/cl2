@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function ServicesPage() {
   const getIcon = (iconName: string) => {
-    const IconComponent = Icons[iconName as keyof typeof Icons];
+    const IconComponent = Icons[iconName as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
     if (!IconComponent) return null;
     return <IconComponent className="w-8 h-8 text-accent" />;
   };

@@ -20,22 +20,31 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 import { Truck, Globe, Shield, Package, Clock, BadgeCheck, ArrowRight } from 'lucide-react';
-import { LightRays } from '@/components/light-rays';
+
+const LightRays = dynamic(() =>
+  import('@/components/light-rays').then(m => m.LightRays),
+  { ssr: false }
+);
 
 const EnhancedServices = dynamic(() =>
-  import('@/components/enhanced-services').then((m) => m.EnhancedServices)
+  import('@/components/enhanced-services').then((m) => m.EnhancedServices),
+  { ssr: false }
 );
 const AboutSection = dynamic(() =>
-  import('@/components/about-section').then((m) => m.AboutSection)
+  import('@/components/about-section').then((m) => m.AboutSection),
+  { ssr: false }
 );
 const PromiseSection = dynamic(() =>
-  import('@/components/promise-section').then((m) => m.PromiseSection)
+  import('@/components/promise-section').then((m) => m.PromiseSection),
+  { ssr: false }
 );
 const StatsSection = dynamic(() =>
-  import('@/components/stats-section').then((m) => m.StatsSection)
+  import('@/components/stats-section').then((m) => m.StatsSection),
+  { ssr: false }
 );
 const ServicePartners = dynamic(() =>
-  import('@/components/service-partners').then((m) => m.ServicePartners)
+  import('@/components/service-partners').then((m) => m.ServicePartners),
+  { ssr: false }
 );
 
 const GlobalStyles = () => (
@@ -81,6 +90,41 @@ const GlobalStyles = () => (
       margin-bottom: 3rem;
       border-bottom: 1px solid var(--rule);
     }
+
+    /* Common inline styles converted to classes */
+    .hp-body-center { margin: 1rem auto 0; max-width: 500px; }
+    .hp-body-small { font-size: 16px; max-width: 480px; }
+    .hp-body-medium { margin-top: 1rem; max-width: 520px; }
+    .hp-kicker-center { justify-content: center; margin-bottom: 1rem; color: rgba(8,11,16,0.5); }
+    .hp-display-small { font-size: clamp(36px, 5vw, 64px); }
+    .hp-articles-count { 
+      font-family: var(--font-dm-mono), monospace; 
+      font-size: 10px; 
+      letter-spacing: 0.15em; 
+      color: var(--cream-dim); 
+      text-transform: uppercase; 
+    }
+    .hp-blog-link { display: block; text-decoration: none; }
+    .hp-blog-title-link { text-decoration: none; }
+    .hp-blog-meta-separator { opacity: 0.4; }
+    .hp-cta-bg { 
+      position: absolute; 
+      inset: 0; 
+      opacity: 0.14; 
+      pointer-events: none; 
+    }
+    .hp-cta-btn-custom { 
+      margin-top: 2.5rem; 
+      display: inline-flex; 
+    }
+    .hp-partner-logo-container { 
+      position: relative; 
+      width: 112px; 
+      height: 40px; 
+      transform: scale(1); 
+    }
+    .hp-partner-logo { object-fit: cover; }
+    .hp-partner-row-margin { margin-bottom: 3px; }
 
     .hp-showcase { background: var(--ink-2); padding: 6rem 0; position: relative; overflow: hidden; }
     .hp-showcase::before {
@@ -634,7 +678,7 @@ export default function Home() {
               </h2>
             </Reveal>
             <Reveal>
-              <p className="hp-body" style={{ fontSize: 16, maxWidth: 480 }}>
+              <p className="hp-body hp-body-small">
                 We move logistics forward with speed, safety, and complete visibility. From pickup to delivery,
                 we create dependable transportation workflows that help your business grow.
               </p>
@@ -688,21 +732,21 @@ export default function Home() {
       <section className="hp-partners">
         <div className="hp-partners-inner">
           <Reveal className="hp-partners-header">
-            <div className="hp-kicker" style={{ justifyContent: 'center', marginBottom: '1rem' }}>Partners</div>
+            <div className="hp-kicker hp-kicker-center">Partners</div>
             <h2 className="hp-display hp-partners-title" data-scramble-heading="Trusted by Industry Leaders">
               TRUSTED FREIGHT AND<br /><em>LOGISTICS PARTNERS</em>
             </h2>
-            <p className="hp-body" style={{ marginTop: '1rem', maxWidth: 500, margin: '1rem auto 0' }}>
+            <p className="hp-body hp-body-center">
               Proud to work with industry leaders and innovative companies across various sectors.
             </p>
           </Reveal>
 
-          <div className="hp-partner-row" style={{ marginBottom: 3 }}>
+          <div className="hp-partner-row hp-partner-row-margin">
             <div className="hp-partner-track hp-marquee-l">
               {marqueeRow.map((p, i) => (
                 <div key={`${p.name}-a-${i}`} className="hp-partner-card">
-                  <div style={{ position: 'relative', width: 112, height: 40, transform: `scale(${p.scale ?? 1})` }}>
-                    <Image src={p.logo} alt={p.name} fill style={{ objectFit: 'contain' }} sizes="100px" loading="lazy" />
+                  <div className="hp-partner-logo-container" style={{ transform: `scale(${p.scale ?? 1})` }}>
+                    <Image src={p.logo} alt={p.name} fill className="hp-partner-logo" sizes="100px" loading="lazy" />
                   </div>
                 </div>
               ))}
@@ -712,8 +756,8 @@ export default function Home() {
             <div className="hp-partner-track hp-marquee-r">
               {marqueeRowB.map((p, i) => (
                 <div key={`${p.name}-b-${i}`} className="hp-partner-card">
-                  <div style={{ position: 'relative', width: 112, height: 40, transform: `scale(${p.scale ?? 1})` }}>
-                    <Image src={p.logo} alt={p.name} fill style={{ objectFit: 'contain' }} sizes="100px" loading="lazy" />
+                  <div className="hp-partner-logo-container" style={{ transform: `scale(${p.scale ?? 1})` }}>
+                    <Image src={p.logo} alt={p.name} fill className="hp-partner-logo" sizes="100px" loading="lazy" />
                   </div>
                 </div>
               ))}
@@ -743,7 +787,7 @@ export default function Home() {
             <h2 className="hp-display hp-expertise-title">
               EXPERTISE IN GLOBAL<br /><em>TRANSPORTATION SERVICES</em>
             </h2>
-            <p className="hp-body" style={{ marginTop: '1rem', maxWidth: 520 }}>
+            <p className="hp-body hp-body-medium">
               Measurable outcomes across network, delivery performance, and compliance-led execution.
             </p>
           </Reveal>
