@@ -214,21 +214,21 @@ export default function Home() {
   }, []);
 
   const partners = [
-    { name: 'Saudi Aramco', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Saudi_Aramco_logo.svg/500px-Saudi_Aramco_logo.svg.png' },
-    { name: 'Samsung', logo: 'https://www.dafont.com/forum/attach/orig/2/1/218859.jpg', scale: 1.15 },
-    { name: 'ISCO (A Siemens Company)', logo: 'https://yjrconstrade.com/img/client2/21.jpg' },
-    { name: 'GWC', logo: 'https://www.gwclogistics.com/wp-content/uploads/2023/12/Newlogo.svg', scale: 1.2 },
-    { name: 'SABIC', logo: 'https://www.sabic.com/en/Images/SABIC-LOGO_tcm1010-14323.svg' },
-    { name: 'Al Khodari (AK)', logo: 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/022025/al_abdulkarim.jpg?xH0DS85LZL.kKI.odp3Os1V0z1dC8Q9g&itok=EPEHN-rS' },
-    { name: 'Nas Air', logo: 'https://d2pi0n2fm836iz.cloudfront.net/484917/050420231358506453ba1a47511.png', scale: 1.15 },
-    { name: 'Petro RABIGH', logo: 'https://plantsolutionscoltd.com/assets/img/brand/3.jpg' },
-    { name: 'Panalpina', logo: 'https://logodix.com/logo/1331186.jpg', scale: 1.2 },
-    { name: 'Centrepoint', logo: 'https://lmg.a.bigcontent.io/v1/static/website_images_logos_centrepoint_ae_en_logo-centrepoint?fmt=auto', scale: 1.15 },
-    { name: 'GAC', logo: 'https://images.crunchbase.com/image/upload/c_pad,h_160,w_160,f_auto,b_white,q_auto:eco,dpr_2/v1505901601/gspwefyprvlrrnwk1rnz.png', scale: 1.3 },
-    { name: 'MMG', logo: 'https://madhyamamonline.com/h-upload/2025/03/25/2540199-6d8ca5b3-17ac-4045-b917-dbff87cb0e2f.webp' },
-    { name: 'Schlumberger', logo: 'https://alchetron.com/cdn/schlumberger-deb57bbc-35fc-4ea3-839f-d98d9483a37-resize-750.gif', scale: 1.2 },
-    { name: 'ABB', logo: 'https://images.crunchbase.com/image/upload/c_pad,h_160,w_160,f_auto,b_white,q_auto:eco,dpr_2/f1wabimeqycjodyovdt6', scale: 1.3 },
-    { name: "Ma'aden", logo: 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/072024/maaden.jpg?EbMm2gvNQB6Ub6S7INhZ1TTNWR5WFAPH&itok=yZWsuAyF' },
+    { name: 'Saudi Aramco', logo: '/placeholder-logo.png' },
+    { name: 'Samsung', logo: '/placeholder-logo.png', scale: 1.15 },
+    { name: 'ISCO (A Siemens Company)', logo: '/placeholder-logo.png' },
+    { name: 'GWC', logo: '/placeholder-logo.png', scale: 1.2 },
+    { name: 'SABIC', logo: '/placeholder-logo.png' },
+    { name: 'Al Khodari (AK)', logo: '/placeholder-logo.png' },
+    { name: 'Nas Air', logo: '/placeholder-logo.png', scale: 1.15 },
+    { name: 'Petro RABIGH', logo: '/placeholder-logo.png' },
+    { name: 'Panalpina', logo: '/placeholder-logo.png', scale: 1.2 },
+    { name: 'Centrepoint', logo: '/placeholder-logo.png', scale: 1.15 },
+    { name: 'GAC', logo: '/placeholder-logo.png', scale: 1.3 },
+    { name: 'MMG', logo: '/placeholder-logo.png' },
+    { name: 'Schlumberger', logo: '/placeholder-logo.png', scale: 1.2 },
+    { name: 'ABB', logo: '/placeholder-logo.png', scale: 1.3 },
+    { name: "Ma'aden", logo: '/placeholder-logo.png' },
   ];
 
   const marqueeRow = [...partners, ...partners];
@@ -334,7 +334,7 @@ export default function Home() {
             <div className="hp-partner-track hp-marquee-l">
               {marqueeRow.map((p, i) => (
                 <div key={`${p.name}-a-${i}`} className="hp-partner-card">
-                  <div className="hp-partner-logo-container" style={{ transform: `scale(${p.scale ?? 1})` }}>
+                  <div className={`hp-partner-logo-container ${p.scale ? `scale-[${p.scale}]` : ''}`}>
                     <Image src={p.logo} alt={p.name} fill className="hp-partner-logo" sizes="100px" loading="lazy" />
                   </div>
                 </div>
@@ -345,7 +345,7 @@ export default function Home() {
             <div className="hp-partner-track hp-marquee-r">
               {marqueeRowB.map((p, i) => (
                 <div key={`${p.name}-b-${i}`} className="hp-partner-card">
-                  <div className="hp-partner-logo-container" style={{ transform: `scale(${p.scale ?? 1})` }}>
+                  <div className={`hp-partner-logo-container ${p.scale ? `scale-[${p.scale}]` : ''}`}>
                     <Image src={p.logo} alt={p.name} fill className="hp-partner-logo" sizes="100px" loading="lazy" />
                   </div>
                 </div>
