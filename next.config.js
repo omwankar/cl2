@@ -12,10 +12,17 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.pexels.com',
       },
+      {
+        protocol: 'https',
+        hostname: '1000logos.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'logo.clearbit.com',
+      },
     ],
   },
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['three', 'ogl', 'lucide-react', 'framer-motion'],
   },
   compiler: {

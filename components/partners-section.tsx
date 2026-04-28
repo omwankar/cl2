@@ -1,57 +1,136 @@
 'use client';
 
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import { logoDevUrl } from '@/lib/logo-dev';
+
 interface Partner {
-  id: string;
   name: string;
-  category: string;
+  logo: string;
+  scale?: number;
 }
 
 const partners: Partner[] = [
-  { id: '1', name: 'SAUDI ARAMCO', category: 'Energy' },
-  { id: '2', name: 'SAMSUNG', category: 'Electronics' },
-  { id: '3', name: 'ISCO (A SIEMENS COMPANY)', category: 'Industrial' },
-  { id: '4', name: 'GWC', category: 'Manufacturing' },
-  { id: '5', name: 'SABIC', category: 'Chemicals' },
-  { id: '6', name: 'AL KHODARI (AK)', category: 'Construction' },
-  { id: '7', name: 'CENTREPOINT', category: 'Retail' },
-  { id: '8', name: 'GAC', category: 'Shipping' },
-  { id: '9', name: 'MOHAMMED AL-MOJIL GROUP', category: 'Distribution' },
+  { name: 'Saudi Aramco', logo: logoDevUrl('aramco.com') },
+  { name: 'Samsung', logo: logoDevUrl('samsung.com'), scale: 1.15 },
+  { name: 'ISCO (A Siemens Company)', logo: logoDevUrl('siemens.com') },
+  { name: 'GWC', logo: logoDevUrl('gwclogistics.com'), scale: 1.2 },
+  { name: 'SABIC', logo: logoDevUrl('sabic.com') },
+  { name: 'Al Khodari (AK)', logo: logoDevUrl('alkhodari.com') },
+  { name: 'Nas Air', logo: logoDevUrl('flynas.com'), scale: 1.15 },
+  { name: 'Petro RABIGH', logo: logoDevUrl('petrorabigh.com') },
+  { name: 'Panalpina', logo: logoDevUrl('panalpina.com'), scale: 1.2 },
+  { name: 'Centrepoint', logo: logoDevUrl('centrepointstores.com'), scale: 1.15 },
+  { name: 'GAC', logo: logoDevUrl('gac.com'), scale: 1.3 },
+  { name: 'MMG', logo: logoDevUrl('mmg.com') },
+  { name: 'Schlumberger', logo: logoDevUrl('slb.com'), scale: 1.2 },
+  { name: 'ABB', logo: logoDevUrl('abb.com'), scale: 1.3 },
+  { name: "Ma'aden", logo: logoDevUrl('maaden.com.sa') },
 ];
 
-export function PartnersSection() {
+export default function PartnersSection() {
+  const [isPaused, setIsPaused] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  // Duplicate partners for seamless infinite loop
+  const duplicatedPartners = [...partners, ...partners];
+
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="app-container">
-        <div className="text-center mb-12 animate-fadeInUp">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+    <section className="bg-gray-50 py-16 md:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Trusted Partners
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We&apos;re proud to work with industry leaders and innovative companies across various sectors
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Proud to work with industry leaders and innovative companies across various sectors.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {partners.map((partner, index) => (
-            <div
-              key={partner.id}
-              className="group relative bg-card p-8 rounded-lg border border-border hover:border-accent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fadeInUp flex flex-col items-center justify-center min-h-32"
-              style={{ animationDelay: `${index * 0.08}s` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent opacity-0 group-hover:opacity-5 rounded-lg transition-opacity duration-300"></div>
-              
-              <div className="relative z-10 text-center">
-                <p className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
-                  {partner.name}
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">{partner.category}</p>
-              </div>
+        {/* Marquee Container */}
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Left Fade Mask */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          
+          {/* Right Fade Mask */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
 
-              <div className="absolute inset-x-0 bottom-0 h-1 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-lg"></div>
-            </div>
-          ))}
+          {/* Marquee Track */}
+          <div 
+            ref={trackRef}
+            className={`flex gap-6 ${isPaused ? 'animation-paused' : ''}`}
+            style={{
+              animation: `marquee 40s linear infinite`,
+              animationPlayState: isPaused ? 'paused' : 'running',
+            }}
+          >
+            {duplicatedPartners.map((partner, index) => (
+              <div
+                key={`${partner.name}-${index}`}
+                className="flex-shrink-0 relative group"
+                style={{ width: '160px', height: '80px' }}
+              >
+                <div
+                  className="w-full h-full bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-4 transition-all duration-300 group-hover:shadow-md group-hover:border-gray-300 group-hover:brightness-110"
+                  title={partner.name}
+                >
+                  <PartnerLogo partner={partner} />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Custom CSS for marquee animation */}
+      <style jsx global>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
+  );
+}
+
+function PartnerLogo({ partner }: { partner: Partner }) {
+  const [imageError, setImageError] = useState(false);
+
+  if (imageError) {
+    return (
+      <span 
+        className="text-sm font-medium text-gray-700 text-center"
+        style={{ 
+          transform: `scale(${partner.scale ?? 1})`,
+          maxWidth: '100%',
+        }}
+      >
+        {partner.name}
+      </span>
+    );
+  }
+
+  return (
+    <div 
+      className="relative w-full h-full"
+      style={{ transform: `scale(${partner.scale ?? 1})` }}
+    >
+      <Image
+        src={partner.logo}
+        alt={partner.name}
+        fill
+        unoptimized
+        className="object-contain"
+        onError={() => setImageError(true)}
+      />
+    </div>
   );
 }

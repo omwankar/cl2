@@ -46,6 +46,10 @@ const ServicePartners = dynamic(() =>
   import('@/components/service-partners').then((m) => m.ServicePartners),
   { ssr: false }
 );
+const PartnersSection = dynamic(() =>
+  import('@/components/partners-section').then((m) => m.default),
+  { ssr: false }
+);
 
 
 function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
@@ -213,27 +217,6 @@ export default function Home() {
     };
   }, []);
 
-  const partners = [
-    { name: 'Saudi Aramco', logo: '/placeholder-logo.png' },
-    { name: 'Samsung', logo: '/placeholder-logo.png', scale: 1.15 },
-    { name: 'ISCO (A Siemens Company)', logo: '/placeholder-logo.png' },
-    { name: 'GWC', logo: '/placeholder-logo.png', scale: 1.2 },
-    { name: 'SABIC', logo: '/placeholder-logo.png' },
-    { name: 'Al Khodari (AK)', logo: '/placeholder-logo.png' },
-    { name: 'Nas Air', logo: '/placeholder-logo.png', scale: 1.15 },
-    { name: 'Petro RABIGH', logo: '/placeholder-logo.png' },
-    { name: 'Panalpina', logo: '/placeholder-logo.png', scale: 1.2 },
-    { name: 'Centrepoint', logo: '/placeholder-logo.png', scale: 1.15 },
-    { name: 'GAC', logo: '/placeholder-logo.png', scale: 1.3 },
-    { name: 'MMG', logo: '/placeholder-logo.png' },
-    { name: 'Schlumberger', logo: '/placeholder-logo.png', scale: 1.2 },
-    { name: 'ABB', logo: '/placeholder-logo.png', scale: 1.3 },
-    { name: "Ma'aden", logo: '/placeholder-logo.png' },
-  ];
-
-  const marqueeRow = [...partners, ...partners];
-  const marqueeRowB = [...[...partners].reverse(), ...[...partners].reverse()];
-
   const expertise = [
     { number: '2,000+', label: 'Integrated Supply Chain Expertise', features: ['Customized supply chain management', 'Freight forwarding solutions', 'Warehousing & distribution'] },
     { number: '98%', label: 'Timely Delivery to Destination', features: ['Skilled logistics team', 'Safe goods handling', 'On-time pickup and delivery'] },
@@ -318,42 +301,7 @@ export default function Home() {
 
     </section>
 
-      <section className="hp-partners">
-        <div className="hp-partners-inner">
-          <Reveal className="hp-partners-header">
-            <div className="hp-kicker hp-kicker-center">Partners</div>
-            <h2 className="hp-display hp-partners-title" data-scramble-heading="Trusted by Industry Leaders">
-              TRUSTED FREIGHT AND<br /><em>LOGISTICS PARTNERS</em>
-            </h2>
-            <p className="hp-body hp-body-center">
-              Proud to work with industry leaders and innovative companies across various sectors.
-            </p>
-          </Reveal>
-
-          <div className="hp-partner-row hp-partner-row-margin">
-            <div className="hp-partner-track hp-marquee-l">
-              {marqueeRow.map((p, i) => (
-                <div key={`${p.name}-a-${i}`} className="hp-partner-card">
-                  <div className={`hp-partner-logo-container ${p.scale ? `scale-[${p.scale}]` : ''}`}>
-                    <Image src={p.logo} alt={p.name} fill className="hp-partner-logo" sizes="100px" loading="lazy" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="hp-partner-row">
-            <div className="hp-partner-track hp-marquee-r">
-              {marqueeRowB.map((p, i) => (
-                <div key={`${p.name}-b-${i}`} className="hp-partner-card">
-                  <div className={`hp-partner-logo-container ${p.scale ? `scale-[${p.scale}]` : ''}`}>
-                    <Image src={p.logo} alt={p.name} fill className="hp-partner-logo" sizes="100px" loading="lazy" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartnersSection />
 
       <section ref={expertiseRef} className="hp-expertise relative overflow-hidden">
           

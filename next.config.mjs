@@ -1,11 +1,20 @@
 /** @type {import('next').NextConfig} */
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const nextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    domains: ['img.logo.dev'],
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'images.pexels.com' },
@@ -28,6 +37,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'www.ups.com' },
       { protocol: 'https', hostname: 'www.dhl.com' },
       { protocol: 'https', hostname: 'www.dxdelivery.com' },
+      { protocol: 'https', hostname: 'img.logo.dev' },
     ],
   },
 }
