@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import {
-  Poppins,
-  Geist_Mono,
   Bebas_Neue,
   DM_Sans,
   DM_Mono,
@@ -13,19 +11,7 @@ import { OrganizationJsonLd } from '@/components/organization-json-ld'
 import { FloatingCallButton } from '@/components/floating-call-button'
 import { SEO, absoluteUrl } from '@/lib/seo'
 import './globals.css'
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-brand',
-  display: 'swap',
-});
-
-const _geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono-ui',
-  display: 'swap',
-});
+import './homepage.css'
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -72,7 +58,7 @@ export const metadata: Metadata = {
   ...SEO({
     title: 'Global Freight & Supply Chain Services',
     description:
-      'Clarusto Logistics delivers reliable global transportation, freight forwarding, customs brokerage, and integrated supply chain services tailored for every shipment.',
+      'Clarusto Logistics delivers global freight forwarding, customs brokerage, and supply chain services for every shipment. Get a quote today.',
     url: '/',
     image: '/clarusto-logo-dark.png',
     locale: 'en-GB',
@@ -113,10 +99,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth overflow-x-clip ${poppins.variable} ${_geistMono.variable} ${bebasNeue.variable} ${dmSans.variable} ${dmMono.variable} ${playfairDisplay.variable}`}
+      className={`scroll-smooth overflow-x-clip ${bebasNeue.variable} ${dmSans.variable} ${dmMono.variable} ${playfairDisplay.variable}`}
       suppressHydrationWarning
     >
       <body className="font-sans antialiased bg-background text-foreground min-h-[100dvh] overflow-x-clip text-base leading-relaxed md:leading-normal" suppressHydrationWarning>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
+          Skip to main content
+        </a>
         <Script
           id="plausible-analytics"
           strategy="lazyOnload"
@@ -124,7 +113,7 @@ export default function RootLayout({
           src="https://plausible.io/js/script.js"
         />
         <OrganizationJsonLd />
-        {children}
+        <main id="main-content">{children}</main>
         <FloatingCallButton />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

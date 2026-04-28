@@ -49,7 +49,7 @@ export const LightRays: React.FC<LightRaysProps> = ({
       return;
     }
 
-    // Set canvas size
+    // Set canvas siz
     const resizeCanvas = () => {
       const rect = canvas.parentElement?.getBoundingClientRect();
       if (rect) {

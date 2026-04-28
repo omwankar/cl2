@@ -30,19 +30,19 @@ export function Footer() {
               Your trusted global logistics partner for seamless deliveries and comprehensive shipping solutions.
             </p>
             <div className="flex gap-4">
-              <Link href="https://www.linkedin.com/company/clarusto-logistics" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/company/clarusto-logistics" aria-label="Clarusto Logistics on LinkedIn" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FaLinkedinIn className="h-5 w-5" />
               </Link>
-              <Link href="https://www.facebook.com/Clarustologistics" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <Link href="https://www.facebook.com/Clarustologistics" aria-label="Clarusto Logistics on Facebook" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FaFacebookF className="h-5 w-5" />
               </Link>
-              <Link href="https://www.instagram.com/clarustologistics" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <Link href="https://www.instagram.com/clarustologistics" aria-label="Clarusto Logistics on Instagram" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FaInstagram className="h-5 w-5" />
               </Link>
-              <Link href="https://x.com/ClarLogistics" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <Link href="https://x.com/ClarLogistics" aria-label="Clarusto Logistics on X (Twitter)" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FaXTwitter className="h-5 w-5" />
               </Link>
-              <Link href="https://in.pinterest.com/clarustologistics/clarusto-logistics/" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <Link href="https://in.pinterest.com/clarustologistics/clarusto-logistics/" aria-label="Clarusto Logistics on Pinterest" className="hover:text-amber-500 transition-colors" target="_blank" rel="noopener noreferrer">
                 <FaPinterestP className="h-5 w-5" />
               </Link>
             </div>
@@ -147,11 +147,11 @@ export function Footer() {
         <div className="border-t border-primary-foreground border-opacity-20 pt-8 text-center text-sm opacity-75">
           <p>
             &copy; 2025 Clarusto Logistics. All rights reserved. |{' '}
-            <Link href="#" className="hover:text-amber-500 transition-colors">
+            <Link href="/privacy-policy" className="hover:text-amber-500 transition-colors">
               Privacy Policy
             </Link>{' '}
-            | Privacy Policy{' '}
-            <Link href="#" className="hover:text-amber-500 transition-colors">
+            |{' '}
+            <Link href="/terms-of-service" className="hover:text-amber-500 transition-colors">
               Terms of Service
             </Link>
           </p>
