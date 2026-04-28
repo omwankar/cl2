@@ -127,6 +127,12 @@ export const OFFICES: Office[] = [
     city: 'Dubai',
     country: 'UAE',
   },
+  {
+    id: 'china',
+    flag: '🇨🇳',
+    city: 'Wuhan',
+    country: 'China',
+  },
 ];
 
 export const DIFFERENTIATORS: Differentiator[] = [

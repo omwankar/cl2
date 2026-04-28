@@ -75,6 +75,18 @@ export default function ContactPage() {
       lat: 25.2048,
       lng: 55.2708,
     },
+    {
+      id: 6,
+      flag: '🇨🇳',
+      city: 'China',
+      country: 'Wuhan',
+      address: 'Room 2210 No 83 Yanjiang Avenue, Wuhan, Hubei province, China, 430022',
+      phone: '',
+      email: '',
+      hours: 'Mon–Fri · 9:00–18:00',
+      lat: 30.5928,
+      lng: 114.3055,
+    },
   ];
 
   return (
