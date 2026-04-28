@@ -13,7 +13,21 @@ export default function ContactPage() {
   const offices = [
     {
       id: 1,
-      flag: '🇬🇧',
+      flag: '�🇦',
+      city: 'Saudi Arabia (Headquarters)',
+      country: 'Riyadh',
+      address: 'PO Box – 8147, Riyadh – 14513, Kingdom of Saudi Arabia',
+      phone: '+44 (0) 3300946908',
+      email: 'info@clarustologistics.com',
+      hours: 'Sun–Thu · 9:00–18:00',
+      established: '1992',
+      teamSize: 80,
+      lat: 24.7136,
+      lng: 46.6753,
+    },
+    {
+      id: 2,
+      flag: '�🇬🇧',
       city: 'United Kingdom',
       country: 'Glasgow',
       address: 'Suite 1/4, Park Lane House, 47 Broad Street, Glasgow, G40 2QW',
@@ -26,9 +40,9 @@ export default function ContactPage() {
       lng: -4.2514,
     },
     {
-      id: 2,
+      id: 3,
       flag: '🇸🇦',
-      city: 'Saudi Arabia (Headquarters)',
+      city: 'Saudi Arabia',
       country: 'Dammam',
       address: 'Alshifa office #02, Building 8179, Dammam, Saudi Arabia',
       phone: '',
@@ -40,7 +54,7 @@ export default function ContactPage() {
       lng: 50.0888,
     },
     {
-      id: 3,
+      id: 4,
       flag: '🇩🇪',
       city: 'Germany',
       country: 'Magdeburg',
@@ -52,7 +66,7 @@ export default function ContactPage() {
       lng: 11.6276,
     },
     {
-      id: 4,
+      id: 5,
       flag: '🇮🇳',
       city: 'India',
       country: 'Kerala',
@@ -64,7 +78,7 @@ export default function ContactPage() {
       lng: 76.5786,
     },
     {
-      id: 5,
+      id: 6,
       flag: '🇦🇪',
       city: 'Dubai',
       country: 'U.A.E',
@@ -76,7 +90,7 @@ export default function ContactPage() {
       lng: 55.2708,
     },
     {
-      id: 6,
+      id: 7,
       flag: '🇨🇳',
       city: 'China',
       country: 'Wuhan',

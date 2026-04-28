@@ -98,6 +98,12 @@ export const SERVICES: Service[] = [
 
 export const OFFICES: Office[] = [
   {
+    id: 'saudi-hq',
+    flag: '🇸🇦',
+    city: 'Riyadh',
+    country: 'Saudi Arabia',
+  },
+  {
     id: 'uk',
     flag: '🇬🇧',
     city: 'Glasgow',
