@@ -102,6 +102,20 @@ export default function RootLayout({
       className={`scroll-smooth overflow-x-clip ${bebasNeue.variable} ${dmSans.variable} ${dmMono.variable} ${playfairDisplay.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BFFNSCEP6B"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BFFNSCEP6B');
+          `}
+        </Script>
+      </head>
       <body className="font-sans antialiased bg-background text-foreground min-h-[100dvh] overflow-x-clip text-base leading-relaxed md:leading-normal" suppressHydrationWarning>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
           Skip to main content
@@ -112,22 +126,6 @@ export default function RootLayout({
           data-domain="clarustologistics.com"
           src="https://plausible.io/js/script.js"
         />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
         <OrganizationJsonLd />
         <main id="main-content">{children}</main>
         <FloatingCallButton />
