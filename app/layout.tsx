@@ -18,21 +18,21 @@ const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   variable: '--font-bebas',
   display: 'swap',
-});
+})
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '700'],
   variable: '--font-dm-sans',
   display: 'swap',
-});
+})
 
 const dmMono = DM_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-dm-mono',
   display: 'swap',
-});
+})
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -40,7 +40,7 @@ const playfairDisplay = Playfair_Display({
   style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
-});
+})
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -53,7 +53,6 @@ export const viewport: Viewport = {
   colorScheme: 'light dark',
 }
 
-// Example homepage usage of reusable SEO function.
 export const metadata: Metadata = {
   ...SEO({
     title: 'Global Freight & Supply Chain Services',
@@ -67,12 +66,7 @@ export const metadata: Metadata = {
     },
   }),
   icons: {
-    icon: [
-      {
-        url: '/favicon.ico',
-        type: 'image/x-icon',
-      },
-    ],
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
     shortcut: '/favicon.ico',
     apple: '/apple-icon.png',
   },
@@ -93,9 +87,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html
       lang="en"
@@ -103,6 +97,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* ✅ Google Analytics (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BFFNSCEP6B"
           strategy="afterInteractive"
@@ -112,23 +107,32 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-BFFNSCEP6B');
+            gtag('config', 'G-BFFNSCEP6B', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
       </head>
-      <body className="font-sans antialiased bg-background text-foreground min-h-[100dvh] overflow-x-clip text-base leading-relaxed md:leading-normal" suppressHydrationWarning>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
+
+      <body className="font-sans antialiased bg-background text-foreground min-h-[100dvh] overflow-x-clip text-base leading-relaxed md:leading-normal">
+        {/* Accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded"
+        >
           Skip to main content
         </a>
-        <Script
-          id="plausible-analytics"
-          strategy="lazyOnload"
-          data-domain="clarustologistics.com"
-          src="https://plausible.io/js/script.js"
-        />
+
+        {/* Structured Data */}
         <OrganizationJsonLd />
+
+        {/* Main Content */}
         <main id="main-content">{children}</main>
+
+        {/* Floating CTA */}
         <FloatingCallButton />
+
+        {/* Optional: Keep ONLY if you really need it */}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
