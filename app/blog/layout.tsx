@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import { SEO } from '@/lib/seo';
 
 export const metadata: Metadata = SEO({
-  title:
-    'Logistics Blog | Freight, Shipping & Supply Chain Insights | Clarusto Logistics',
+  title: 'Logistics Blog | Supply Chain Insights & Trends',
   description:
-    'Expert insights on freight forwarding, warehousing, air cargo, ocean shipping, and supply chain optimization. Stay updated with the latest logistics industry news.',
+    'Read logistics insights, freight updates, warehousing strategies, and supply chain trends from Clarusto Logistics experts.',
   url: '/blog',
   image: '/clarusto-logo-dark.png',
   locale: 'en-GB',

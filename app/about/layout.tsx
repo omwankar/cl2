@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { SEO } from '@/lib/seo';
 
 export const metadata: Metadata = SEO({
-  title: 'About',
+  title: 'About Clarusto Logistics | 30+ Years of Expertise',
   description:
-    'Learn about Clarusto Logistics, our history, global offices, and long-standing commitment to trusted logistics operations.',
+    'Founded in 1992, Clarusto Logistics delivers trusted freight, warehousing, and supply chain solutions across global markets and industries.',
   url: '/about',
   image: '/clarusto-logo-dark.png',
 });

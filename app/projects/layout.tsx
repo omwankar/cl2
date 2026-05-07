@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { SEO } from '@/lib/seo';
 
 export const metadata: Metadata = SEO({
-  title: 'Projects',
+  title: 'Logistics Projects | Cargo & Supply Chain Case Studies',
   description:
-    'Review Clarusto Logistics case studies and project highlights across manufacturing, energy, retail, and healthcare sectors.',
+    'Explore logistics projects and case studies featuring freight transport, heavy cargo handling, and global delivery solutions.',
   url: '/projects',
   image: '/clarusto-logo-dark.png',
 });

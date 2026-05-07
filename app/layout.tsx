@@ -56,9 +56,9 @@ export const viewport: Viewport = {
 // Example homepage usage of reusable SEO function.
 export const metadata: Metadata = {
   ...SEO({
-    title: 'Global Freight & Supply Chain Services',
+    title: 'Global Logistics Company | Freight & Supply Chain Experts',
     description:
-      'Clarusto Logistics delivers global freight forwarding, customs brokerage, and supply chain services for every shipment. Get a quote today.',
+      'Clarusto Logistics offers global freight forwarding, air, sea & land transport. With 30+ years of expertise, we provide reliable logistics solutions.',
     url: '/',
     image: '/clarusto-logo-dark.png',
     locale: 'en-GB',
