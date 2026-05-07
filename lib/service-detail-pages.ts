@@ -418,7 +418,7 @@ export const SERVICE_DETAIL_PAGES: Record<ServiceDetailSlug, ServiceDetailPage> 
     subheading: 'Trade Compliance Without Friction',
     heroImage: '/landing/customs-clearance.png',
     metaDescription:
-      'Customs brokerage services including documentation, compliance management, duty handling, and international trade clearance.'
+      'Customs brokerage services including documentation, compliance management, duty handling, and international trade clearance.',
     paragraphs: [
       'Our customs brokerage service helps importers and exporters navigate evolving trade regulations with confidence and speed. We manage tariff classification, valuation checks, and declaration filing to ensure submissions are accurate the first time. By combining regulatory expertise with process discipline, we reduce clearance delays, avoid penalty exposure, and improve release predictability across major ports and airports serving your primary trade lanes.',
       'Each shipment is supported by documentation specialists who validate commercial records, certificates, and permit requirements before filing. We also advise on duty optimization opportunities, preferential trade agreements, and compliance controls that stand up to audit scrutiny. With responsive communication, transparent status tracking, and escalation support when issues arise, your teams gain smoother cross-border execution and stronger governance over customs outcomes.',
