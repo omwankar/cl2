@@ -81,7 +81,7 @@ export function EnhancedHero() {
 
           <div className="flex items-center gap-2 mt-8 animate-slide-up delay-400 text-white/70">
             <MapPin className="w-4 h-4 text-amber-500" />
-            <span className="text-sm">Suite 1/4, Park Lane House, Glasgow</span>
+            <span className="text-sm">India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, Scotland</span>
           </div>
         </div>
       </div>

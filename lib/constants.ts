@@ -106,7 +106,7 @@ export const OFFICES: Office[] = [
   {
     id: 'uk',
     flag: '🇬🇧',
-    city: 'Glasgow',
+    city: 'Inchinnan',
     country: 'United Kingdom',
   },
   {

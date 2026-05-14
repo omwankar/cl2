@@ -23,6 +23,7 @@ export function OrganizationJsonLd() {
           '@type': 'PostalAddress',
           streetAddress: siteConfig.address.streetAddress,
           addressLocality: siteConfig.address.addressLocality,
+          addressRegion: siteConfig.address.addressRegion,
           postalCode: siteConfig.address.postalCode,
           addressCountry: siteConfig.address.addressCountry,
         },

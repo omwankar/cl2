@@ -11,9 +11,10 @@ export const siteConfig = {
   phone: '+44-3300946908',
   email: 'info@clarustologistics.com',
   address: {
-    streetAddress: 'Suite 1/4, Park Lane House, 47 Broad Street',
-    addressLocality: 'Glasgow',
-    postalCode: 'G40 2QW',
+    streetAddress: 'India Of Inchinnan, Greenock Road, Inchinnan',
+    addressLocality: 'Renfrew',
+    addressRegion: 'Scotland',
+    postalCode: 'PA4 9LH',
     addressCountry: 'GB',
   },
   socialLinks: [

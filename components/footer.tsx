@@ -135,7 +135,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Suite 1/4, Park Lane House, 47 Broad Street, Glasgow, G40 2QW, United Kingdom</span>
+                <span>India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, Scotland, PA4 9LH, United Kingdom</span>
               </li>
             </ul>
           </div>
