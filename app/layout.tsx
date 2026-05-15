@@ -9,7 +9,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { OrganizationJsonLd } from '@/components/organization-json-ld'
 import { FloatingCallButton } from '@/components/floating-call-button'
-import { SEO, absoluteUrl } from '@/lib/seo'
+import { SEO } from '@/lib/seo'
 import './globals.css'
 import './homepage.css'
 
@@ -72,9 +72,6 @@ export const metadata: Metadata = {
       'logistics Scotland',
       'Clarusto Logistics',
     ],
-    alternateLanguages: {
-      'en-GB': absoluteUrl('/'),
-    },
   }),
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],

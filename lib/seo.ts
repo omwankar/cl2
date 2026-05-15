@@ -45,6 +45,19 @@ export function absoluteUrl(path = '/') {
   return new URL(normalizedPath, siteConfig.domain).toString();
 }
 
+/**
+ * hreflang for a single-locale site (en-GB).
+ * Use the same canonical URL for en-GB and x-default.
+ * Do not add en-IN (or other locales) unless you publish separate localized URLs.
+ */
+export function buildHreflangAlternates(path = '/') {
+  const pageUrl = absoluteUrl(path);
+  return {
+    'en-GB': pageUrl,
+    'x-default': pageUrl,
+  } as const;
+}
+
 // Reusable SEO function requested by user prompt.
 export function SEO({
   title,
@@ -64,11 +77,8 @@ export function SEO({
   const imageUrl = image.startsWith('http') ? image : absoluteUrl(image);
   const alternates: Metadata['alternates'] = {
     canonical: canonicalUrl,
+    languages: alternateLanguages ?? buildHreflangAlternates(url),
   };
-
-  if (alternateLanguages) {
-    alternates.languages = alternateLanguages;
-  }
 
   return {
     metadataBase: new URL(siteConfig.domain),
