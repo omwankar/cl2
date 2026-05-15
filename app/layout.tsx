@@ -55,12 +55,23 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   ...SEO({
-    title: 'Global Freight & Supply Chain Services',
+    title:
+      'UK Freight Forwarding & Logistics | Customs, Sea Freight & Supply Chain',
     description:
-      'Clarusto Logistics delivers global freight forwarding, customs brokerage, and supply chain services for every shipment. Get a quote today.',
+      'Clarusto Logistics UK — freight forwarding, customs brokerage, sea freight & supply chain management from Scotland. 30+ years global expertise. Call +44 330 094 6908.',
     url: '/',
     image: '/clarusto-logo-dark.png',
     locale: 'en-GB',
+    keywords: [
+      'UK logistics',
+      'freight forwarding UK',
+      'customs brokerage UK',
+      'sea freight UK',
+      'supply chain management UK',
+      'last mile delivery UK',
+      'logistics Scotland',
+      'Clarusto Logistics',
+    ],
     alternateLanguages: {
       'en-GB': absoluteUrl('/'),
     },
@@ -92,7 +103,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`scroll-smooth overflow-x-clip ${bebasNeue.variable} ${dmSans.variable} ${dmMono.variable} ${playfairDisplay.variable}`}
       suppressHydrationWarning
     >
