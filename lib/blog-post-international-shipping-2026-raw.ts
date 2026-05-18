@@ -27,8 +27,6 @@ Before cargo moves, businesses must determine air freight vs sea freight, FCL vs
 
 Effective cargo planning also includes route optimisation, shipment scheduling, supplier coordination, container allocation, carrier selection, and risk assessment.
 
-[image:/blog-international-shipping-2026-hero.png]
-
 Why Cargo Planning Matters:
 Poor planning often leads to missed shipping windows, port congestion delays, higher freight costs, storage charges, and delivery disruptions.
 
@@ -72,8 +70,6 @@ Once documentation is complete and cargo is approved, the transportation process
 
 The right transportation method depends on cargo urgency, shipment size, budget, delivery deadlines, and product type.
 
-[image:/blog-international-shipping-freight.png]
-
 Air Freight:
 Air freight is ideal for time-sensitive cargo, high-value goods, urgent inventory replenishment, and fast international delivery. Benefits include faster transit times, improved shipment reliability, reduced inventory delays, and better schedule consistency. Explore [air freight services](/services/air-freight) when speed is the priority.
 
@@ -109,8 +105,6 @@ Step 5 — Final Delivery & End-to-End Visibility:
 After customs clearance, the final logistics process begins. This includes warehouse coordination, last-mile delivery, inventory management, delivery scheduling, and shipment confirmation.
 
 In 2026, customers expect faster delivery timelines, accurate ETAs, real-time updates, and supply chain transparency. Visibility is no longer optional — it is a standard business expectation.
-
-[image:/blog-international-shipping-visibility.png]
 
 Why End-to-End Logistics Visibility Matters:
 Strong shipment visibility helps businesses respond to delays faster, improve inventory planning, reduce operational disruption, improve customer satisfaction, and increase supply chain efficiency.

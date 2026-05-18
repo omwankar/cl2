@@ -91,19 +91,6 @@ export function buildSiteStructuredData() {
           },
         ],
         sameAs: siteConfig.socialLinks,
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Logistics Services',
-          itemListElement: SITELINK_PAGES.map((page, index) => ({
-            '@type': 'Offer',
-            position: index + 1,
-            itemOffered: {
-              '@type': 'Service',
-              name: page.name,
-              url: absoluteUrl(page.path),
-            },
-          })),
-        },
       },
       {
         '@type': ['LocalBusiness', 'LogisticsService'],

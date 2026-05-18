@@ -94,40 +94,67 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     })
     .slice(0, 4);
 
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': absoluteUrl(`/blog/${post.slug}`),
-    },
-    headline: post.title,
-    image: [post.image],
-    author: {
-      '@type': 'Person',
-      name: post.author.name,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-      logo: {
-        '@type': 'ImageObject',
-        url: absoluteUrl('/clarusto-logo-dark.png'),
+  const postImage = post.image.startsWith('http')
+    ? post.image
+    : absoluteUrl(post.image);
+
+  const schemaGraph: Record<string, unknown>[] = [
+    {
+      '@type': 'Article',
+      '@id': absoluteUrl(`/blog/${post.slug}#article`),
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': absoluteUrl(`/blog/${post.slug}`),
       },
+      headline: parsed.title,
+      image: [postImage],
+      author: {
+        '@type': 'Person',
+        name: post.author.name,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: siteConfig.name,
+        logo: {
+          '@type': 'ImageObject',
+          url: absoluteUrl('/clarusto-logo-dark.png'),
+        },
+      },
+      datePublished: new Date(post.date).toISOString(),
+      dateModified: new Date(post.date).toISOString(),
+      description: post.metaDescription ?? parsedDescription,
+      keywords: post.tags.map((tag) => tag.replace(/^#/, '')).join(', '),
+      inLanguage: 'en-GB',
     },
-    datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
-    description: post.metaDescription ?? parsedDescription,
-    keywords: post.tags.map((tag) => tag.replace(/^#/, '')).join(', '),
+  ];
+
+  if (parsed.faqs.length > 0) {
+    schemaGraph.push({
+      '@type': 'FAQPage',
+      '@id': absoluteUrl(`/blog/${post.slug}#faq`),
+      mainEntity: parsed.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': schemaGraph,
   };
 
   return (
     <>
       <Navbar />
       <Script
-        id="article-schema"
+        id="blog-structured-data"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <article className="bg-[#F5F5F0]">
         <BlogHero post={{ ...post, title: parsed.title, excerpt: post.excerpt }} />
