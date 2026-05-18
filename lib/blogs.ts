@@ -1,3 +1,5 @@
+import { INTERNATIONAL_SHIPPING_BLOG_RAW } from './blog-post-international-shipping-2026-raw';
+
 export type BlogPost = {
   id: string;
   slug: string;
@@ -990,6 +992,42 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
       'Single Trade Window UK',
       'Rules of Origin UK-EU TCA',
       'HS Code Audit 2026',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
+  {
+    id: '13',
+    slug: 'international-shipping-process-guide-2026',
+    metaTitle: 'International Shipping Process Guide for 2026 | UK',
+    metaDescription:
+      'Learn the 5 essential steps of the international shipping process in 2026, from customs clearance to freight forwarding and delivery. UK logistics guide by Clarusto.',
+    title: '5 Steps of Smooth International Shipping in 2026',
+    excerpt:
+      'Discover the 5 key steps behind smooth international shipping in 2026. Learn how freight forwarding, customs clearance, cargo planning, and shipment visibility help businesses reduce delays and streamline global trade.',
+    rawText: INTERNATIONAL_SHIPPING_BLOG_RAW,
+    content: [],
+    date: 'May 14, 2026',
+    readTime: '12 min read',
+    category: 'International Shipping',
+    image: '/blog-international-shipping-freight.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'International Shipping Process',
+      'International Shipping 2026',
+      'Customs Clearance UK',
+      'Freight Forwarding UK',
+      'Cargo Planning',
+      'Shipment Visibility',
+      'Sea Freight',
+      'Air Freight',
+      'HS Codes',
+      'Import Documentation',
+      'Global Logistics',
       'Clarusto Logistics',
     ],
     featured: true,

@@ -2,6 +2,7 @@ export type ParsedBlogSection = {
   heading: string;
   content?: string[];
   list?: string[];
+  image?: string;
 };
 
 export type ParsedBlogFAQ = {
@@ -54,13 +55,15 @@ function pushSection(
   sections: ParsedBlogSection[],
   heading: string,
   content: string[],
-  list: string[]
+  list: string[],
+  image?: string
 ) {
-  if (content.length === 0 && list.length === 0) return;
+  if (content.length === 0 && list.length === 0 && !image) return;
   sections.push({
     heading,
     content: content.length > 0 ? content : undefined,
     list: list.length > 0 ? list : undefined,
+    image,
   });
 }
 
@@ -120,12 +123,20 @@ export function parseRawBlogText(rawText: string): ParsedBlog {
   let currentHeading = 'Overview';
   let currentContent: string[] = [];
   let currentList: string[] = [];
+  let pendingImage: string | undefined;
 
   for (const line of bodyLines) {
     if (!line) continue;
 
+    const imageMatch = line.match(/^\[image:\s*([^\]]+)\]$/i);
+    if (imageMatch) {
+      pendingImage = imageMatch[1].trim();
+      continue;
+    }
+
     if (isHeading(line)) {
-      pushSection(sections, currentHeading, currentContent, currentList);
+      pushSection(sections, currentHeading, currentContent, currentList, pendingImage);
+      pendingImage = undefined;
       currentHeading = line.replace(/:$/, '').trim();
       currentContent = [];
       currentList = [];
@@ -139,7 +150,7 @@ export function parseRawBlogText(rawText: string): ParsedBlog {
     }
   }
 
-  pushSection(sections, currentHeading, currentContent, currentList);
+  pushSection(sections, currentHeading, currentContent, currentList, pendingImage);
   const faqs = parseFaqs(faqLines);
 
   return {

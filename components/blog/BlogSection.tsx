@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { ParsedBlogSection } from '@/lib/blog-parser';
 import { InlineRichText } from '@/components/blog/inline-rich-text';
 
@@ -9,6 +10,18 @@ export function BlogSection({ section }: BlogSectionProps) {
   return (
     <section className="bg-white rounded-2xl border border-border p-6 md:p-8">
       <h2 className="text-2xl font-bold text-[#0A1628] mb-4">{section.heading}</h2>
+
+      {section.image && (
+        <div className="relative mb-6 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border">
+          <Image
+            src={section.image}
+            alt={section.heading}
+            fill
+            sizes="(max-width: 1024px) 100vw, 768px"
+            className="object-cover"
+          />
+        </div>
+      )}
 
       {section.content?.map((paragraph, index) => (
         <p
