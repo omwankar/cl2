@@ -1,3 +1,5 @@
+import { PRIMARY_CONTACT_EMAIL } from '@/lib/constants';
+
 export const metadata = {
   title: 'Privacy Policy | Clarusto Logistics',
   description: 'Clarusto Logistics privacy policy outlines how we collect, use, and protect your personal information.',
@@ -25,7 +27,7 @@ export default function PrivacyPolicyPage() {
         <h2 className="text-xl font-semibold mt-6">Contact Us</h2>
         <p>
           If you have questions or comments about this Privacy Policy, please contact us at
-          privacy@clarustologistics.com.
+          {PRIMARY_CONTACT_EMAIL}.
         </p>
         <p className="mt-8 text-xs opacity-60">Last updated: April 2025</p>
       </div>

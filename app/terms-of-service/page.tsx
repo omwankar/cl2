@@ -1,3 +1,5 @@
+import { PRIMARY_CONTACT_EMAIL } from '@/lib/constants';
+
 export const metadata = {
   title: 'Terms of Service | Clarusto Logistics',
   description: 'Clarusto Logistics terms of service governing the use of our website and logistics services.',
@@ -24,7 +26,8 @@ export default function TermsOfServicePage() {
         </p>
         <h2 className="text-xl font-semibold mt-6">Contact Us</h2>
         <p>
-          If you have any questions about these Terms, please contact us at legal@clarustologistics.com.
+          If you have any questions about these Terms, please contact us at{' '}
+          {PRIMARY_CONTACT_EMAIL}.
         </p>
         <p className="mt-8 text-xs opacity-60">Last updated: April 2025</p>
       </div>

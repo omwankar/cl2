@@ -4,7 +4,12 @@ import { HeroSection } from '@/components/hero-section';
 import { ContactForm } from '@/components/contact-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone, Mail, Clock } from 'lucide-react';
-import { PRIMARY_CONTACT_PHONE_DISPLAY, PRIMARY_CONTACT_PHONE_HREF } from '@/lib/constants';
+import {
+  PRIMARY_CONTACT_EMAIL,
+  PRIMARY_CONTACT_EMAIL_HREF,
+  PRIMARY_CONTACT_PHONE_DISPLAY,
+  PRIMARY_CONTACT_PHONE_HREF,
+} from '@/lib/constants';
 import { OfficeLocationsSection } from '@/components/office-locations-section';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,7 +23,7 @@ export default function ContactPage() {
       country: 'Riyadh',
       address: 'PO Box – 8147, Riyadh – 14513, Kingdom of Saudi Arabia',
       phone: '+966 53 570 6708',
-      email: 'info@clarustologistics.com',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: 'Sun–Thu · 9:00–18:00',
       established: '1992',
       teamSize: 80,
@@ -32,7 +37,7 @@ export default function ContactPage() {
       country: 'Inchinnan',
       address: 'India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, Scotland, PA4 9LH',
       phone: PRIMARY_CONTACT_PHONE_DISPLAY,
-      email: 'info@clarustologistics.com',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: '24/7 Support',
       established: '2018',
       teamSize: 25,
@@ -46,7 +51,7 @@ export default function ContactPage() {
       country: 'Dammam',
       address: 'Alshifa office #02, Building 8179, Dammam, Saudi Arabia',
       phone: '',
-      email: 'info@clarustologistics.com',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: 'Sun–Thu · 9:00–18:00',
       established: '1992',
       teamSize: 80,
@@ -60,7 +65,7 @@ export default function ContactPage() {
       country: 'Magdeburg',
       address: 'Clarusto GHmP, Regus - Hasselbachplatz Breiter Weg 232A, Magdeburg, 39104',
       phone: '',
-      email: '',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: 'Mon–Fri · 9:00–17:00',
       lat: 52.1205,
       lng: 11.6276,
@@ -72,7 +77,7 @@ export default function ContactPage() {
       country: 'Kerala',
       address: 'MMC/644E5, 1st Floor, Imperial Plaza, Velloorkunnam, Muvattupuzha, Kerala 686673',
       phone: '+91 9048097981',
-      email: '',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: 'Mon–Sat · 9:30–18:30',
       lat: 9.9834,
       lng: 76.5786,
@@ -84,7 +89,7 @@ export default function ContactPage() {
       country: 'U.A.E',
       address: 'Clarusto Logistics, P.O BOX 232939, Dubai, U.A.E',
       phone: '',
-      email: '',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: 'Sun–Thu · 9:00–18:00',
       lat: 25.2048,
       lng: 55.2708,
@@ -96,7 +101,7 @@ export default function ContactPage() {
       country: 'Wuhan',
       address: 'Room 2210 No 83 Yanjiang Avenue, Wuhan, Hubei province, China, 430022',
       phone: '',
-      email: '',
+      email: PRIMARY_CONTACT_EMAIL,
       hours: 'Mon–Fri · 9:00–18:00',
       lat: 30.5928,
       lng: 114.3055,
@@ -158,9 +163,12 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-amber-500 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
-                      <Link href="/contact" className="text-muted-foreground text-sm underline-offset-2 hover:underline">
-                        Use Contact Form
-                      </Link>
+                      <a
+                        href={PRIMARY_CONTACT_EMAIL_HREF}
+                        className="text-muted-foreground text-sm underline-offset-2 hover:underline"
+                      >
+                        {PRIMARY_CONTACT_EMAIL}
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

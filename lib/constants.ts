@@ -2,6 +2,8 @@ import { Service, Office, Differentiator, ProcessStep, TimelineEvent, Industry }
 
 export const PRIMARY_CONTACT_PHONE_DISPLAY = '+44 (0) 3300946908';
 export const PRIMARY_CONTACT_PHONE_HREF = 'tel:+443300946908';
+export const PRIMARY_CONTACT_EMAIL = 'info@clarustologistics.com';
+export const PRIMARY_CONTACT_EMAIL_HREF = `mailto:${PRIMARY_CONTACT_EMAIL}`;
 
 export const SERVICES: Service[] = [
   {

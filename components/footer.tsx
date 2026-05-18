@@ -8,7 +8,12 @@ import {
   FaXTwitter,
   FaPinterestP,
 } from 'react-icons/fa6';
-import { OFFICES, PRIMARY_CONTACT_PHONE_DISPLAY, PRIMARY_CONTACT_PHONE_HREF } from '@/lib/constants';
+import {
+  PRIMARY_CONTACT_EMAIL,
+  PRIMARY_CONTACT_EMAIL_HREF,
+  PRIMARY_CONTACT_PHONE_DISPLAY,
+  PRIMARY_CONTACT_PHONE_HREF,
+} from '@/lib/constants';
 
 export function Footer() {
   return (
@@ -129,9 +134,9 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <Link href="/contact" className="underline-offset-2 hover:underline">
-                  Contact Us Form
-                </Link>
+                <a href={PRIMARY_CONTACT_EMAIL_HREF} className="underline-offset-2 hover:underline">
+                  {PRIMARY_CONTACT_EMAIL}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />

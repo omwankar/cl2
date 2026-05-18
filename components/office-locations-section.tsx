@@ -147,13 +147,13 @@ export function OfficeLocationsSection({
                         )}
 
                         {office.email && (
-                          <Link
-                            href="/contact"
+                          <a
+                            href={`mailto:${office.email}`}
                             className="flex items-start gap-2 underline-offset-2 hover:underline"
                           >
                             <Mail className="mt-0.5 h-4 w-4 text-white/80" />
-                            <span>Contact via form</span>
-                          </Link>
+                            <span>{office.email}</span>
+                          </a>
                         )}
                       </div>
 

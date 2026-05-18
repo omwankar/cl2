@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PRIMARY_CONTACT_EMAIL } from './constants';
 
 export const siteConfig = {
   name: 'Clarusto Logistics',
@@ -10,7 +11,7 @@ export const siteConfig = {
   ogImage: '/clarusto-logo-dark.png',
   defaultLocale: 'en-GB',
   phone: '+44-3300946908',
-  email: 'info@clarustologistics.com',
+  email: PRIMARY_CONTACT_EMAIL,
   address: {
     streetAddress: 'India Of Inchinnan, Greenock Road, Inchinnan',
     addressLocality: 'Renfrew',
