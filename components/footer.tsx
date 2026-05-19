@@ -51,18 +51,19 @@ export function Footer() {
                 <FaPinterestP className="h-5 w-5" />
               </Link>
             </div>
+            {/* Connect Antigua member badge — in HTML for directory/bot verification, not shown to visitors */}
             <a
               href="https://www.connectantigua.com/business-services/clarusto-logistics?from=badge"
               title="Find me on Connect Antigua"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-block opacity-90 transition-opacity hover:opacity-100"
+              className="sr-only"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://www.connectantigua.com/images/CAN-member-Logo.png"
                 alt="Connect Antigua member"
-                className="h-auto max-h-16 w-auto border-0"
+                className="border-0"
               />
             </a>
           </div>
