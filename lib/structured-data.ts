@@ -93,9 +93,11 @@ export function buildSiteStructuredData() {
         sameAs: siteConfig.socialLinks,
       },
       {
-        '@type': ['LocalBusiness', 'LogisticsService'],
+        '@type': 'LocalBusiness',
         '@id': `${siteConfig.domain}/#uk-office`,
         name: 'Clarusto Logistics UK',
+        description:
+          'Freight forwarding, customs brokerage, sea freight and supply chain management services in the United Kingdom.',
         url: siteConfig.domain,
         telephone: UK_PHONE,
         email: siteConfig.email,
