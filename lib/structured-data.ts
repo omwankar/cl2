@@ -1,4 +1,5 @@
 import { absoluteUrl, siteConfig } from '@/lib/seo';
+import { UK_OFFICE_LAT, UK_OFFICE_LNG } from '@/lib/constants';
 
 /** Key pages Google may use for sitelinks — keep in sync with main nav. */
 export const SITELINK_PAGES = [
@@ -53,26 +54,15 @@ export function buildSiteStructuredData() {
         image: absoluteUrl('/clarusto-logo-dark.png'),
         email: siteConfig.email,
         telephone: UK_PHONE,
-        address: [
-          {
-            '@type': 'PostalAddress',
-            name: 'Clarusto Logistics UK — Inchinnan',
-            streetAddress: 'India Of Inchinnan, Greenock Road, Inchinnan',
-            addressLocality: 'Renfrew',
-            addressRegion: 'Scotland',
-            postalCode: 'PA4 9LH',
-            addressCountry: 'GB',
-          },
-          {
-            '@type': 'PostalAddress',
-            name: 'Clarusto Logistics UK — Glasgow',
-            streetAddress: 'Bridgeton',
-            addressLocality: 'Glasgow',
-            addressRegion: 'Scotland',
-            postalCode: 'G40 2QW',
-            addressCountry: 'GB',
-          },
-        ],
+        address: {
+          '@type': 'PostalAddress',
+          name: 'Clarusto Logistics UK',
+          streetAddress: siteConfig.address.streetAddress,
+          addressLocality: siteConfig.address.addressLocality,
+          addressRegion: siteConfig.address.addressRegion,
+          postalCode: siteConfig.address.postalCode,
+          addressCountry: siteConfig.address.addressCountry,
+        },
         contactPoint: [
           {
             '@type': 'ContactPoint',
@@ -104,16 +94,16 @@ export function buildSiteStructuredData() {
         priceRange: '££',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'India Of Inchinnan, Greenock Road, Inchinnan',
-          addressLocality: 'Renfrew',
-          addressRegion: 'Scotland',
-          postalCode: 'PA4 9LH',
-          addressCountry: 'GB',
+          streetAddress: siteConfig.address.streetAddress,
+          addressLocality: siteConfig.address.addressLocality,
+          addressRegion: siteConfig.address.addressRegion,
+          postalCode: siteConfig.address.postalCode,
+          addressCountry: siteConfig.address.addressCountry,
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 55.8868,
-          longitude: -4.448,
+          latitude: UK_OFFICE_LAT,
+          longitude: UK_OFFICE_LNG,
         },
         areaServed: {
           '@type': 'Country',

@@ -11,6 +11,7 @@ import {
 import {
   PRIMARY_CONTACT_EMAIL,
   PRIMARY_CONTACT_EMAIL_HREF,
+  UK_OFFICE_ADDRESS_DISPLAY,
   PRIMARY_CONTACT_PHONE_DISPLAY,
   PRIMARY_CONTACT_PHONE_HREF,
 } from '@/lib/constants';
@@ -155,7 +156,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, Scotland, PA4 9LH, United Kingdom</span>
+                <span>{UK_OFFICE_ADDRESS_DISPLAY}</span>
               </li>
             </ul>
           </div>

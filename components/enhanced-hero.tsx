@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, ArrowDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { UK_OFFICE_ADDRESS_SHORT } from '@/lib/constants';
 import { useState } from 'react';
 
 export function EnhancedHero() {
@@ -81,7 +82,7 @@ export function EnhancedHero() {
 
           <div className="flex items-center gap-2 mt-8 animate-slide-up delay-400 text-white/70">
             <MapPin className="w-4 h-4 text-amber-500" />
-            <span className="text-sm">India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, Scotland</span>
+            <span className="text-sm">{UK_OFFICE_ADDRESS_SHORT}</span>
           </div>
         </div>
       </div>

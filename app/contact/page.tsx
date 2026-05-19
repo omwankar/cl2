@@ -9,6 +9,10 @@ import {
   PRIMARY_CONTACT_EMAIL_HREF,
   PRIMARY_CONTACT_PHONE_DISPLAY,
   PRIMARY_CONTACT_PHONE_HREF,
+  UK_OFFICE_ADDRESS_LINE,
+  UK_OFFICE_ADDRESS_DISPLAY,
+  UK_OFFICE_LAT,
+  UK_OFFICE_LNG,
 } from '@/lib/constants';
 import { OfficeLocationsSection } from '@/components/office-locations-section';
 import Image from 'next/image';
@@ -34,15 +38,15 @@ export default function ContactPage() {
       id: 2,
       flag: '��🇧',
       city: 'United Kingdom',
-      country: 'Inchinnan',
-      address: 'India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, Scotland, PA4 9LH',
+      country: 'East Kilbride',
+      address: UK_OFFICE_ADDRESS_LINE,
       phone: PRIMARY_CONTACT_PHONE_DISPLAY,
       email: PRIMARY_CONTACT_EMAIL,
       hours: '24/7 Support',
       established: '2018',
       teamSize: 25,
-      lat: 55.8868,
-      lng: -4.4480,
+      lat: UK_OFFICE_LAT,
+      lng: UK_OFFICE_LNG,
     },
     {
       id: 3,

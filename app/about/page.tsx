@@ -221,7 +221,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { region: 'Headquarters', city: 'Dammam, Saudi Arabia', detail: 'Alshifa Office #02, Building 8179, Dammam' },
-              { region: 'United Kingdom', city: 'Inchinnan, Scotland', detail: 'India Of Inchinnan, Greenock Road, Inchinnan, Renfrew, PA4 9LH' },
+              { region: 'United Kingdom', city: 'East Kilbride, Scotland', detail: 'Suite 9, Level 2, Strathmore House, Cornwall Street, East Kilbride, G74 1LF' },
               { region: 'Dubai', city: 'Dubai, UAE', detail: 'Clarusto Logistics, P.O. Box 232939, Dubai' },
               { region: 'Germany', city: 'Magdeburg, Germany', detail: 'Regus - Hasselbachplatz, Breiter Weg 232A, 39104' },
               { region: 'India', city: 'Kerala, India', detail: 'MMC/644E5, 1st Floor, Imperial Plaza, Velloorkunnam, Muvattupuzha' },

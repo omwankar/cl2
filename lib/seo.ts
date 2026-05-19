@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PRIMARY_CONTACT_EMAIL } from './constants';
+import { PRIMARY_CONTACT_EMAIL, UK_OFFICE_ADDRESS } from './constants';
 
 export const siteConfig = {
   name: 'Clarusto Logistics',
@@ -12,13 +12,7 @@ export const siteConfig = {
   defaultLocale: 'en-GB',
   phone: '+44-3300946908',
   email: PRIMARY_CONTACT_EMAIL,
-  address: {
-    streetAddress: 'India Of Inchinnan, Greenock Road, Inchinnan',
-    addressLocality: 'Renfrew',
-    addressRegion: 'Scotland',
-    postalCode: 'PA4 9LH',
-    addressCountry: 'GB',
-  },
+  address: UK_OFFICE_ADDRESS,
   socialLinks: [
     'https://www.linkedin.com/company/clarusto-logistics',
     'https://www.facebook.com/Clarustologistics',

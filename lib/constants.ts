@@ -5,6 +5,26 @@ export const PRIMARY_CONTACT_PHONE_HREF = 'tel:+443300946908';
 export const PRIMARY_CONTACT_EMAIL = 'info@clarustologistics.com';
 export const PRIMARY_CONTACT_EMAIL_HREF = `mailto:${PRIMARY_CONTACT_EMAIL}`;
 
+export const UK_OFFICE_ADDRESS = {
+  streetAddress: 'Suite 9, Level 2, Strathmore House, Cornwall Street',
+  addressLocality: 'East Kilbride',
+  addressRegion: 'Scotland',
+  postalCode: 'G74 1LF',
+  addressCountry: 'GB' as const,
+};
+
+export const UK_OFFICE_ADDRESS_LINE =
+  'Suite 9, Level 2, Strathmore House, Cornwall Street, East Kilbride, Scotland, G74 1LF';
+
+export const UK_OFFICE_ADDRESS_DISPLAY =
+  `${UK_OFFICE_ADDRESS_LINE.replace(', Scotland,', ', ')}, United Kingdom`;
+
+export const UK_OFFICE_ADDRESS_SHORT =
+  'Suite 9, Level 2, Strathmore House, Cornwall Street, East Kilbride, Scotland';
+
+export const UK_OFFICE_LAT = 55.7644;
+export const UK_OFFICE_LNG = -4.177;
+
 export const SERVICES: Service[] = [
   {
     id: 'air-freight',
@@ -108,7 +128,7 @@ export const OFFICES: Office[] = [
   {
     id: 'uk',
     flag: '🇬🇧',
-    city: 'Inchinnan',
+    city: 'East Kilbride',
     country: 'United Kingdom',
   },
   {
