@@ -1,5 +1,5 @@
 import { absoluteUrl, siteConfig } from '@/lib/seo';
-import { UK_OFFICE_LAT, UK_OFFICE_LNG } from '@/lib/constants';
+import { CLARUSTO_GROUP, UK_OFFICE_LAT, UK_OFFICE_LNG } from '@/lib/constants';
 
 /** Key pages Google may use for sitelinks — keep in sync with main nav. */
 export const SITELINK_PAGES = [
@@ -14,13 +14,26 @@ export const SITELINK_PAGES = [
 const UK_PHONE = '+443300946908';
 const UK_PHONE_DISPLAY = '+44 330 094 6908';
 
+const LOGISTICS_SERVICE_ID = `${siteConfig.domain}/#logistics-service`;
+
 export function buildSiteStructuredData() {
   const organizationId = `${siteConfig.domain}/#organization`;
   const websiteId = `${siteConfig.domain}/#website`;
+  const parentOrganizationId = CLARUSTO_GROUP.organizationId;
 
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': parentOrganizationId,
+        name: CLARUSTO_GROUP.name,
+        url: CLARUSTO_GROUP.url,
+        subOrganization: [
+          { '@id': organizationId },
+          { '@id': 'https://www.clarusto.co.uk/#organization' },
+        ],
+      },
       {
         '@type': 'WebSite',
         '@id': websiteId,
@@ -44,7 +57,9 @@ export function buildSiteStructuredData() {
         '@type': 'Organization',
         '@id': organizationId,
         name: siteConfig.name,
+        alternateName: 'A Clarusto Group Company',
         url: siteConfig.domain,
+        parentOrganization: { '@id': parentOrganizationId },
         logo: {
           '@type': 'ImageObject',
           url: absoluteUrl('/clarusto-logo-dark.png'),
@@ -81,6 +96,32 @@ export function buildSiteStructuredData() {
           },
         ],
         sameAs: siteConfig.socialLinks,
+      },
+      {
+        '@type': 'Service',
+        '@id': LOGISTICS_SERVICE_ID,
+        name: 'Logistics Services',
+        alternateName: 'Clarusto Logistics Service',
+        description:
+          'Global freight forwarding, customs brokerage, sea freight, air freight, supply chain management, and last-mile delivery.',
+        serviceType: 'Logistics and freight forwarding',
+        provider: { '@id': organizationId },
+        areaServed: [
+          { '@type': 'Country', name: 'United Kingdom' },
+          { '@type': 'Place', name: 'Worldwide' },
+        ],
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Clarusto Logistics Services',
+          itemListElement: SITELINK_PAGES.map((page) => ({
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: page.name,
+              url: absoluteUrl(page.path),
+            },
+          })),
+        },
       },
       {
         '@type': 'LocalBusiness',

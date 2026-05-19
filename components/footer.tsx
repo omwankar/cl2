@@ -9,6 +9,7 @@ import {
   FaPinterestP,
 } from 'react-icons/fa6';
 import {
+  CLARUSTO_GROUP,
   PRIMARY_CONTACT_EMAIL,
   PRIMARY_CONTACT_EMAIL_HREF,
   UK_OFFICE_ADDRESS_DISPLAY,
@@ -165,7 +166,20 @@ export function Footer() {
    
 
         {/* Copyright */}
-        <div className="border-t border-primary-foreground border-opacity-20 pt-8 text-center text-sm opacity-75">
+        <div className="border-t border-primary-foreground border-opacity-20 pt-8 text-center text-sm opacity-75 space-y-2">
+          <p>
+            Part of{' '}
+            <a
+              href={CLARUSTO_GROUP.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-amber-500 transition-colors"
+            >
+              {CLARUSTO_GROUP.name}
+            </a>
+            {' · '}
+            A Clarusto Group Company
+          </p>
           <p>
             &copy; 2025 Clarusto Logistics. All rights reserved. |{' '}
             <Link href="/privacy-policy" className="hover:text-amber-500 transition-colors">

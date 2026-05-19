@@ -17,13 +17,20 @@ export const UK_OFFICE_ADDRESS_LINE =
   'Suite 9, Level 2, Strathmore House, Cornwall Street, East Kilbride, Scotland, G74 1LF';
 
 export const UK_OFFICE_ADDRESS_DISPLAY =
-  `${UK_OFFICE_ADDRESS_LINE.replace(', Scotland,', ', ')}, United Kingdom`;
+  'Suite 9, Level 2, Strathmore House, Cornwall Street, East Kilbride, G74 1LF, United Kingdom';
 
 export const UK_OFFICE_ADDRESS_SHORT =
   'Suite 9, Level 2, Strathmore House, Cornwall Street, East Kilbride, Scotland';
 
 export const UK_OFFICE_LAT = 55.7644;
 export const UK_OFFICE_LNG = -4.177;
+
+/** Clarusto Group parent entity — used in schema + footer across group sites. */
+export const CLARUSTO_GROUP = {
+  name: 'Clarusto Group',
+  url: 'https://www.clarusto.com',
+  organizationId: 'https://www.clarusto.com/#organization',
+} as const;
 
 export const SERVICES: Service[] = [
   {
