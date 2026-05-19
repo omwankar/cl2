@@ -51,6 +51,20 @@ export function Footer() {
                 <FaPinterestP className="h-5 w-5" />
               </Link>
             </div>
+            <a
+              href="https://www.connectantigua.com/business-services/clarusto-logistics?from=badge"
+              title="Find me on Connect Antigua"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block opacity-90 transition-opacity hover:opacity-100"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.connectantigua.com/images/CAN-member-Logo.png"
+                alt="Connect Antigua member"
+                className="h-auto max-h-16 w-auto border-0"
+              />
+            </a>
           </div>
 
           {/* Quick Links */}
