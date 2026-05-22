@@ -2,8 +2,14 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { HeroSection } from '@/components/hero-section';
 import { ServicesGrid } from '@/components/services-grid';
+import { DirectAnswerBlock } from '@/components/direct-answer-block';
+import { ServiceCapabilityTable } from '@/components/service-capability-table';
+import { SiteFaqSection } from '@/components/site-faq-section';
+import { FaqJsonLd } from '@/components/faq-json-ld';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { SERVICES, INDUSTRIES } from '@/lib/constants';
+import { SERVICES_FAQS } from '@/lib/site-faqs';
+import { absoluteUrl } from '@/lib/seo';
 import * as Icons from 'lucide-react';
 import Link from 'next/link';
 
@@ -16,6 +22,7 @@ export default function ServicesPage() {
 
   return (
     <>
+      <FaqJsonLd faqs={SERVICES_FAQS} pageId={absoluteUrl('/services#faq')} />
       <Navbar />
 
       {/* Hero Section */}
@@ -28,6 +35,12 @@ export default function ServicesPage() {
         backgroundImage="/services-hero.jpg"
         variant="compact"
       />
+
+      <section className="py-10 md:py-14 bg-background">
+        <div className="app-container max-w-4xl">
+          <DirectAnswerBlock answer="Clarusto Logistics provides air freight (1–5 days), sea freight (14–35 days), customs brokerage (24–48 hr UK clearance), warehousing, and supply chain management across the UK, Europe, Middle East, and Asia-Pacific." />
+        </div>
+      </section>
 
       {/* Services Grid */}
       <section className="py-16 md:py-24 bg-background">
@@ -42,6 +55,17 @@ export default function ServicesPage() {
           </div>
 
           <ServicesGrid services={SERVICES} variant="list" />
+
+          <div className="mt-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Service capability comparison
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl">
+              Compare transit times, coverage, and best-use cases across Clarusto freight and logistics services.
+            </p>
+            <ServiceCapabilityTable />
+          </div>
+
           <div className="mt-10 rounded-xl border border-border bg-card p-6 text-center">
             <h3 className="text-2xl font-bold text-foreground">Need dedicated supply chain support?</h3>
             <p className="mt-2 text-muted-foreground">
@@ -132,6 +156,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <SiteFaqSection faqs={SERVICES_FAQS} title="Services FAQs" />
 
       <Footer />
     </>

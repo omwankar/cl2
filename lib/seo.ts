@@ -4,10 +4,9 @@ import { PRIMARY_CONTACT_EMAIL, UK_OFFICE_ADDRESS } from './constants';
 export const siteConfig = {
   name: 'Clarusto Logistics',
   domain: 'https://clarustologistics.com',
-  defaultTitle:
-    'Clarusto Logistics UK | Freight Forwarding, Customs & Supply Chain',
+  defaultTitle: 'Clarusto Logistics | UK Freight Forwarding',
   description:
-    'Clarusto Logistics UK — freight forwarding, customs brokerage, sea freight and supply chain management from Scotland. Global network, UK-based support.',
+    'UK freight forwarding, customs brokerage & supply chain from Scotland. 30+ years expertise. Call +44 330 094 6908.',
   ogImage: '/clarusto-logo-dark.png',
   defaultLocale: 'en-GB',
   phone: '+44-3300946908',
@@ -33,6 +32,7 @@ type SeoInput = {
   twitterCard?: string;
   locale?: string;
   alternateLanguages?: Record<string, string>;
+  modifiedTime?: string;
 };
 
 export function absoluteUrl(path = '/') {
@@ -65,8 +65,13 @@ export function SEO({
   twitterCard = 'summary_large_image',
   locale = siteConfig.defaultLocale,
   alternateLanguages,
+  modifiedTime,
 }: SeoInput): Metadata {
-  const seoTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.defaultTitle;
+  const seoTitle = title
+    ? title.includes(siteConfig.name)
+      ? title
+      : `${title} | ${siteConfig.name}`
+    : siteConfig.defaultTitle;
   const seoDescription = description ?? siteConfig.description;
   const canonicalUrl = absoluteUrl(url);
   const imageUrl = image.startsWith('http') ? image : absoluteUrl(image);
@@ -75,28 +80,35 @@ export function SEO({
     languages: alternateLanguages ?? buildHreflangAlternates(url),
   };
 
+  const isArticle = openGraphType === 'article';
+  const openGraph: Metadata['openGraph'] = {
+    title: seoTitle,
+    description: seoDescription,
+    url: canonicalUrl,
+    siteName: siteConfig.name,
+    type: isArticle ? 'article' : 'website',
+    locale,
+    images: [
+      {
+        url: imageUrl,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} logo`,
+      },
+    ],
+  };
+
+  if (modifiedTime) {
+    openGraph.modifiedTime = modifiedTime;
+  }
+
   return {
     metadataBase: new URL(siteConfig.domain),
     title: seoTitle,
     description: seoDescription,
     keywords,
     alternates,
-    openGraph: {
-      title: seoTitle,
-      description: seoDescription,
-      url: canonicalUrl,
-      siteName: siteConfig.name,
-      type: openGraphType as 'website' | 'article',
-      locale,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: `${siteConfig.name} logo`,
-        },
-      ],
-    },
+    openGraph,
     twitter: {
       card: twitterCard as 'summary_large_image' | 'summary',
       title: seoTitle,

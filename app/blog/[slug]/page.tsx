@@ -5,6 +5,11 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { getAllBlogs, getBlogBySlug } from '@/lib/blogs.server';
 import { absoluteUrl, siteConfig, SEO } from '@/lib/seo';
+import {
+  INTERNATIONAL_SHIPPING_HOW_TO,
+  INTERNATIONAL_SHIPPING_SLUG,
+} from '@/lib/blog-how-to';
+import { SITE_LAST_UPDATED } from '@/lib/site-faqs';
 import { BlogHero } from '@/components/blog/BlogHero';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import {
@@ -64,6 +69,7 @@ export async function generateMetadata({
     ],
     openGraphType: 'article',
     locale: 'en-GB',
+    modifiedTime: `${SITE_LAST_UPDATED}T00:00:00.000Z`,
   });
 }
 
@@ -100,7 +106,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const schemaGraph: Record<string, unknown>[] = [
     {
-      '@type': 'Article',
+      '@type': 'BlogPosting',
       '@id': absoluteUrl(`/blog/${post.slug}#article`),
       mainEntityOfPage: {
         '@type': 'WebPage',
@@ -121,10 +127,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         },
       },
       datePublished: new Date(post.date).toISOString(),
-      dateModified: new Date(post.date).toISOString(),
+      dateModified: `${SITE_LAST_UPDATED}T00:00:00.000Z`,
       description: post.metaDescription ?? parsedDescription,
       keywords: post.tags.map((tag) => tag.replace(/^#/, '')).join(', '),
       inLanguage: 'en-GB',
+      url: absoluteUrl(`/blog/${post.slug}`),
     },
   ];
 
@@ -139,6 +146,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           '@type': 'Answer',
           text: faq.answer,
         },
+      })),
+    });
+  }
+
+  if (post.slug === INTERNATIONAL_SHIPPING_SLUG) {
+    schemaGraph.push({
+      '@type': 'HowTo',
+      '@id': absoluteUrl(`/blog/${post.slug}#howto`),
+      name: INTERNATIONAL_SHIPPING_HOW_TO.name,
+      step: INTERNATIONAL_SHIPPING_HOW_TO.steps.map((step, index) => ({
+        '@type': 'HowToStep',
+        position: index + 1,
+        name: step.name,
+        text: step.text,
       })),
     });
   }

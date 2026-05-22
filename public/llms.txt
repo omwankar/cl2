@@ -1,6 +1,10 @@
 # Clarusto Logistics
 
-> Clarusto Logistics is a global freight forwarding and supply chain company offering air freight, customs brokerage, customs clearance, and ecommerce logistics.
+> Clarusto Logistics is a UK-based freight forwarding and supply chain company, part of Clarusto Group. Air freight, customs brokerage, sea freight, and last-mile delivery since 1992.
+
+## Extended documentation
+- Full AI index: https://clarustologistics.com/llms-full.txt
+- Last updated: 2026-05-22
 
 ## Services
 - Air Freight: International air cargo solutions for time-sensitive shipments

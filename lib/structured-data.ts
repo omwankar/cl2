@@ -1,5 +1,10 @@
 import { absoluteUrl, siteConfig } from '@/lib/seo';
 import { CLARUSTO_GROUP, UK_OFFICE_LAT, UK_OFFICE_LNG } from '@/lib/constants';
+import {
+  buildFaqPageSchema,
+  HOMEPAGE_FAQS,
+  SITE_LAST_UPDATED,
+} from '@/lib/site-faqs';
 
 /** Key pages Google may use for sitelinks — keep in sync with main nav. */
 export const SITELINK_PAGES = [
@@ -172,7 +177,23 @@ export function buildSiteStructuredData() {
         isPartOf: { '@id': websiteId },
         about: { '@id': organizationId },
         inLanguage: 'en-GB',
+        dateModified: SITE_LAST_UPDATED,
       })),
+      {
+        '@type': 'WebPage',
+        '@id': absoluteUrl('/#webpage'),
+        url: absoluteUrl('/'),
+        name: siteConfig.defaultTitle,
+        isPartOf: { '@id': websiteId },
+        about: { '@id': organizationId },
+        inLanguage: 'en-GB',
+        dateModified: SITE_LAST_UPDATED,
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['.direct-answer', '.key-facts', 'h1'],
+        },
+      },
+      buildFaqPageSchema(HOMEPAGE_FAQS, absoluteUrl('/#faq')),
     ],
   };
 }

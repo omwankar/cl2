@@ -55,13 +55,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   ...SEO({
-    title:
-      'UK Freight Forwarding & Logistics | Customs, Sea Freight & Supply Chain',
     description:
-      'Clarusto Logistics UK — freight forwarding, customs brokerage, sea freight & supply chain management from Scotland. 30+ years global expertise. Call +44 330 094 6908.',
+      'UK freight forwarding, customs brokerage & supply chain from Scotland. 30+ years expertise. Call +44 330 094 6908.',
     url: '/',
     image: '/clarusto-logo-dark.png',
     locale: 'en-GB',
+    modifiedTime: '2026-05-22T00:00:00.000Z',
     keywords: [
       'UK logistics',
       'freight forwarding UK',
