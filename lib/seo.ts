@@ -81,7 +81,7 @@ export function SEO({
   };
 
   const isArticle = openGraphType === 'article';
-  const openGraph: Metadata['openGraph'] = {
+  const openGraph: NonNullable<Metadata['openGraph']> = {
     title: seoTitle,
     description: seoDescription,
     url: canonicalUrl,
@@ -96,11 +96,8 @@ export function SEO({
         alt: `${siteConfig.name} logo`,
       },
     ],
+    ...(modifiedTime ? { modifiedTime } : {}),
   };
-
-  if (modifiedTime) {
-    openGraph.modifiedTime = modifiedTime;
-  }
 
   return {
     metadataBase: new URL(siteConfig.domain),
