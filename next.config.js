@@ -2,6 +2,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.e
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 86400,

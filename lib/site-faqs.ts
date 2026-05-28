@@ -53,6 +53,35 @@ export const SERVICES_FAQS: SiteFaq[] = [
   },
 ];
 
+export const SUPPORT_FAQS: SiteFaq[] = [
+  {
+    question: 'What information should I provide for a freight quote?',
+    answer:
+      'Share the origin, destination, cargo dimensions, weight, commodity type, preferred transport mode, delivery deadline, and any customs or handling requirements. Photos, packing lists, and commercial invoices help speed up the quote.',
+  },
+  {
+    question: 'Can Clarusto support urgent or time-critical shipments?',
+    answer:
+      'Yes. Clarusto can arrange priority air freight, express road moves, and coordinated customs support for urgent shipments, depending on cargo type, route availability, and documentation readiness.',
+  },
+  {
+    question: 'Does Clarusto provide shipment tracking updates?',
+    answer:
+      'Clarusto provides milestone visibility across pickup, international transit, customs clearance, and final delivery so teams can plan around shipment status and exceptions.',
+  },
+  {
+    question: 'Can Clarusto manage both imports and exports?',
+    answer:
+      'Yes. Clarusto supports UK imports and exports with freight forwarding, customs brokerage, documentation checks, and delivery coordination across air, sea, and road transport.',
+  },
+];
+
+export const FAQ_PAGE_FAQS: SiteFaq[] = [
+  ...HOMEPAGE_FAQS,
+  ...SERVICES_FAQS,
+  ...SUPPORT_FAQS,
+];
+
 export function buildFaqPageSchema(faqs: SiteFaq[], pageId: string) {
   return {
     '@type': 'FAQPage',

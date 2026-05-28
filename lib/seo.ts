@@ -131,5 +131,6 @@ export const seoRoutes = [
   '/contact',
   '/projects',
   '/blog',
+  '/faq',
   '/supply-chain-management',
 ];

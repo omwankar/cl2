@@ -13,9 +13,6 @@ const generateBoxShadows = (n: number) => {
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { EnhancedHero } from '@/components/enhanced-hero';
-import { DirectAnswerBlock } from '@/components/direct-answer-block';
-import { SiteFaqSection } from '@/components/site-faq-section';
-import { HOMEPAGE_FAQS } from '@/lib/site-faqs';
 import dynamic from 'next/dynamic';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { BLOG_POSTS, type BlogPost } from '@/lib/blogs';
@@ -242,12 +239,6 @@ export default function Home() {
     <main className="hp-root">
       <Navbar />
       <EnhancedHero />
-
-      <section className="hp-showcase bg-background">
-        <div className="app-container py-10 md:py-14 max-w-4xl">
-          <DirectAnswerBlock answer="Clarusto Logistics is a UK freight forwarding and supply chain company — part of Clarusto Group — delivering air freight, sea freight, customs clearance, and last-mile logistics for importers and exporters worldwide since 1992." />
-        </div>
-      </section>
 
       <section className="hp-showcase">
         <div className="hp-showcase-inner">
@@ -483,8 +474,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <SiteFaqSection faqs={HOMEPAGE_FAQS} title="Freight & Logistics FAQs" />
 
       <Footer />
     </main>

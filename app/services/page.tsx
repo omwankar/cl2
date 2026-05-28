@@ -2,7 +2,6 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { HeroSection } from '@/components/hero-section';
 import { ServicesGrid } from '@/components/services-grid';
-import { DirectAnswerBlock } from '@/components/direct-answer-block';
 import { ServiceCapabilityTable } from '@/components/service-capability-table';
 import { SiteFaqSection } from '@/components/site-faq-section';
 import { FaqJsonLd } from '@/components/faq-json-ld';
@@ -35,12 +34,6 @@ export default function ServicesPage() {
         backgroundImage="/services-hero.jpg"
         variant="compact"
       />
-
-      <section className="py-10 md:py-14 bg-background">
-        <div className="app-container max-w-4xl">
-          <DirectAnswerBlock answer="Clarusto Logistics provides air freight (1–5 days), sea freight (14–35 days), customs brokerage (24–48 hr UK clearance), warehousing, and supply chain management across the UK, Europe, Middle East, and Asia-Pacific." />
-        </div>
-      </section>
 
       {/* Services Grid */}
       <section className="py-16 md:py-24 bg-background">

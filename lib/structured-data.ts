@@ -2,7 +2,7 @@ import { absoluteUrl, siteConfig } from '@/lib/seo';
 import { CLARUSTO_GROUP, UK_OFFICE_LAT, UK_OFFICE_LNG } from '@/lib/constants';
 import {
   buildFaqPageSchema,
-  HOMEPAGE_FAQS,
+  FAQ_PAGE_FAQS,
   SITE_LAST_UPDATED,
 } from '@/lib/site-faqs';
 
@@ -11,6 +11,7 @@ export const SITELINK_PAGES = [
   { name: 'Customs Brokerage', path: '/services/customs-brokerage' },
   { name: 'Last Mile Delivery', path: '/services/last-mile-delivery' },
   { name: 'About Us', path: '/about' },
+  { name: 'FAQ', path: '/faq' },
   { name: 'Supply Chain Management', path: '/services/supply-chain' },
   { name: 'Services', path: '/services' },
   { name: 'Sea Freight', path: '/services/sea-freight' },
@@ -190,10 +191,10 @@ export function buildSiteStructuredData() {
         dateModified: SITE_LAST_UPDATED,
         speakable: {
           '@type': 'SpeakableSpecification',
-          cssSelector: ['.direct-answer', '.key-facts', 'h1'],
+          cssSelector: ['h1'],
         },
       },
-      buildFaqPageSchema(HOMEPAGE_FAQS, absoluteUrl('/#faq')),
+      buildFaqPageSchema(FAQ_PAGE_FAQS, absoluteUrl('/faq#faq')),
     ],
   };
 }
