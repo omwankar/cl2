@@ -16,6 +16,7 @@ import { EnhancedHero } from '@/components/enhanced-hero';
 import dynamic from 'next/dynamic';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { BLOG_POSTS, type BlogPost } from '@/lib/blogs';
+import { filterPublishedBlogs } from '@/lib/blog-publish';
 import Link from 'next/link';
 import Image from 'next/image';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
@@ -186,7 +187,9 @@ export default function Home() {
   const expertiseRef = useRef<HTMLElement>(null);
   const [expertiseActive, setExpertiseActive] = useState(false);
   const [featuredArticles, setFeaturedArticles] = useState<BlogPost[]>(() =>
-    [...BLOG_POSTS].sort((a, b) => Date.parse(b.date) - Date.parse(a.date)).slice(0, 3)
+    filterPublishedBlogs([...BLOG_POSTS])
+      .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+      .slice(0, 3)
   );
 
   useEffect(() => {

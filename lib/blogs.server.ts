@@ -2,6 +2,8 @@ import 'server-only';
 import type { BlogPost } from './blogs';
 import { BLOG_POSTS } from './blogs';
 import { readBlogData } from './blog-storage';
+import { filterPublishedBlogs, isBlogPublished } from './blog-publish';
+import { generateSlugFromTitle } from './blog-parser';
 
 function getPostTimestamp(date: string): number {
   const parsed = Date.parse(date);
@@ -20,13 +22,32 @@ export async function getAllBlogs(): Promise<BlogPost[]> {
     if (!post?.slug) continue;
     bySlug.set(post.slug, post);
   }
-  return Array.from(bySlug.values());
+  return filterPublishedBlogs(Array.from(bySlug.values()));
 }
 
 export async function getBlogBySlug(slug: string) {
   const blogs = await getAllBlogs();
   return blogs.find((post) => post.slug === slug);
 }
+
+export async function getBlogBySlugIncludingScheduled(slug: string) {
+  const uploaded = await readBlogData();
+  const bySlug = new Map<string, BlogPost>();
+  for (const post of BLOG_POSTS) {
+    bySlug.set(post.slug, post);
+  }
+  for (const post of uploaded) {
+    if (!post?.slug) continue;
+    bySlug.set(post.slug, post);
+  }
+  const all = Array.from(bySlug.values());
+  return (
+    bySlug.get(slug) ??
+    all.find((item) => generateSlugFromTitle(item.title) === slug)
+  );
+}
+
+export { isBlogPublished };
 
 export async function getBlogsNewestFirst() {
   const blogs = await getAllBlogs();

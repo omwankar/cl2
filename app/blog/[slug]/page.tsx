@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-import { getAllBlogs, getBlogBySlug } from '@/lib/blogs.server';
+import { getAllBlogs, getBlogBySlugIncludingScheduled, isBlogPublished } from '@/lib/blogs.server';
 import { absoluteUrl, siteConfig, SEO } from '@/lib/seo';
 import {
   INTERNATIONAL_SHIPPING_HOW_TO,
@@ -39,12 +39,9 @@ export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const blogs = await getAllBlogs();
-  const post =
-    (await getBlogBySlug(slug)) ??
-    blogs.find((item) => generateSlugFromTitle(item.title) === slug);
+  const post = await getBlogBySlugIncludingScheduled(slug);
 
-  if (!post) {
+  if (!post || !isBlogPublished(post)) {
     return {
       title: 'Blog Not Found | Clarusto Logistics',
     };
@@ -75,14 +72,13 @@ export async function generateMetadata({
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const blogs = await getAllBlogs();
-  const post =
-    (await getBlogBySlug(slug)) ??
-    blogs.find((item) => generateSlugFromTitle(item.title) === slug);
+  const post = await getBlogBySlugIncludingScheduled(slug);
 
-  if (!post) {
+  if (!post || !isBlogPublished(post)) {
     notFound();
   }
+
+  const blogs = await getAllBlogs();
 
   const rawInput = post.rawText ?? `${post.title}\n\n${post.content.join('\n\n')}`;
   const parsed = parseRawBlogText(rawInput);

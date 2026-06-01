@@ -1,4 +1,9 @@
+import { AI_SUPPLY_CHAIN_BLOG_RAW } from './blog-post-ai-supply-chain-raw';
+import { DECODING_INCOTERMS_2020_BLOG_RAW } from './blog-post-decoding-incoterms-2020-raw';
 import { INTERNATIONAL_SHIPPING_BLOG_RAW } from './blog-post-international-shipping-2026-raw';
+import { SELF_HEALING_SUPPLY_CHAIN_2026_BLOG_RAW } from './blog-post-self-healing-supply-chain-2026-raw';
+import { SUPPLY_CHAIN_TRENDS_2026_BLOG_RAW } from './blog-post-supply-chain-trends-2026-raw';
+import { filterPublishedBlogs } from './blog-publish';
 
 export type BlogPost = {
   id: string;
@@ -476,115 +481,66 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: '2',
     slug: 'self-healing-supply-chain-2026',
-    title: 'Beyond Visibility: The Rise of the Self-Healing Supply Chain in 2026',
+    metaTitle: 'Self-Healing Supply Chains in 2026 | AI in Logistics',
+    metaDescription:
+      'Discover how AI-powered self-healing supply chains are transforming logistics through predictive planning, automation, visibility, and smarter freight operations.',
+    title: 'Self-Healing Supply Chains in 2026: How AI Is Reshaping the Future of Global Logistics',
     excerpt:
-      'In 2026, leading logistics teams are using AI-driven workflows to predict disruptions and automatically trigger corrective actions.',
-    content: [
-      // --- INTRO ---
-      'For the past decade, supply chain visibility has been the dominant technology narrative in logistics. The promise was simple: if you could see everything in real time — shipment locations, inventory levels, port congestion, carrier delays — you could respond faster and serve customers better. And visibility has delivered value. But in 2026, the leading logistics organizations are moving beyond visibility into something more powerful: the self-healing supply chain.',
-
-      'The difference is fundamental. Visibility tells you what has already happened or is currently happening. A self-healing supply chain uses predictive intelligence and automated workflows to detect what is about to go wrong — and fix it before it does.',
-
-      // --- WHAT IS SELF-HEALING ---
-      'What Does "Self-Healing" Actually Mean in Practice?',
-
-      'A self-healing supply chain is one where AI models continuously monitor operational signals — weather data, carrier performance histories, port dwell times, inventory velocity, production schedules — and automatically trigger corrective actions when risk thresholds are breached. The human role shifts from firefighting to exception governance: reviewing automated decisions, refining policies, and handling truly novel disruptions that fall outside the model\'s training.',
-
-      'Think about what this looks like for a high-volume consumer goods shipper. Their self-healing platform detects that a primary ocean carrier on the Asia-Europe lane has a vessel departure delay of 72 hours at Ningbo. Without any human intervention, the system cross-references inventory levels at the European distribution center, checks available capacity on an alternative carrier departing two days later, evaluates the cost delta, and — because the inventory buffer is sufficient — automatically rebooks the shipment and notifies the customer with a revised ETA.',
-
-      'That sequence, which would have taken a logistics coordinator 45–90 minutes of manual work, happens in seconds.',
-
-      // --- KEY USE CASES ---
-      'Five High-Impact Use Cases for Self-Healing Logistics',
-
-      'Dynamic carrier reassignment is the most mature use case. When a carrier\'s on-time performance drops below a defined threshold on a specific lane, the system automatically shifts volume to the next-best qualified carrier without waiting for a quarterly business review.',
-
-      'Automated inventory rebalancing addresses one of the most persistent problems in omnichannel fulfillment: stock imbalances across distribution nodes. When a fast-moving SKU shows projected stockout risk at one facility while a second facility holds excess stock, the system triggers an inter-facility transfer automatically.',
-
-      'Real-time exception triage for premium orders protects your most important customers. The system identifies shipments at risk — based on lead time, weather, carrier flags — and escalates only those that require human judgment, filtering out the noise.',
-
-      'Demand signal absorption allows the supply chain to respond to sudden demand shifts detected in point-of-sale data or e-commerce order patterns before they cascade into inventory problems upstream.',
-
-      'Customs and compliance pre-clearance automation reduces dwell time at borders by submitting documentation and flagging potential classification issues before the shipment arrives.',
-
-      // --- BUILDING TOWARD SELF-HEALING ---
-      'How to Build Toward a Self-Healing Supply Chain',
-
-      'Organizations rarely arrive at self-healing capabilities in a single transformation. The journey typically follows a maturity progression: connected data first, then visibility, then analytics and alerting, then automated decision support, and finally autonomous execution with human governance.',
-
-      'The most common starting point is high-risk, high-volume lanes where disruption frequency is high and corrective action playbooks are already well understood. Starting here builds confidence in automated decision quality and demonstrates ROI quickly.',
-
-      'Data quality is the foundational requirement. Self-healing systems are only as good as the signals they consume. Organizations that invest in master data management, carrier API connectivity, and IoT sensor coverage before deploying AI models see dramatically better outcomes than those who try to build intelligence on top of dirty or incomplete data.',
-
-      'The human layer matters too. Automated decisions need governance frameworks: who reviews them, what escalation triggers exist, how exceptions are logged and fed back into model training. Organizations that treat self-healing as a purely technical problem, rather than an operational redesign challenge, struggle to scale past pilot programs.',
-
-      // --- CONCLUSION ---
-      'The self-healing supply chain is not a distant aspiration. In 2026, it is an operational reality for leading logistics organizations across manufacturing, retail, and third-party logistics. The question is no longer whether to pursue it — but how fast to move, and where to start.',
-    ],
-    date: 'Mar 25, 2026',
-    readTime: '6 min read',
+      'Self-healing supply chains are transforming global logistics through AI-powered automation, predictive analytics, and real-time visibility. Discover how intelligent logistics systems help businesses reduce disruption, optimise freight operations, and build more resilient UK and global supply chains in 2026.',
+    rawText: SELF_HEALING_SUPPLY_CHAIN_2026_BLOG_RAW,
+    content: [],
+    date: 'Jun 04, 2026',
+    readTime: '10 min read',
     category: 'Supply Chain',
-    image: 'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg',
+    image: '/blog-self-healing-supply-chain-2026.png',
     author: {
-      name: 'Daniel Grove',
-      avatar: 'https://i.pravatar.cc/120?img=12',
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
     },
-    tags: ['#Tracking', '#B2B', '#Compliance'],
+    tags: [
+      'Self-Healing Supply Chain',
+      'AI in Logistics',
+      'Autonomous Supply Chain',
+      'Predictive Logistics',
+      'Supply Chain Resilience',
+      'Digital Twin Logistics',
+      'AI Freight Forwarding',
+      'Clarusto Logistics',
+    ],
+    featured: true,
   },
 
   {
     id: '1',
     slug: 'decoding-incoterms-2020-definitive-guide',
-    title: 'Decoding Incoterms 2020: The Definitive Guide for Modern Logistics',
+    metaTitle: 'Incoterms 2020 Guide for Global Trade & Logistics',
+    metaDescription:
+      'Learn Incoterms 2020 including FOB, CIF, FCA & DDP. Understand shipping responsibilities, customs, risk transfer and logistics terms.',
+    title: 'Decoding Incoterms 2020: The Ultimate Guide to International Trade Terms and Global Shipping',
     excerpt:
-      'Master the 11 ICC Incoterms 2020 rules to mitigate risk, align buyer-seller responsibilities, and optimize landed cost decisions.',
-    content: [
-      // --- INTRO ---
-      'Incoterms 2020 — published by the International Chamber of Commerce — represent the globally recognized standard for defining trade responsibilities between buyers and sellers. Whether you are managing a short-haul domestic shipment or a complex multimodal international move, choosing the right Incoterm at the contract stage can be the single most important decision you make for risk and cost control.',
-
-      'Despite being around since 1936, Incoterms are still widely misunderstood. Many logistics teams apply them inconsistently, or worse, leave them undefined altogether. The result is costly disputes over who pays for origin handling, who files the insurance claim when cargo is damaged at sea, or who is responsible for clearing customs on arrival.',
-
-      // --- WHY INCOTERMS MATTER ---
-      'Understanding Incoterms 2020: Why They Matter More Than Ever',
-
-      'The 2020 revision brought meaningful updates that reflect the realities of modern trade. One of the most significant changes was the introduction of FCA (Free Carrier) with an optional on-board bill of lading clause — a direct response to the banking and letter-of-credit requirements that traders had struggled with under the previous rules. The update allows buyers using FCA to instruct their carrier to issue an on-board bill of lading to the seller, enabling them to satisfy documentary credit requirements.',
-
-      'Another notable update was the elevation of security requirements across several rules, reflecting increased scrutiny from customs authorities globally. DAT (Delivered at Terminal) was renamed DAP (Delivered at Place of Destination) and DPU (Delivered at Place Unloaded) was introduced to acknowledge that delivery can occur at any named place, not just a terminal.',
-
-      // --- THE 11 RULES ---
-      'The 11 Incoterms 2020 Rules: A Practical Breakdown',
-
-      'The 11 rules are split into two groups. The first group — EXW, FCA, CPT, CIP, DAP, DPU, and DDP — applies to any mode of transport. The second group — FAS, FOB, CFR, and CIF — is restricted to sea and inland waterway transport only. Misapplying a sea-only rule to an air or multimodal shipment is one of the most common errors in logistics contracting.',
-
-      'EXW (Ex Works) places maximum responsibility on the buyer. The seller simply makes goods available at their premises. The buyer arranges everything: export clearance, loading, freight, insurance, and import duties. While simple for sellers, EXW can be problematic if the buyer lacks local presence for export documentation.',
-
-      'DDP (Delivered Duty Paid) sits at the opposite end. The seller bears all costs and risks from origin to the buyer\'s door, including import duties and taxes. DDP is attractive for buyers seeking a simple, all-inclusive price but can expose sellers to unexpected duty liability in countries where tariff structures are unclear or volatile.',
-
-      'FOB (Free On Board) remains the most commonly used Incoterm in global trade, particularly for ocean shipments. Risk transfers to the buyer once the goods are loaded on board the vessel at the named port of shipment. However, FOB is frequently misapplied to containerized cargo — a common error since risk in containerized shipping effectively transfers at the terminal gate, not at the ship\'s rail.',
-
-      'CIP (Carriage and Insurance Paid To) received a significant upgrade in 2020: sellers under CIP are now required to provide Institute Cargo Clauses (A) coverage — the highest level — up from the minimum Clauses (C). This makes CIP particularly suited for high-value cargo movements where the buyer wants maximum insurance protection.',
-
-      // --- PRACTICAL APPLICATION ---
-      'How to Standardize Incoterms Across Your Operations',
-
-      'The most operationally mature logistics teams do not leave Incoterm selection to individual salespeople or account managers. Instead, they create a lane-level Incoterm policy that maps preferred rules to shipment type, trade corridor, and product risk profile. For example, high-value electronics on ocean lanes might default to CIP, while low-value, high-frequency shipments to established partners might use FCA.',
-
-      'Training is critical. Sales teams that quote prices without a defined Incoterm are creating hidden liability. A price quoted EXW and a price quoted DDP on the same shipment can differ by 15–30% once freight, insurance, and duty costs are factored in. Clear Incoterm documentation at the quotation stage prevents margin erosion and dispute escalation.',
-
-      'Finally, build your Incoterm choice into your contract templates, purchase orders, and customer confirmations. The Incoterm should always be followed by a named place — for example, "FCA Shanghai Pudong Airport Incoterms® 2020" — to eliminate any ambiguity about where responsibility transfers.',
-
-      // --- CONCLUSION ---
-      'Incoterms 2020 are not bureaucratic formality. They are a practical risk management tool. Teams that master them reduce disputes, protect margins, and build more confident trading relationships across every corridor they operate in.',
-    ],
-    date: 'Apr 13, 2026',
-    readTime: '8 min read',
+      'Understand Incoterms 2020 with this complete guide covering FOB, FCA, CIF, DDP, shipping responsibilities, customs clearance, insurance obligations, and international logistics best practices for global trade.',
+    rawText: DECODING_INCOTERMS_2020_BLOG_RAW,
+    content: [],
+    date: 'Jun 05, 2026',
+    readTime: '12 min read',
     category: 'Freight & Shipping',
-    image: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg',
+    image: '/blog-decoding-incoterms-2026.png',
     author: {
-      name: 'Ariana Malik',
-      avatar: 'https://i.pravatar.cc/120?img=11',
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
     },
-    tags: ['#Export', '#Import', '#Compliance'],
+    tags: [
+      'Incoterms 2020',
+      'International Trade Terms',
+      'FOB vs FCA',
+      'CIF Shipping',
+      'DDP Shipping',
+      'Global Logistics',
+      'Freight Forwarding',
+      'Customs Clearance',
+      'Clarusto Logistics',
+    ],
+    featured: true,
   },
 
   {
@@ -1032,6 +988,70 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
     ],
     featured: true,
   },
+
+  {
+    id: '14',
+    slug: 'ai-in-supply-chain-logistics-uk-global-trade',
+    metaTitle: 'AI in Supply Chain & Logistics for UK Global Trade',
+    metaDescription:
+      'Discover how AI is transforming supply chain and logistics for UK businesses through smarter freight planning, visibility, automation, and global resilience.',
+    title: 'AI in Supply Chain: How Smarter Logistics Is Reshaping UK and Global Trade',
+    excerpt:
+      'Discover how AI is transforming supply chain logistics for UK and global businesses through smarter forecasting, route optimisation, customs accuracy, warehouse efficiency, and real-time shipment visibility.',
+    rawText: AI_SUPPLY_CHAIN_BLOG_RAW,
+    content: [],
+    date: 'Jun 02, 2026',
+    readTime: '11 min read',
+    category: 'Supply Chain',
+    image: '/blog-ai-supply-chain-logistics.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'AI in Supply Chain Logistics',
+      'UK Logistics Company',
+      'Global Freight Forwarding',
+      'Supply Chain Visibility',
+      'AI Logistics',
+      'Freight Management UK',
+      'Customs Clearance',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
+  {
+    id: '15',
+    slug: 'supply-chain-trends-2026',
+    metaTitle: 'Supply Chain Trends 2026: Modern Logistics & AI',
+    metaDescription:
+      'Discover the core supply chain trends 2026. Learn how agentic AI, operational digital twins, and total value logistics are reshaping global trade networks.',
+    title: 'Navigating the Volatility: Core Supply Chain & Logistics Trends Reshaping the Industry',
+    excerpt:
+      'The era of predictable logistics planning is over. Explore the five structural supply chain trends defining 2026 — from autonomous agentic AI networks to heavy-lift engineering — and learn how Clarusto Logistics builds resilient pathways to protect your operational margins.',
+    rawText: SUPPLY_CHAIN_TRENDS_2026_BLOG_RAW,
+    content: [],
+    date: 'Jun 03, 2026',
+    readTime: '10 min read',
+    category: 'Industry News',
+    image: '/blog-supply-chain-trends-2026.jpg',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Supply Chain Trends 2026',
+      'Agentic AI Logistics',
+      'Digital Twins',
+      'Total Value Logistics',
+      'Heavy Lift Cargo',
+      'Sustainable Logistics',
+      'UK Supply Chain',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
 ];
 
 function getPostTimestamp(date: string): number {
@@ -1051,7 +1071,7 @@ export function getAllBlogs(): BlogPost[] {
     if (!post?.slug) continue;
     bySlug.set(post.slug, post);
   }
-  return Array.from(bySlug.values());
+  return filterPublishedBlogs(Array.from(bySlug.values()));
 }
 
 function readUploadedBlogs(): BlogPost[] {
@@ -1072,7 +1092,7 @@ export function getBlogBySlug(slug: string) {
 }
 
 export function getBlogsNewestFirst() {
-  return [...getAllBlogs()].sort(
+  return filterPublishedBlogs([...getAllBlogs()]).sort(
     (a, b) => getPostTimestamp(b.date) - getPostTimestamp(a.date)
   );
 }
