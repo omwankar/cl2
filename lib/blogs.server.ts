@@ -12,8 +12,6 @@ function getPostTimestamp(date: string): number {
 
 export async function getAllBlogs(): Promise<BlogPost[]> {
   const uploaded = await readBlogData();
-  if (uploaded.length === 0) return BLOG_POSTS;
-
   const bySlug = new Map<string, BlogPost>();
   for (const post of BLOG_POSTS) {
     bySlug.set(post.slug, post);

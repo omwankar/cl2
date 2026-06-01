@@ -1061,8 +1061,6 @@ function getPostTimestamp(date: string): number {
 
 export function getAllBlogs(): BlogPost[] {
   const uploaded = readUploadedBlogs();
-  if (uploaded.length === 0) return BLOG_POSTS;
-
   const bySlug = new Map<string, BlogPost>();
   for (const post of BLOG_POSTS) {
     bySlug.set(post.slug, post);
@@ -1092,7 +1090,7 @@ export function getBlogBySlug(slug: string) {
 }
 
 export function getBlogsNewestFirst() {
-  return filterPublishedBlogs([...getAllBlogs()]).sort(
+  return [...getAllBlogs()].sort(
     (a, b) => getPostTimestamp(b.date) - getPostTimestamp(a.date)
   );
 }
