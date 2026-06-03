@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getBlogsNewestFirst } from '@/lib/blogs.server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const limitParam = Number(searchParams.get('limit') ?? '0');
@@ -8,5 +10,9 @@ export async function GET(request: Request) {
 
   const posts = await getBlogsNewestFirst();
   const payload = limit > 0 ? posts.slice(0, limit) : posts;
-  return NextResponse.json(payload);
+  return NextResponse.json(payload, {
+    headers: {
+      'Cache-Control': 'no-store, max-age=0',
+    },
+  });
 }

@@ -3,7 +3,7 @@ import { DECODING_INCOTERMS_2020_BLOG_RAW } from './blog-post-decoding-incoterms
 import { INTERNATIONAL_SHIPPING_BLOG_RAW } from './blog-post-international-shipping-2026-raw';
 import { SELF_HEALING_SUPPLY_CHAIN_2026_BLOG_RAW } from './blog-post-self-healing-supply-chain-2026-raw';
 import { SUPPLY_CHAIN_TRENDS_2026_BLOG_RAW } from './blog-post-supply-chain-trends-2026-raw';
-import { filterPublishedBlogs } from './blog-publish';
+import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
   id: string;
@@ -24,6 +24,8 @@ export type BlogPost = {
   };
   tags: string[];
   featured?: boolean;
+  /** ISO UTC instant — post hidden until this time (12:00 Europe/London for scheduled posts). */
+  publishAt?: string;
 };
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -481,6 +483,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: '2',
     slug: 'self-healing-supply-chain-2026',
+    publishAt: SCHEDULED_BLOG_PUBLISH_AT['self-healing-supply-chain-2026'],
     metaTitle: 'Self-Healing Supply Chains in 2026 | AI in Logistics',
     metaDescription:
       'Discover how AI-powered self-healing supply chains are transforming logistics through predictive planning, automation, visibility, and smarter freight operations.',
@@ -513,6 +516,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: '1',
     slug: 'decoding-incoterms-2020-definitive-guide',
+    publishAt: SCHEDULED_BLOG_PUBLISH_AT['decoding-incoterms-2020-definitive-guide'],
     metaTitle: 'Incoterms 2020 Guide for Global Trade & Logistics',
     metaDescription:
       'Learn Incoterms 2020 including FOB, CIF, FCA & DDP. Understand shipping responsibilities, customs, risk transfer and logistics terms.',
@@ -992,6 +996,7 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
   {
     id: '14',
     slug: 'ai-in-supply-chain-logistics-uk-global-trade',
+    publishAt: SCHEDULED_BLOG_PUBLISH_AT['ai-in-supply-chain-logistics-uk-global-trade'],
     metaTitle: 'AI in Supply Chain & Logistics for UK Global Trade',
     metaDescription:
       'Discover how AI is transforming supply chain and logistics for UK businesses through smarter freight planning, visibility, automation, and global resilience.',
@@ -1024,6 +1029,7 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
   {
     id: '15',
     slug: 'supply-chain-trends-2026',
+    publishAt: SCHEDULED_BLOG_PUBLISH_AT['supply-chain-trends-2026'],
     metaTitle: 'Supply Chain Trends 2026: Modern Logistics & AI',
     metaDescription:
       'Discover the core supply chain trends 2026. Learn how agentic AI, operational digital twins, and total value logistics are reshaping global trade networks.',
@@ -1067,7 +1073,11 @@ export function getAllBlogs(): BlogPost[] {
   }
   for (const post of uploaded) {
     if (!post?.slug) continue;
-    bySlug.set(post.slug, post);
+    const existing = bySlug.get(post.slug);
+    bySlug.set(post.slug, {
+      ...post,
+      publishAt: post.publishAt ?? existing?.publishAt,
+    });
   }
   return filterPublishedBlogs(Array.from(bySlug.values()));
 }

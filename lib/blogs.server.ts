@@ -18,7 +18,11 @@ export async function getAllBlogs(): Promise<BlogPost[]> {
   }
   for (const post of uploaded) {
     if (!post?.slug) continue;
-    bySlug.set(post.slug, post);
+    const existing = bySlug.get(post.slug);
+    bySlug.set(post.slug, {
+      ...post,
+      publishAt: post.publishAt ?? existing?.publishAt,
+    });
   }
   return filterPublishedBlogs(Array.from(bySlug.values()));
 }
@@ -36,7 +40,11 @@ export async function getBlogBySlugIncludingScheduled(slug: string) {
   }
   for (const post of uploaded) {
     if (!post?.slug) continue;
-    bySlug.set(post.slug, post);
+    const existing = bySlug.get(post.slug);
+    bySlug.set(post.slug, {
+      ...post,
+      publishAt: post.publishAt ?? existing?.publishAt,
+    });
   }
   const all = Array.from(bySlug.values());
   return (

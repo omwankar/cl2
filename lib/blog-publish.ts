@@ -20,6 +20,17 @@ export type ScheduledBlogSlug = (typeof SCHEDULED_BLOG_SLUGS)[number];
 /** First publish day (tomorrow from deploy). Set BLOG_SCHEDULE_FIRST_DAY env to change. */
 export const BLOG_SCHEDULE_FIRST_DAY = '2026-06-02';
 
+/**
+ * Fixed UTC instants for 12:00 Europe/London on each release day.
+ * These are used on blog posts so Vercel env vars cannot shift the schedule.
+ */
+export const SCHEDULED_BLOG_PUBLISH_AT: Record<ScheduledBlogSlug, string> = {
+  'ai-in-supply-chain-logistics-uk-global-trade': '2026-06-02T11:00:00.000Z',
+  'supply-chain-trends-2026': '2026-06-03T11:00:00.000Z',
+  'self-healing-supply-chain-2026': '2026-06-04T11:00:00.000Z',
+  'decoding-incoterms-2020-definitive-guide': '2026-06-05T11:00:00.000Z',
+};
+
 function getLondonCalendarDate(date: Date): string {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: BLOG_TIMEZONE,
@@ -71,6 +82,9 @@ export function getBlogScheduleFirstDay(): string {
 }
 
 export function getScheduledPublishAt(slug: string): Date | null {
+  const fixed = SCHEDULED_BLOG_PUBLISH_AT[slug as ScheduledBlogSlug];
+  if (fixed) return new Date(fixed);
+
   const index = SCHEDULED_BLOG_SLUGS.indexOf(slug as ScheduledBlogSlug);
   if (index < 0) return null;
 
@@ -78,18 +92,24 @@ export function getScheduledPublishAt(slug: string): Date | null {
   return londonNoonUtc(publishDay);
 }
 
+export function resolvePublishAt(post: { slug: string; publishAt?: string }): Date | null {
+  if (post.publishAt) {
+    const at = new Date(post.publishAt);
+    if (!Number.isNaN(at.getTime())) return at;
+  }
+
+  const fixed = SCHEDULED_BLOG_PUBLISH_AT[post.slug as ScheduledBlogSlug];
+  if (fixed) return new Date(fixed);
+
+  return getScheduledPublishAt(post.slug);
+}
+
 export function isBlogPublished(
   post: { slug: string; publishAt?: string },
   now: Date = new Date()
 ): boolean {
-  if (post.publishAt) {
-    const at = new Date(post.publishAt);
-    if (!Number.isNaN(at.getTime())) return now >= at;
-  }
-
-  const scheduled = getScheduledPublishAt(post.slug);
-  if (scheduled) return now >= scheduled;
-
+  const publishAt = resolvePublishAt(post);
+  if (publishAt) return now >= publishAt;
   return true;
 }
 
