@@ -35,7 +35,9 @@ export function BlogSection({ section }: BlogSectionProps) {
       {section.list && section.list.length > 0 && (
         <ul className="mt-3 list-disc pl-6 space-y-2 text-base md:text-lg text-foreground/90">
           {section.list.map((item, index) => (
-            <li key={`${section.heading}-li-${index}`}>{item}</li>
+            <li key={`${section.heading}-li-${index}`}>
+              <InlineRichText text={item} />
+            </li>
           ))}
         </ul>
       )}
