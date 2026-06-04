@@ -131,6 +131,8 @@ export const seoRoutes = [
   '/contact',
   '/projects',
   '/blog',
+  '/press-releases',
+  '/clarusto-logistics-new-office-wuhan-china',
   '/faq',
   '/supply-chain-management',
 ];
