@@ -49,8 +49,8 @@ export function PressReleasesHero({ companyCount }: PressReleasesHeroProps) {
 
         <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl border border-white/15 shadow-2xl md:block">
           <Image
-            src="/clarusto-logistics-wuhan-china-team.png"
-            alt="Clarusto Logistics team at the new Wuhan China office"
+            src="/clarusto-logistics-wuhan-china-reception.png"
+            alt="Clarusto Logistics reception at the new Wuhan China office"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 0vw, 420px"
@@ -61,7 +61,7 @@ export function PressReleasesHero({ companyCount }: PressReleasesHeroProps) {
               Latest announcement
             </p>
             <p className="mt-1 text-sm text-white/85">
-              New office now open in Wuhan, China
+              Wuhan reception &amp; workspace
             </p>
           </div>
         </div>

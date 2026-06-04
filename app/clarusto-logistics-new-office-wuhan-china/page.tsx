@@ -12,7 +12,7 @@ export const metadata = SEO({
   description:
     'Clarusto Logistics opens its new China office in Wuhan, Hubei, to strengthen freight, logistics, and supply chain support for global customers and partners.',
   url: '/clarusto-logistics-new-office-wuhan-china',
-  image: '/clarusto-logistics-wuhan-china-team.png',
+  image: '/clarusto-logistics-wuhan-china-reception.png',
   keywords: [
     'Clarusto Logistics Wuhan',
     'China logistics office',
@@ -28,11 +28,6 @@ const WUHAN_ADDRESS =
   'Room 2210, No. 83 Yanjiang Avenue, Wuhan, Hubei Province, China, 430022';
 
 const WUHAN_OFFICE_IMAGES = [
-  {
-    src: '/clarusto-logistics-wuhan-china-team.png',
-    alt: 'Clarusto Logistics team at the new Wuhan China office',
-    caption: 'The Clarusto Logistics team at the official opening of our Wuhan office.',
-  },
   {
     src: '/clarusto-logistics-wuhan-china-reception.png',
     alt: 'Clarusto Logistics reception and branding at Wuhan office',
@@ -57,7 +52,7 @@ export default function WuhanOfficePressReleasePage() {
         description="Strengthening our presence in central China with dedicated freight, logistics, and customer support from Wuhan, Hubei Province."
         ctaText="View All Press Releases"
         ctaHref="/press-releases"
-        backgroundImage="/clarusto-logistics-wuhan-china-team.png"
+        backgroundImage="/clarusto-logistics-wuhan-china-reception.png"
         variant="compact"
       />
 
@@ -104,26 +99,16 @@ export default function WuhanOfficePressReleasePage() {
                 {WUHAN_OFFICE_IMAGES.map((item, index) => (
                   <figure
                     key={item.src}
-                    className={`overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm ${
-                      index === 0 ? 'md:col-span-2' : ''
-                    }`}
+                    className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm"
                   >
-                    <div
-                      className={`relative w-full ${
-                        index === 0 ? 'aspect-[21/9] md:aspect-[2.4/1]' : 'aspect-[4/3]'
-                      }`}
-                    >
+                    <div className="relative aspect-[4/3] w-full">
                       <Image
                         src={item.src}
                         alt={item.alt}
                         fill
                         unoptimized
                         className="object-cover"
-                        sizes={
-                          index === 0
-                            ? '(max-width: 768px) 100vw, 896px'
-                            : '(max-width: 768px) 100vw, 432px'
-                        }
+                        sizes="(max-width: 768px) 100vw, 432px"
                         priority={index === 0}
                       />
                     </div>

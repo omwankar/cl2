@@ -13,7 +13,7 @@ export const COMPANY_PRESS_RELEASES: PressRelease[] = [
     source: 'Clarusto Logistics',
     sourceType: 'company',
     url: '/clarusto-logistics-new-office-wuhan-china',
-    image: '/clarusto-logistics-wuhan-china-team.png',
+    image: '/clarusto-logistics-wuhan-china-reception.png',
     author: 'Corporate Communications',
   },
 ];
