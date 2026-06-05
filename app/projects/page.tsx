@@ -3,11 +3,25 @@ import { Footer } from '@/components/footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { PROJECT_CASE_STUDIES } from '@/lib/project-case-studies';
 
 export default function ProjectsPage() {
+  const featuredCaseStudies = PROJECT_CASE_STUDIES.map((study, index) => ({
+    id: `featured-${study.slug}`,
+    slug: study.slug,
+    title: study.title,
+    category: study.category,
+    description: study.excerpt,
+    result: study.result,
+    image: study.heroImage,
+    index: String(index + 1).padStart(2, '0'),
+  }));
+
   const caseStudies = [
+    ...featuredCaseStudies,
     {
       id: 1,
+      slug: undefined as string | undefined,
       title: 'Heavy Industry Route Stabilization',
       category: 'Manufacturing & Heavy Industry',
       description:
@@ -18,6 +32,7 @@ export default function ProjectsPage() {
     },
     {
       id: 2,
+      slug: undefined as string | undefined,
       title: 'Oil & Gas Mission-Critical Movements',
       category: 'Oil & Gas',
       description:
@@ -28,6 +43,7 @@ export default function ProjectsPage() {
     },
     {
       id: 3,
+      slug: undefined as string | undefined,
       title: 'Retail & E-commerce Fulfillment Upgrade',
       category: 'Retail & E-commerce',
       description:
@@ -38,6 +54,7 @@ export default function ProjectsPage() {
     },
     {
       id: 4,
+      slug: undefined as string | undefined,
       title: 'FMCG Distribution Network Alignment',
       category: 'FMCG',
       description:
@@ -48,6 +65,7 @@ export default function ProjectsPage() {
     },
     {
       id: 5,
+      slug: undefined as string | undefined,
       title: 'Automotive Components Corridor',
       category: 'Automotive',
       description:
@@ -58,6 +76,7 @@ export default function ProjectsPage() {
     },
     {
       id: 6,
+      slug: undefined as string | undefined,
       title: 'Pharma & Healthcare Handling Program',
       category: 'Pharmaceuticals & Healthcare',
       description:
@@ -275,6 +294,10 @@ export default function ProjectsPage() {
           display: flex;
           flex-direction: column;
           gap: 2px;
+        }
+        a.case-card {
+          text-decoration: none;
+          color: inherit;
         }
         .case-card {
           display: grid;
@@ -784,26 +807,42 @@ export default function ProjectsPage() {
             </div>
 
             <div className="case-grid">
-              {caseStudies.map((study) => (
-                <div key={study.id} className="case-card">
-                  <div className="case-index">{study.index}</div>
-                  <div className="case-img-wrap">
-                    <Image src={study.image} alt={study.title} fill />
-                  </div>
-                  <div className="case-body">
-                    <div className="case-cat">{study.category}</div>
-                    <div className="case-title">{study.title}</div>
-                    <p className="case-desc">{study.description}</p>
-                  </div>
-                  <div className="case-result-col">
-                    <div className="result-label">Key Result</div>
-                    <div className="result-text">{study.result}</div>
-                    <div className="case-arrow">
-                      <ArrowUpRight size={16} />
+              {caseStudies.map((study) => {
+                const card = (
+                  <>
+                    <div className="case-index">{study.index}</div>
+                    <div className="case-img-wrap">
+                      <Image src={study.image} alt={study.title} fill />
                     </div>
+                    <div className="case-body">
+                      <div className="case-cat">{study.category}</div>
+                      <div className="case-title">{study.title}</div>
+                      <p className="case-desc">{study.description}</p>
+                    </div>
+                    <div className="case-result-col">
+                      <div className="result-label">Key Result</div>
+                      <div className="result-text">{study.result}</div>
+                      <div className="case-arrow">
+                        <ArrowUpRight size={16} />
+                      </div>
+                    </div>
+                  </>
+                );
+
+                return study.slug ? (
+                  <Link
+                    key={study.id}
+                    href={`/projects/${study.slug}`}
+                    className="case-card"
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  <div key={study.id} className="case-card">
+                    {card}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

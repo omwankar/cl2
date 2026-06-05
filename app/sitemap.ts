@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { absoluteUrl, seoRoutes } from '@/lib/seo';
 import { SITELINK_PAGES } from '@/lib/structured-data';
 import { SERVICE_DETAIL_SLUGS } from '@/lib/service-detail-pages';
+import { getAllProjectSlugs } from '@/lib/project-case-studies';
 import { getAllBlogs } from '@/lib/blogs.server';
 
 /** Higher priority for pages you want in UK sitelinks. */
@@ -20,6 +21,7 @@ function getRoutePriority(route: string): number {
   if (route.startsWith('/services/')) return 0.8;
   if (route === '/blog') return 0.7;
   if (route.startsWith('/blog/')) return 0.6;
+  if (route.startsWith('/projects/')) return 0.65;
   return 0.5;
 }
 
@@ -28,8 +30,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const serviceRoutes = SERVICE_DETAIL_SLUGS.map((slug) => `/services/${slug}`);
   const blogs = await getAllBlogs();
   const blogRoutes = blogs.map((post) => `/blog/${post.slug}`);
+  const projectRoutes = getAllProjectSlugs().map((slug) => `/projects/${slug}`);
 
-  const routes = Array.from(new Set([...seoRoutes, ...serviceRoutes, ...blogRoutes]));
+  const routes = Array.from(
+    new Set([...seoRoutes, ...serviceRoutes, ...blogRoutes, ...projectRoutes])
+  );
 
   return routes.map((route) => ({
     url: absoluteUrl(route),
