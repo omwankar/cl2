@@ -5,6 +5,20 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/axial-metal-expansion-joint-logistics',
+        destination: '/projects/axial-metal-expansion-joint-logistics',
+        permanent: true,
+      },
+      {
+        source: '/live-apple-plants-shipment-italy-india',
+        destination: '/projects/live-apple-plants-shipment-italy-india',
+        permanent: true,
+      },
+    ];
+  },
   turbopack: {
     root: __dirname,
   },

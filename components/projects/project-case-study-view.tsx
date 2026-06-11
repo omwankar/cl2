@@ -204,12 +204,12 @@ export function ProjectCaseStudyView({ study }: { study: ProjectCaseStudy }) {
       <section className="border-b border-white/10 py-14 md:py-20">
         <div className="app-container max-w-5xl">
           <h2 className="font-[family-name:var(--font-bebas)] text-4xl tracking-wide text-white md:text-5xl">
-            OUTCOMES — LAND &amp; SEA COORDINATION
+            {(study.coordinationHeading ?? 'OUTCOMES — LAND & SEA COORDINATION').toUpperCase()}
           </h2>
           <BulletList items={study.coordinationOutcomes} />
 
           <h2 className="mt-12 font-[family-name:var(--font-bebas)] text-4xl tracking-wide text-white md:text-5xl">
-            KEY OUTCOMES
+            {(study.outcomesHeading ?? 'KEY OUTCOMES').toUpperCase()}
           </h2>
           <BulletList items={study.keyOutcomes} />
 
@@ -228,6 +228,10 @@ export function ProjectCaseStudyView({ study }: { study: ProjectCaseStudy }) {
               {paragraph}
             </p>
           ))}
+
+          {study.conclusionImage && (
+            <InlineProjectImage image={study.conclusionImage} wide />
+          )}
         </div>
       </section>
 

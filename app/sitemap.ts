@@ -3,6 +3,7 @@ import { absoluteUrl, seoRoutes } from '@/lib/seo';
 import { SITELINK_PAGES } from '@/lib/structured-data';
 import { SERVICE_DETAIL_SLUGS } from '@/lib/service-detail-pages';
 import { getAllProjectSlugs } from '@/lib/project-case-studies';
+import { getAllIndustrySolutionSlugs } from '@/lib/industry-solutions';
 import { getAllBlogs } from '@/lib/blogs.server';
 
 /** Higher priority for pages you want in UK sitelinks. */
@@ -31,9 +32,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogs = await getAllBlogs();
   const blogRoutes = blogs.map((post) => `/blog/${post.slug}`);
   const projectRoutes = getAllProjectSlugs().map((slug) => `/projects/${slug}`);
+  const industryRoutes = getAllIndustrySolutionSlugs().map((slug) => `/${slug}`);
 
   const routes = Array.from(
-    new Set([...seoRoutes, ...serviceRoutes, ...blogRoutes, ...projectRoutes])
+    new Set([
+      ...seoRoutes,
+      ...serviceRoutes,
+      ...blogRoutes,
+      ...projectRoutes,
+      ...industryRoutes,
+    ])
   );
 
   return routes.map((route) => ({

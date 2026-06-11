@@ -21,6 +21,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 import { Truck, Globe, Shield, Package, Clock, BadgeCheck, ArrowRight } from 'lucide-react';
+import { INDUSTRY_SOLUTION_PAGES } from '@/lib/industry-solutions';
 
 const LightRays = dynamic(() =>
   import('@/components/light-rays').then(m => m.LightRays),
@@ -274,6 +275,151 @@ export default function Home() {
       </section>
 
       <EnhancedServices />
+
+      <section className="industry-section relative overflow-hidden border-t border-[rgba(240,235,225,0.12)] py-20 md:py-28">
+        <style>{`
+          .industry-section {
+            background:
+              radial-gradient(120% 120% at 50% -10%, #14140f 0%, #0a0a0a 45%, #070707 100%);
+          }
+          .industry-bg-grid {
+            position: absolute;
+            inset: -40% 0 0 0;
+            background-image:
+              linear-gradient(rgba(245,184,0,0.06) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(245,184,0,0.06) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 75%);
+            -webkit-mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 75%);
+            animation: industryGridPan 28s linear infinite;
+            pointer-events: none;
+          }
+          @keyframes industryGridPan {
+            from { background-position: 0 0, 0 0; }
+            to   { background-position: 64px 64px, 64px 64px; }
+          }
+          .industry-glow {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(90px);
+            opacity: 0.5;
+            pointer-events: none;
+          }
+          .industry-glow-1 {
+            width: 520px; height: 520px;
+            top: -160px; left: -120px;
+            background: radial-gradient(circle, rgba(245,184,0,0.22), transparent 65%);
+            animation: industryFloat1 16s ease-in-out infinite;
+          }
+          .industry-glow-2 {
+            width: 460px; height: 460px;
+            bottom: -180px; right: -100px;
+            background: radial-gradient(circle, rgba(70,120,255,0.16), transparent 65%);
+            animation: industryFloat2 20s ease-in-out infinite;
+          }
+          @keyframes industryFloat1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(60px, 50px); }
+          }
+          @keyframes industryFloat2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -40px); }
+          }
+          .industry-sweep {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(115deg, transparent 40%, rgba(245,184,0,0.05) 50%, transparent 60%);
+            background-size: 250% 250%;
+            animation: industrySweep 9s ease-in-out infinite;
+            pointer-events: none;
+          }
+          @keyframes industrySweep {
+            0% { background-position: 200% 0; }
+            100% { background-position: -100% 0; }
+          }
+          .industry-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(20,20,20,0.85) 0%, rgba(12,12,12,0.92) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s, box-shadow 0.4s;
+            backdrop-filter: blur(4px);
+          }
+          .industry-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245,184,0,0.55);
+            box-shadow: 0 24px 60px -28px rgba(245,184,0,0.45);
+          }
+        `}</style>
+
+        <div className="industry-bg-grid" aria-hidden />
+        <div className="industry-glow industry-glow-1" aria-hidden />
+        <div className="industry-glow industry-glow-2" aria-hidden />
+        <div className="industry-sweep" aria-hidden />
+
+        <div className="app-container relative z-10">
+          <Reveal>
+            <div className="hp-section-rule">
+              <div>
+                <div className="hp-kicker">Industry Solutions</div>
+                <h2 className="hp-display hp-display-small">
+                  LOGISTICS BUILT FOR<br /><em>YOUR INDUSTRY</em>
+                </h2>
+              </div>
+              <span className="hp-articles-count">
+                {INDUSTRY_SOLUTION_PAGES.length} {INDUSTRY_SOLUTION_PAGES.length === 1 ? 'Sector' : 'Sectors'}
+              </span>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {INDUSTRY_SOLUTION_PAGES.map((industry, index) => (
+              <Reveal key={industry.slug}>
+                <Link
+                  href={`/${industry.slug}`}
+                  className="group industry-card"
+                  style={{ transitionDelay: `${index * 60}ms` }}
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={industry.cardImage}
+                      alt={industry.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/35 to-transparent" />
+                    <div className="absolute left-4 top-4 rounded-full border border-[#F5B800]/40 bg-[#0a0a0a]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#F5B800] backdrop-blur-sm">
+                      0{index + 1}
+                    </div>
+                    <h3 className="absolute bottom-4 left-5 right-5 text-xl font-bold leading-tight text-white md:text-2xl">
+                      {industry.title}
+                    </h3>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="text-sm leading-relaxed text-[rgba(240,235,225,0.72)]">
+                      {industry.excerpt}
+                    </p>
+                    <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
+                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#F5B800]">
+                        Explore Solution
+                      </span>
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-[#F5B800] transition-all duration-300 group-hover:border-[#F5B800] group-hover:bg-[#F5B800] group-hover:text-[#0a0a0a]">
+                        <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <AboutSection />
       <PromiseSection />
       <StatsSection />
