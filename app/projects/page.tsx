@@ -5,85 +5,104 @@ import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { PROJECT_CASE_STUDIES } from '@/lib/project-case-studies';
 
-export default function ProjectsPage() {
-  const featuredCaseStudies = PROJECT_CASE_STUDIES.map((study, index) => ({
-    id: `featured-${study.slug}`,
-    slug: study.slug,
-    title: study.title,
-    category: study.category,
-    description: study.excerpt,
-    result: study.result,
-    image: study.heroImage,
-    index: String(index + 1).padStart(2, '0'),
-  }));
+type ProjectListItem = {
+  id: string | number;
+  slug?: string;
+  title: string;
+  category: string;
+  description: string;
+  result: string;
+  image: string;
+  badgeYear?: string;
+  badgeTag?: string;
+  badgeMeta: string;
+};
 
-  const caseStudies = [
+export default function ProjectsPage() {
+  const featuredCaseStudies: ProjectListItem[] = [...PROJECT_CASE_STUDIES]
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    )
+    .map((study) => ({
+      id: `featured-${study.slug}`,
+      slug: study.slug,
+      title: study.title,
+      category: study.category,
+      description: study.excerpt,
+      result: study.result,
+      image: study.heroImage,
+      badgeYear: study.publishedAt.slice(0, 4),
+      badgeMeta: study.location,
+    }));
+
+  const caseStudies: ProjectListItem[] = [
     ...featuredCaseStudies,
     {
-      id: 1,
-      slug: undefined as string | undefined,
+      id: 'placeholder-mfg',
       title: 'Heavy Industry Route Stabilization',
       category: 'Manufacturing & Heavy Industry',
       description:
         'Planned and executed multimodal deliveries for high-weight industrial consignments with documented customs support and controlled handover windows.',
       result: 'Lower transit variation across complex lanes',
       image: '/projects/project-21.png',
-      index: '01',
+      badgeTag: 'MFG',
+      badgeMeta: 'Heavy Industry',
     },
     {
-      id: 2,
-      slug: undefined as string | undefined,
+      id: 'placeholder-og',
       title: 'Oil & Gas Mission-Critical Movements',
       category: 'Oil & Gas',
       description:
         'Delivered time-bound energy-sector cargo with strict checkpoint compliance, route planning, and real-time operational visibility.',
       result: 'Improved schedule reliability for critical loads',
       image: '/projects/project-22.png',
-      index: '02',
+      badgeTag: 'O&G',
+      badgeMeta: 'Energy Sector',
     },
     {
-      id: 3,
-      slug: undefined as string | undefined,
+      id: 'placeholder-rtl',
       title: 'Retail & E-commerce Fulfillment Upgrade',
       category: 'Retail & E-commerce',
       description:
         'Connected warehousing, cross-border freight, and regional distribution to support scalable order volumes for retail growth.',
       result: 'Faster dispatch and tighter fulfillment consistency',
       image: '/projects/project-23.png',
-      index: '03',
+      badgeTag: 'RTL',
+      badgeMeta: 'Retail',
     },
     {
-      id: 4,
-      slug: undefined as string | undefined,
+      id: 'placeholder-fmcg',
       title: 'FMCG Distribution Network Alignment',
       category: 'FMCG',
       description:
         'Built a repeatable replenishment flow across regional hubs with frequent shipment cycles and service-level tracking.',
       result: 'Reduced stockout risk across delivery regions',
       image: '/projects/project-24.png',
-      index: '04',
+      badgeTag: 'FMCG',
+      badgeMeta: 'Consumer Goods',
     },
     {
-      id: 5,
-      slug: undefined as string | undefined,
+      id: 'placeholder-auto',
       title: 'Automotive Components Corridor',
       category: 'Automotive',
       description:
         'Coordinated road, sea, and warehouse interfaces for recurring component movements with predictable ETA performance.',
       result: 'Higher delivery precision for production timelines',
       image: '/projects/project-25.png',
-      index: '05',
+      badgeTag: 'AUTO',
+      badgeMeta: 'Automotive',
     },
     {
-      id: 6,
-      slug: undefined as string | undefined,
+      id: 'placeholder-phr',
       title: 'Pharma & Healthcare Handling Program',
       category: 'Pharmaceuticals & Healthcare',
       description:
         'Executed controlled handling workflows and compliant documentation for sensitive healthcare and regulated shipments.',
       result: 'Stronger compliance confidence and shipment traceability',
       image: '/projects/project-26.png',
-      index: '06',
+      badgeTag: 'PHR',
+      badgeMeta: 'Healthcare',
     },
   ];
 
@@ -328,20 +347,47 @@ export default function ProjectsPage() {
         .case-card:hover::before {
           transform: scaleY(1);
         }
-        .case-index {
+        .case-badge {
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 2rem 0;
-          font-family: var(--font-bebas), sans-serif;
-          font-size: 28px;
-          color: rgba(255,255,255,0.12);
+          gap: 10px;
+          padding: 1.5rem 0.75rem;
+          min-width: 88px;
           border-right: 1px solid var(--wire);
-          letter-spacing: 0.05em;
-          transition: color 0.3s;
+          text-align: center;
         }
-        .case-card:hover .case-index {
+        .case-badge-year {
+          font-family: var(--font-bebas), sans-serif;
+          font-size: 26px;
+          line-height: 1;
           color: var(--gold);
+          letter-spacing: 0.04em;
+        }
+        .case-badge-tag {
+          font-family: var(--font-dm-mono), monospace;
+          font-size: 10px;
+          letter-spacing: 0.14em;
+          color: var(--gold);
+          border: 1px solid var(--wire-gold);
+          background: rgba(245,184,0,0.08);
+          padding: 5px 8px;
+        }
+        .case-badge-line {
+          width: 1px;
+          height: 28px;
+          background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+          opacity: 0.55;
+        }
+        .case-badge-meta {
+          font-family: var(--font-dm-mono), monospace;
+          font-size: 9px;
+          letter-spacing: 0.08em;
+          color: var(--silver);
+          text-transform: uppercase;
+          line-height: 1.45;
+          max-width: 72px;
         }
         .case-img-wrap {
           position: relative;
@@ -690,7 +736,7 @@ export default function ProjectsPage() {
             grid-template-columns: 60px 1fr;
             grid-template-rows: auto auto auto;
           }
-          .case-index {
+          .case-badge {
             grid-row: span 3;
           }
           .case-img-wrap {
@@ -810,7 +856,15 @@ export default function ProjectsPage() {
               {caseStudies.map((study) => {
                 const card = (
                   <>
-                    <div className="case-index">{study.index}</div>
+                    <div className="case-badge">
+                      {study.badgeYear ? (
+                        <span className="case-badge-year">{study.badgeYear}</span>
+                      ) : (
+                        <span className="case-badge-tag">{study.badgeTag}</span>
+                      )}
+                      <span className="case-badge-line" aria-hidden />
+                      <span className="case-badge-meta">{study.badgeMeta}</span>
+                    </div>
                     <div className="case-img-wrap">
                       <Image src={study.image} alt={study.title} fill />
                     </div>
