@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -13,8 +13,6 @@ import {
   PRIMARY_CONTACT_EMAIL,
   PRIMARY_CONTACT_EMAIL_HREF,
   UK_OFFICE_ADDRESS_DISPLAY,
-  PRIMARY_CONTACT_PHONE_DISPLAY,
-  PRIMARY_CONTACT_PHONE_HREF,
 } from '@/lib/constants';
 
 export function Footer() {
@@ -148,12 +146,6 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a href={PRIMARY_CONTACT_PHONE_HREF} className="underline-offset-2 hover:underline">
-                  {PRIMARY_CONTACT_PHONE_DISPLAY}
-                </a>
-              </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
                 <a href={PRIMARY_CONTACT_EMAIL_HREF} className="underline-offset-2 hover:underline">
