@@ -3,6 +3,8 @@ import { DECODING_INCOTERMS_2020_BLOG_RAW } from './blog-post-decoding-incoterms
 import { INTERNATIONAL_SHIPPING_BLOG_RAW } from './blog-post-international-shipping-2026-raw';
 import { SELF_HEALING_SUPPLY_CHAIN_2026_BLOG_RAW } from './blog-post-self-healing-supply-chain-2026-raw';
 import { SUPPLY_CHAIN_TRENDS_2026_BLOG_RAW } from './blog-post-supply-chain-trends-2026-raw';
+import { JIT_LOGISTICS_STRATEGIES_BLOG_RAW } from './blog-post-jit-logistics-strategies-raw';
+import { UK_FREIGHT_FORWARDING_BLOG_RAW } from './blog-post-uk-freight-forwarding-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -159,68 +161,35 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: '5',
     slug: 'steps-to-implement-jit-logistics-strategies',
-    title: 'Steps to Implement Just-In-Time (JIT) Logistics Strategies',
+    publishAt: SCHEDULED_BLOG_PUBLISH_AT['steps-to-implement-jit-logistics-strategies'],
+    metaTitle: 'Steps to Implement JIT Logistics Strategies Effectively',
+    metaDescription:
+      'Learn the key steps to implement JIT logistics strategies, reduce inventory costs, improve efficiency, and build a resilient supply chain.',
+    title:
+      'Steps to Implement JIT Logistics Strategies: Building a Lean, Agile, and Resilient Supply Chain',
     excerpt:
-      'JIT logistics lowers holding costs and improves inventory turns, but requires tighter forecasting and reliable supplier coordination.',
-    content: [
-      // --- INTRO ---
-      'Just-In-Time logistics is a supply chain philosophy built on a simple but demanding principle: inventory should arrive exactly when it is needed — not before, not after. Pioneered by Toyota in the 1970s as part of the Toyota Production System, JIT has since been adapted across industries from automotive and electronics manufacturing to retail and food distribution.',
-
-      'The appeal is clear. Holding inventory is expensive. Capital is tied up in stock that is not yet generating revenue. Warehouse space is consumed. Product aging, obsolescence, and damage risks accumulate. JIT, when executed well, eliminates these costs by making the supply chain lean and flow-oriented.',
-
-      'But JIT is also unforgiving. Remove the buffer of safety stock and every disruption — a late supplier delivery, a customs hold, a carrier breakdown — becomes an immediate service problem. Implementing JIT successfully requires not just operational discipline, but a fundamental redesign of how you manage supplier relationships, demand forecasting, and logistics execution.',
-
-      // --- STEP 1: DEMAND VISIBILITY ---
-      'Step 1: Establish Precise Demand Visibility',
-
-      'JIT execution begins with knowing what you need and when you need it — with a level of precision that most organizations underestimate. This means moving beyond monthly or weekly demand signals to daily or even shift-level consumption visibility. In manufacturing contexts, this requires direct integration between production scheduling systems and procurement or logistics workflows. In retail contexts, it means real-time point-of-sale connectivity to replenishment triggers.',
-
-      'Historical average demand is not sufficient for JIT. You need to model demand variability — the standard deviation around the mean, seasonal patterns, promotional lift, and new product introduction effects. This variability directly determines your minimum response window: how quickly must your supply chain react to a demand signal to avoid disruption?',
-
-      // --- STEP 2: SUPPLIER PERFORMANCE ---
-      'Step 2: Build Supplier Reliability as a Strategic Requirement',
-
-      'In a buffered supply chain, supplier variability is absorbed by safety stock. In a JIT system, it is absorbed by your customer. This is why supplier selection, development, and performance management become mission-critical in JIT environments.',
-
-      'Define explicit performance standards for every JIT supplier: on-time delivery rate, lead time consistency (the coefficient of variation matters as much as the average), quality defect rates, and advance shipment notification accuracy. These should not be aspirational targets — they should be contractual minimums with consequences for sustained underperformance.',
-
-      'Work with suppliers to understand the root causes of their variability. Often, suppliers are unreliable because their own upstream supply or production processes are unstable. Supporting suppliers in improving their internal planning and quality systems is a legitimate investment for JIT adopters.',
-
-      // --- STEP 3: LOGISTICS NETWORK DESIGN ---
-      'Step 3: Design Your Logistics Network for JIT Flows',
-
-      'JIT supply chains typically require more frequent, smaller shipments rather than large periodic deliveries. This has significant implications for your logistics network. LTL (Less-Than-Truckload) and parcel shipments become more common. Dedicated milk-run routes — where a single vehicle collects from multiple suppliers on a defined schedule — are a common JIT transport pattern in manufacturing.',
-
-      'Geographic proximity matters in JIT systems. The closer your suppliers and distribution nodes are to your consumption points, the shorter the response window and the lower the transit variability. This is why JIT adoption has historically driven supplier clustering around major manufacturing facilities.',
-
-      'For international JIT flows, the challenge is greater. Ocean freight lead times of 20–40 days are inherently incompatible with true JIT at the point of consumption. The practical solution is to use ocean freight for the bulk movement leg and then apply JIT principles within the destination region, using local or regional inventory as the buffer against consumption variability.',
-
-      // --- STEP 4: SAFETY THRESHOLDS ---
-      'Step 4: Define Safety Thresholds and Escalation Triggers',
-
-      'Eliminating safety stock entirely is rarely practical or advisable outside of controlled manufacturing environments with very short, stable lead times. A more pragmatic JIT implementation defines minimum safety thresholds for each SKU based on demand variability and supply lead time risk, then actively works to reduce those thresholds over time as supplier reliability and forecast accuracy improve.',
-
-      'Establish clear escalation triggers: at what inventory level does an automatic replenishment signal fire? At what level does a manual review occur? At what level does emergency procurement authorization activate? These triggers should be pre-agreed across procurement, operations, and finance so that decisions happen quickly when inventory approaches critical levels.',
-
-      // --- STEP 5: MEASURE AND IMPROVE ---
-      'Step 5: Measure, Learn, and Continuously Improve',
-
-      'JIT is not a static implementation — it is a continuous improvement system. Track inventory turns, stockout frequency, emergency freight spend, and supplier delivery performance as your core JIT KPIs. Review them weekly, not monthly.',
-
-      'Every stockout event should trigger a structured root cause analysis. Was it a demand forecast error? A supplier failure? A logistics delay? A threshold setting that was too aggressive? Feed the findings back into your planning parameters and supplier performance dialogues.',
-
-      // --- CONCLUSION ---
-      'JIT logistics demands more from every part of your supply chain — your forecasting, your suppliers, your transport network, and your decision-making processes. The reward for getting it right is a leaner, more responsive operation with significantly lower working capital requirements and a supply chain that becomes a genuine competitive differentiator.',
-    ],
-    date: 'Sep 03, 2025',
-    readTime: '5 min read',
+      'Just-In-Time (JIT) logistics helps businesses reduce inventory costs, improve operational efficiency, and create more agile supply chains. This guide explores demand forecasting, supplier collaboration, inventory optimisation, technology adoption, and risk management.',
+    rawText: JIT_LOGISTICS_STRATEGIES_BLOG_RAW,
+    content: [],
+    date: 'Jun 07, 2026',
+    readTime: '11 min read',
     category: 'Supply Chain',
-    image: 'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg',
+    image: '/blog-jit-logistics-strategies.png',
     author: {
-      name: 'Emma Clarke',
-      avatar: 'https://i.pravatar.cc/120?img=24',
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
     },
-    tags: ['#B2B', '#Tracking', '#Compliance'],
+    tags: [
+      'JIT Logistics',
+      'Just In Time Logistics',
+      'Supply Chain Optimization',
+      'Lean Logistics',
+      'Inventory Management',
+      'Demand Forecasting',
+      'Logistics Strategies',
+      'Clarusto Logistics',
+    ],
+    featured: true,
   },
 
   {
@@ -1054,6 +1023,40 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
       'Heavy Lift Cargo',
       'Sustainable Logistics',
       'UK Supply Chain',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
+  {
+    id: '16',
+    slug: 'uk-freight-forwarding-services',
+    publishAt: SCHEDULED_BLOG_PUBLISH_AT['uk-freight-forwarding-services'],
+    metaTitle: 'UK Freight Forwarding Services for Efficient Global Trade',
+    metaDescription:
+      'Explore how UK freight forwarding simplifies customs, reduces shipping costs, improves supply chain visibility, and supports seamless global trade.',
+    title:
+      'UK Freight Forwarding: The Strategic Backbone of Global Trade and Supply Chain Success',
+    excerpt:
+      'International shipping involves far more than moving goods from one location to another. This guide explores how UK freight forwarding helps businesses navigate customs, optimise transport costs, improve visibility, and streamline global trade.',
+    rawText: UK_FREIGHT_FORWARDING_BLOG_RAW,
+    content: [],
+    date: 'Jun 06, 2026',
+    readTime: '12 min read',
+    category: 'Freight Forwarding',
+    image: '/blog-uk-freight-forwarding.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'UK Freight Forwarding',
+      'Freight Forwarding Services UK',
+      'International Shipping',
+      'Customs Clearance',
+      'Sea Freight',
+      'Air Freight',
+      'Multimodal Transport',
       'Clarusto Logistics',
     ],
     featured: true,

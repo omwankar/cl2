@@ -13,6 +13,8 @@ export const SCHEDULED_BLOG_SLUGS = [
   'supply-chain-trends-2026',
   'self-healing-supply-chain-2026',
   'decoding-incoterms-2020-definitive-guide',
+  'uk-freight-forwarding-services',
+  'steps-to-implement-jit-logistics-strategies',
 ] as const;
 
 export type ScheduledBlogSlug = (typeof SCHEDULED_BLOG_SLUGS)[number];
@@ -29,6 +31,8 @@ export const SCHEDULED_BLOG_PUBLISH_AT: Record<ScheduledBlogSlug, string> = {
   'supply-chain-trends-2026': '2026-06-03T11:00:00.000Z',
   'self-healing-supply-chain-2026': '2026-06-04T11:00:00.000Z',
   'decoding-incoterms-2020-definitive-guide': '2026-06-05T11:00:00.000Z',
+  'uk-freight-forwarding-services': '2026-06-06T11:00:00.000Z',
+  'steps-to-implement-jit-logistics-strategies': '2026-06-07T11:00:00.000Z',
 };
 
 function getLondonCalendarDate(date: Date): string {
