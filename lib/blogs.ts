@@ -1034,7 +1034,7 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
     publishAt: SCHEDULED_BLOG_PUBLISH_AT['uk-freight-forwarding-services'],
     metaTitle: 'UK Freight Forwarding Services for Efficient Global Trade',
     metaDescription:
-      'Explore how UK freight forwarding simplifies customs, reduces shipping costs, improves supply chain visibility, and supports seamless global trade.',
+      'Explore how UK freight forwarding simplifies customs, reduces shipping costs, improves supply chain visibility, and supports seamless global trade operations.',
     title:
       'UK Freight Forwarding: The Strategic Backbone of Global Trade and Supply Chain Success',
     excerpt:

@@ -4,9 +4,9 @@ import { PRIMARY_CONTACT_EMAIL, UK_OFFICE_ADDRESS } from './constants';
 export const siteConfig = {
   name: 'Clarusto Logistics',
   domain: 'https://clarustologistics.com',
-  defaultTitle: 'Clarusto Logistics | UK Freight Forwarding',
+  defaultTitle: 'Global Logistics Company | Freight & Supply Chain Experts',
   description:
-    'UK freight forwarding, customs brokerage & supply chain from Scotland. 30+ years expertise. Call +44 330 094 6908.',
+    'Clarusto Logistics offers global freight forwarding, air, sea & land transport. With 30+ years of expertise, we provide reliable, end-to-end logistics locally.',
   ogImage: '/clarusto-logo-dark.png',
   defaultLocale: 'en-GB',
   phone: '+44-3300946908',
@@ -33,6 +33,8 @@ type SeoInput = {
   locale?: string;
   alternateLanguages?: Record<string, string>;
   modifiedTime?: string;
+  /** Use title exactly as provided (no brand suffix). For PDF-optimised 50–59 char titles. */
+  exactTitle?: boolean;
 };
 
 export function absoluteUrl(path = '/') {
@@ -66,9 +68,10 @@ export function SEO({
   locale = siteConfig.defaultLocale,
   alternateLanguages,
   modifiedTime,
+  exactTitle = false,
 }: SeoInput): Metadata {
   const seoTitle = title
-    ? title.includes(siteConfig.name)
+    ? exactTitle || title.includes(siteConfig.name)
       ? title
       : `${title} | ${siteConfig.name}`
     : siteConfig.defaultTitle;

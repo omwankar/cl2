@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
+import { PAGE_SEO } from '@/lib/page-seo';
 import { SEO } from '@/lib/seo';
 
 export const metadata: Metadata = SEO({
-  title: 'Projects',
-  description:
-    'Review Clarusto Logistics case studies and project highlights across manufacturing, energy, retail, and healthcare sectors.',
+  title: PAGE_SEO.projects.title,
+  description: PAGE_SEO.projects.description,
   url: '/projects',
   image: '/clarusto-logo-dark.png',
+  exactTitle: true,
 });
 
 export default function ProjectsLayout({

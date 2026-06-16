@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
+import { PAGE_SEO } from '@/lib/page-seo';
 import { SEO } from '@/lib/seo';
 
 export const metadata: Metadata = SEO({
-  title: 'About',
-  description:
-    'Learn about Clarusto Logistics, our history, global offices, and long-standing commitment to trusted logistics operations.',
+  title: PAGE_SEO.about.title,
+  description: PAGE_SEO.about.description,
   url: '/about',
   image: '/clarusto-logo-dark.png',
+  exactTitle: true,
 });
 
 export default function AboutLayout({

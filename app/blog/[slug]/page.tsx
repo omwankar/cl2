@@ -67,6 +67,7 @@ export async function generateMetadata({
     openGraphType: 'article',
     locale: 'en-GB',
     modifiedTime: `${SITE_LAST_UPDATED}T00:00:00.000Z`,
+    exactTitle: Boolean(post.metaTitle),
   });
 }
 

@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
+import { PAGE_SEO } from '@/lib/page-seo';
 import { SEO } from '@/lib/seo';
 import { SITE_LAST_UPDATED } from '@/lib/site-faqs';
 
 export const metadata: Metadata = SEO({
-  title: 'Freight & Logistics Services',
-  description:
-    'Air freight, sea freight, customs brokerage, warehousing & supply chain services. Compare transit times and coverage. UK-based Clarusto Logistics.',
+  title: PAGE_SEO.services.title,
+  description: PAGE_SEO.services.description,
   url: '/services',
   image: '/clarusto-logo-dark.png',
   modifiedTime: `${SITE_LAST_UPDATED}T00:00:00.000Z`,
+  exactTitle: true,
 });
 
 export default function ServicesLayout({

@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
+import { PAGE_SEO } from '@/lib/page-seo';
 import { SEO } from '@/lib/seo';
 
 export const metadata: Metadata = SEO({
-  title:
-    'Logistics Blog | Freight, Shipping & Supply Chain Insights | Clarusto Logistics',
-  description:
-    'Expert insights on freight forwarding, warehousing, air cargo, ocean shipping, and supply chain optimization. Stay updated with the latest logistics industry news.',
+  title: PAGE_SEO.blog.title,
+  description: PAGE_SEO.blog.description,
   url: '/blog',
   image: '/clarusto-logo-dark.png',
   locale: 'en-GB',
+  exactTitle: true,
   keywords: [
     'logistics blog',
     'freight shipping',

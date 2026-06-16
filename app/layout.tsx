@@ -9,6 +9,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { OrganizationJsonLd } from '@/components/organization-json-ld'
 import { FloatingCallButton } from '@/components/floating-call-button'
+import { PAGE_SEO } from '@/lib/page-seo'
 import { SEO } from '@/lib/seo'
 import './globals.css'
 import './homepage.css'
@@ -55,11 +56,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   ...SEO({
-    description:
-      'UK freight forwarding, customs brokerage & supply chain from Scotland. 30+ years expertise. Call +44 330 094 6908.',
+    title: PAGE_SEO.home.title,
+    description: PAGE_SEO.home.description,
     url: '/',
     image: '/clarusto-logo-dark.png',
     locale: 'en-GB',
+    exactTitle: true,
     modifiedTime: '2026-05-22T00:00:00.000Z',
     keywords: [
       'UK logistics',

@@ -6,6 +6,7 @@ import {
   isServiceDetailSlug,
 } from '@/lib/service-detail-pages';
 import { ServiceDetailView } from '@/components/services/service-detail-view';
+import { SERVICE_SEO } from '@/lib/page-seo';
 import { SEO } from '@/lib/seo';
 
 export function generateStaticParams() {
@@ -22,11 +23,13 @@ export async function generateMetadata({
     return { title: 'Service' };
   }
   const page = SERVICE_DETAIL_PAGES[slug];
+  const seo = SERVICE_SEO[slug];
   return SEO({
-    title: page.title,
-    description: page.metaDescription,
+    title: seo?.title ?? `${page.title} Services | Clarusto Logistics`,
+    description: seo?.description ?? page.metaDescription,
     url: `/services/${slug}`,
     image: '/clarusto-logo-dark.png',
+    exactTitle: Boolean(seo?.title),
   });
 }
 
