@@ -80,7 +80,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'Jun 07, 2026',
     readTime: '11 min read',
     category: 'Supply Chain',
-    image: '/blog-jit-logistics-strategies.png',
+    image: '/blog-jit-logistics-strategies-2026.png',
     author: {
       name: 'Editorial Desk',
       avatar: 'https://i.pravatar.cc/120?img=60',
@@ -720,13 +720,14 @@ function getPostTimestamp(date: string): number {
 export function getAllBlogs(): BlogPost[] {
   const uploaded = readUploadedBlogs();
   const bySlug = new Map<string, BlogPost>();
-  for (const post of BLOG_POSTS) {
-    bySlug.set(post.slug, post);
-  }
   for (const post of uploaded) {
     if (!post?.slug) continue;
+    bySlug.set(post.slug, post);
+  }
+  for (const post of BLOG_POSTS) {
     const existing = bySlug.get(post.slug);
     bySlug.set(post.slug, {
+      ...existing,
       ...post,
       publishAt: post.publishAt ?? existing?.publishAt,
     });

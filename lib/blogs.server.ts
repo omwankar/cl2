@@ -13,13 +13,14 @@ function getPostTimestamp(date: string): number {
 export async function getAllBlogs(): Promise<BlogPost[]> {
   const uploaded = await readBlogData();
   const bySlug = new Map<string, BlogPost>();
-  for (const post of BLOG_POSTS) {
-    bySlug.set(post.slug, post);
-  }
   for (const post of uploaded) {
     if (!post?.slug) continue;
+    bySlug.set(post.slug, post);
+  }
+  for (const post of BLOG_POSTS) {
     const existing = bySlug.get(post.slug);
     bySlug.set(post.slug, {
+      ...existing,
       ...post,
       publishAt: post.publishAt ?? existing?.publishAt,
     });
@@ -35,13 +36,14 @@ export async function getBlogBySlug(slug: string) {
 export async function getBlogBySlugIncludingScheduled(slug: string) {
   const uploaded = await readBlogData();
   const bySlug = new Map<string, BlogPost>();
-  for (const post of BLOG_POSTS) {
-    bySlug.set(post.slug, post);
-  }
   for (const post of uploaded) {
     if (!post?.slug) continue;
+    bySlug.set(post.slug, post);
+  }
+  for (const post of BLOG_POSTS) {
     const existing = bySlug.get(post.slug);
     bySlug.set(post.slug, {
+      ...existing,
       ...post,
       publishAt: post.publishAt ?? existing?.publishAt,
     });
