@@ -5,6 +5,7 @@ import { SELF_HEALING_SUPPLY_CHAIN_2026_BLOG_RAW } from './blog-post-self-healin
 import { SUPPLY_CHAIN_TRENDS_2026_BLOG_RAW } from './blog-post-supply-chain-trends-2026-raw';
 import { JIT_LOGISTICS_STRATEGIES_BLOG_RAW } from './blog-post-jit-logistics-strategies-raw';
 import { UK_FREIGHT_FORWARDING_BLOG_RAW } from './blog-post-uk-freight-forwarding-raw';
+import { COMMODITY_CODES_2026_BLOG_RAW } from './blog-post-commodity-codes-2026-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -31,6 +32,38 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '17',
+    slug: 'understanding-commodity-codes-for-exporters-uk',
+    metaTitle: 'Understanding Commodity Codes for UK Exporters Guide',
+    metaDescription:
+      'Learn commodity codes for UK exporters, how they work, why they matter, and how to ensure compliance with HMRC, tariffs, duties, and global trade regulations.',
+    title: 'Understanding Commodity Codes for Exporters (2026 UK Guide)',
+    excerpt:
+      'Commodity codes are a critical yet often overlooked part of exporting goods from the UK. These classification codes determine duties, compliance requirements, and how smoothly your shipments pass through customs. This guide breaks down everything UK exporters need to know in 2026.',
+    rawText: COMMODITY_CODES_2026_BLOG_RAW,
+    content: [],
+    date: 'Jun 11, 2026',
+    readTime: '8 min read',
+    category: 'Customs & Compliance',
+    image: '/blog-commodity-codes-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Commodity Codes UK',
+      'HS Codes UK Exporters',
+      'UK Export Commodity Codes',
+      'HMRC Trade Tariff',
+      'UK Customs Classification',
+      'Export Documentation UK',
+      'Customs Clearance',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '5',
     slug: 'steps-to-implement-jit-logistics-strategies',
