@@ -29,6 +29,9 @@ export const metadata = SEO({
   modifiedTime: '2026-06-23T09:00:00.000Z',
 });
 
+const SCOTLAND_STARTUP_AWARDS_URL =
+  'https://startupawards.uk/regional-winners#region-Scotland';
+
 const AWARD_IMAGE = {
   src: '/clarusto-global-startup-award-2026-hero.jpg',
   alt: 'Clarusto Logistics receiving the Global Startup of the Year award at the Scotland StartUp Awards 2026 in Edinburgh.',
@@ -64,10 +67,42 @@ export default function GlobalStartupAwardPressReleasePage() {
             Edinburgh, Scotland — 23 June 2026
           </p>
 
-          <div className="prose prose-slate mt-8 max-w-none text-[#1A1A2E]/90 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg">
+          <figure className="not-prose mt-8 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src={AWARD_IMAGE.src}
+                alt={AWARD_IMAGE.alt}
+                fill
+                unoptimized
+                className="object-cover"
+                sizes="(max-width: 896px) 100vw, 896px"
+                priority
+              />
+            </div>
+            <figcaption className="px-4 py-3 text-sm text-slate-600">
+              {AWARD_IMAGE.caption}
+            </figcaption>
+          </figure>
+
+          <div className="prose prose-slate mt-8 max-w-none text-[#1A1A2E]/90 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg prose-a:font-semibold prose-a:text-amber-700 prose-a:no-underline hover:prose-a:text-amber-800 hover:prose-a:underline">
             <p>
-              Clarusto Logistics has been named Global Startup of the Year at the Scotland
-              StartUp Awards 2026, held in Edinburgh on Tuesday, 23 June.
+              Clarusto Logistics has been named{' '}
+              <a
+                href={SCOTLAND_STARTUP_AWARDS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Global Startup of the Year
+              </a>{' '}
+              at the{' '}
+              <a
+                href={SCOTLAND_STARTUP_AWARDS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Scotland StartUp Awards 2026
+              </a>
+              , held in Edinburgh on Tuesday, 23 June.
             </p>
 
             <p>
@@ -127,22 +162,6 @@ export default function GlobalStartupAwardPressReleasePage() {
               This award marks a meaningful step forward for the company as it continues to
               grow from its base in Scotland and strengthen its role in global logistics.
             </p>
-
-            <figure className="not-prose my-10 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src={AWARD_IMAGE.src}
-                  alt={AWARD_IMAGE.alt}
-                  fill
-                  unoptimized
-                  className="object-cover"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                />
-              </div>
-              <figcaption className="px-4 py-3 text-sm text-slate-600">
-                {AWARD_IMAGE.caption}
-              </figcaption>
-            </figure>
           </div>
 
           <section className="mt-12 rounded-2xl border border-[#24344A] bg-[#0F1923] p-6 text-white md:p-8">
