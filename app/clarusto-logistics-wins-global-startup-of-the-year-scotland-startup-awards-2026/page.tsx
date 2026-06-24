@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -83,23 +82,6 @@ export default function GlobalStartupAwardPressReleasePage() {
               Middle East, China, India and North America.
             </p>
 
-            <figure className="not-prose my-10 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src={AWARD_IMAGE.src}
-                  alt={AWARD_IMAGE.alt}
-                  fill
-                  unoptimized
-                  className="object-cover"
-                  sizes="(max-width: 896px) 100vw, 896px"
-                  priority
-                />
-              </div>
-              <figcaption className="px-4 py-3 text-sm text-slate-600">
-                {AWARD_IMAGE.caption}
-              </figcaption>
-            </figure>
-
             <p className="font-semibold text-[#0F1923]">Ramiah John, CEO of Clarusto Logistics, said:</p>
 
             <blockquote className="not-prose my-6 border-l-4 border-amber-400 bg-white/80 py-4 pl-6 pr-4 italic text-slate-700">
@@ -113,15 +95,9 @@ export default function GlobalStartupAwardPressReleasePage() {
 
             <p>
               The win comes at an important stage in Clarusto Logistics&apos; journey. Earlier
-              this year, the company opened its{' '}
-              <Link
-                href="/clarusto-logistics-new-office-wuhan-china"
-                className="font-semibold text-amber-700 hover:text-amber-800"
-              >
-                Wuhan office in China
-              </Link>
-              , strengthening its ability to support customers with international
-              coordination, sourcing support and cross-border logistics.
+              this year, the company opened its Wuhan office in China, strengthening its
+              ability to support customers with international coordination, sourcing support
+              and cross-border logistics.
             </p>
 
             <p>
@@ -150,21 +126,29 @@ export default function GlobalStartupAwardPressReleasePage() {
               This award marks a meaningful step forward for the company as it continues to
               grow from its base in Scotland and strengthen its role in global logistics.
             </p>
+
+            <figure className="not-prose my-10 overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={AWARD_IMAGE.src}
+                  alt={AWARD_IMAGE.alt}
+                  fill
+                  unoptimized
+                  className="object-cover"
+                  sizes="(max-width: 896px) 100vw, 896px"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-slate-600">
+                {AWARD_IMAGE.caption}
+              </figcaption>
+            </figure>
           </div>
 
           <section className="mt-12 rounded-2xl border border-[#24344A] bg-[#0F1923] p-6 text-white md:p-8">
-            <h2 className="text-lg font-bold text-white">About Clarusto Logistics</h2>
-            <p className="mt-3 text-sm leading-relaxed text-white/85">
-              Clarusto Logistics is a UK-based logistics and freight forwarding company
-              specializing in international shipping, customs clearance, warehousing, supply
-              chain management, and end-to-end logistics solutions. The company helps
-              businesses streamline their global operations through reliable, efficient, and
-              customer-focused logistics services.
-            </p>
-            <h3 className="mt-6 text-sm font-bold uppercase tracking-widest text-amber-300">
+            <h2 className="text-lg font-bold uppercase tracking-widest text-amber-300">
               Media Contact
-            </h3>
-            <p className="mt-2 text-sm text-white/85">
+            </h2>
+            <p className="mt-4 text-sm text-white/85">
               Clarusto Logistics
               <br />
               UK Office: {UK_OFFICE_ADDRESS_LINE}
