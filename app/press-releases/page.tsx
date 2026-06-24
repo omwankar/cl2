@@ -24,11 +24,17 @@ export const metadata = SEO({
 
 export default async function PressReleasesPage() {
   const initialIndustry = await fetchIndustryNews({ page: 1, pageSize: 12 });
+  const latestRelease = [...COMPANY_PRESS_RELEASES].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  )[0];
 
   return (
     <>
       <Navbar />
-      <PressReleasesHero companyCount={COMPANY_PRESS_RELEASES.length} />
+      <PressReleasesHero
+        companyCount={COMPANY_PRESS_RELEASES.length}
+        latestRelease={latestRelease}
+      />
       <PressReleasesPageClient
         companyReleases={COMPANY_PRESS_RELEASES}
         initialIndustry={initialIndustry}

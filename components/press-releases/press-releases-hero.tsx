@@ -1,11 +1,23 @@
 import Image from 'next/image';
 import { Building2, Globe2 } from 'lucide-react';
+import type { PressRelease } from '@/lib/press-release-types';
 
 type PressReleasesHeroProps = {
   companyCount: number;
+  latestRelease?: PressRelease;
 };
 
-export function PressReleasesHero({ companyCount }: PressReleasesHeroProps) {
+export function PressReleasesHero({
+  companyCount,
+  latestRelease,
+}: PressReleasesHeroProps) {
+  const previewImage = latestRelease?.image ?? '/press-releases-hero.jpg';
+  const previewAlt =
+    latestRelease?.title ?? 'Logistics operations overlooking a global shipping port';
+  const previewLabel = latestRelease?.category ?? 'Media & Announcements';
+  const previewTitle =
+    latestRelease?.title ?? 'Official Clarusto announcements and industry headlines';
+
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
@@ -49,8 +61,8 @@ export function PressReleasesHero({ companyCount }: PressReleasesHeroProps) {
 
         <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl border border-white/15 shadow-2xl md:block">
           <Image
-            src="/clarusto-logistics-wuhan-china-reception.png"
-            alt="Clarusto Logistics reception at the new Wuhan China office"
+            src={previewImage}
+            alt={previewAlt}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 0vw, 420px"
@@ -60,9 +72,8 @@ export function PressReleasesHero({ companyCount }: PressReleasesHeroProps) {
             <p className="text-xs font-semibold uppercase tracking-widest text-amber-300">
               Latest announcement
             </p>
-            <p className="mt-1 text-sm text-white/85">
-              Wuhan reception &amp; workspace
-            </p>
+            <p className="mt-1 line-clamp-2 text-sm text-white/85">{previewTitle}</p>
+            <p className="mt-1 text-xs text-white/60">{previewLabel}</p>
           </div>
         </div>
       </div>

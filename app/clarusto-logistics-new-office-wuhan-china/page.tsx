@@ -5,7 +5,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { HeroSection } from '@/components/hero-section';
 import { SEO } from '@/lib/seo';
-import { UK_OFFICE_ADDRESS_LINE } from '@/lib/constants';
+import { UK_OFFICE_ADDRESS_LINE, PRIMARY_CONTACT_EMAIL, PRIMARY_CONTACT_EMAIL_HREF } from '@/lib/constants';
 
 export const metadata = SEO({
   title: 'Clarusto Logistics Opens New China Office in Wuhan Hub',
@@ -143,7 +143,7 @@ export default function WuhanOfficePressReleasePage() {
               more efficiently and support the growing demand for reliable logistics
               solutions.&rdquo;
               <footer className="mt-3 text-sm font-semibold not-italic text-slate-900">
-                — Clarusto Logistics representative
+                — Ramiah John, CEO, Clarusto Logistics
               </footer>
             </blockquote>
 
@@ -181,10 +181,10 @@ export default function WuhanOfficePressReleasePage() {
               <br />
               Email:{' '}
               <a
-                href="mailto:ansu@clarusto.co.uk"
+                href={PRIMARY_CONTACT_EMAIL_HREF}
                 className="font-medium text-amber-300 hover:text-amber-200"
               >
-                ansu@clarusto.co.uk
+                {PRIMARY_CONTACT_EMAIL}
               </a>
               <br />
               Website:{' '}
