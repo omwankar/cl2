@@ -32,6 +32,9 @@ export const metadata = SEO({
 const SCOTLAND_STARTUP_AWARDS_URL =
   'https://startupawards.uk/regional-winners#region-Scotland';
 
+const AWARD_LINK_CLASS =
+  'font-semibold text-[#2563EB] underline decoration-[#2563EB] decoration-2 underline-offset-[3px] transition-colors hover:text-[#1D4ED8] hover:decoration-[#1D4ED8]';
+
 const AWARD_IMAGE = {
   src: '/clarusto-global-startup-award-2026-hero.jpg',
   alt: 'Clarusto Logistics receiving the Global Startup of the Year award at the Scotland StartUp Awards 2026 in Edinburgh.',
@@ -84,13 +87,14 @@ export default function GlobalStartupAwardPressReleasePage() {
             </figcaption>
           </figure>
 
-          <div className="prose prose-slate mt-8 max-w-none text-[#1A1A2E]/90 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg prose-a:font-semibold prose-a:text-amber-700 prose-a:no-underline hover:prose-a:text-amber-800 hover:prose-a:underline">
+          <div className="prose prose-slate mt-8 max-w-none text-[#1A1A2E]/90 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg">
             <p>
               Clarusto Logistics has been named{' '}
               <a
                 href={SCOTLAND_STARTUP_AWARDS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                className={AWARD_LINK_CLASS}
               >
                 Global Startup of the Year
               </a>{' '}
@@ -99,6 +103,7 @@ export default function GlobalStartupAwardPressReleasePage() {
                 href={SCOTLAND_STARTUP_AWARDS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                className={AWARD_LINK_CLASS}
               >
                 Scotland StartUp Awards 2026
               </a>
