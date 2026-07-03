@@ -6,6 +6,8 @@ import { SUPPLY_CHAIN_TRENDS_2026_BLOG_RAW } from './blog-post-supply-chain-tren
 import { JIT_LOGISTICS_STRATEGIES_BLOG_RAW } from './blog-post-jit-logistics-strategies-raw';
 import { UK_FREIGHT_FORWARDING_BLOG_RAW } from './blog-post-uk-freight-forwarding-raw';
 import { COMMODITY_CODES_2026_BLOG_RAW } from './blog-post-commodity-codes-2026-raw';
+import { WHAT_DOES_A_FREIGHT_FORWARDER_DO_BLOG_RAW } from './blog-post-what-does-a-freight-forwarder-do-raw';
+import { FREIGHT_ROUTES_UK_SAUDI_ARABIA_BLOG_RAW } from './blog-post-freight-routes-uk-saudi-arabia-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -32,6 +34,71 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '19',
+    slug: 'freight-routes-between-uk-and-saudi-arabia',
+    metaTitle: 'Freight Routes Between UK and Saudi Arabia (2026 Guide)',
+    metaDescription:
+      'Explore freight routes between the UK and Saudi Arabia in 2026. Compare sea, air and multimodal shipping, transit times, ports, customs and logistics.',
+    title:
+      'Freight Routes Between the UK and Saudi Arabia (2026 Guide): Air, Sea & Multimodal Shipping Explained',
+    excerpt:
+      'Understanding the freight routes between the UK and Saudi Arabia is essential for businesses looking to optimise international shipping. Learn how route selection, Red Sea shipping conditions, and customs compliance can impact supply chain performance and discover the most efficient freight solution for your cargo.',
+    rawText: FREIGHT_ROUTES_UK_SAUDI_ARABIA_BLOG_RAW,
+    content: [],
+    date: 'Jul 03, 2026',
+    readTime: '9 min read',
+    category: 'International Shipping',
+    image: '/blog-freight-routes-uk-saudi-arabia.jpg',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Freight Routes UK Saudi Arabia',
+      'UK to Saudi Arabia Shipping',
+      'Sea Freight UK to Saudi Arabia',
+      'Air Freight UK to Saudi Arabia',
+      'Shipping from UK to Saudi Arabia',
+      'Freight Forwarding UK Saudi Arabia',
+      'UK Saudi Logistics',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
+  {
+    id: '18',
+    slug: 'what-does-a-freight-forwarder-do',
+    metaTitle: 'What Does a Freight Forwarder Do? Complete UK Guide (2026)',
+    metaDescription:
+      'Learn what a freight forwarder actually does, from customs clearance and documentation to global shipping coordination. A practical UK guide by Clarusto Logistics.',
+    title: 'What Does a Freight Forwarder Actually Do? (And Why It Matters More Than Ever)',
+    excerpt:
+      'Freight forwarding involves much more than booking cargo. From customs clearance and shipping documentation to multimodal transport planning and risk management, freight forwarders play a critical role in global trade. This guide explains how freight forwarding works, what services are involved, and why choosing the right logistics partner can improve efficiency, reduce costs and strengthen supply chain resilience.',
+    rawText: WHAT_DOES_A_FREIGHT_FORWARDER_DO_BLOG_RAW,
+    content: [],
+    date: 'Jul 03, 2026',
+    readTime: '8 min read',
+    category: 'Freight Forwarding',
+    image: '/blog-what-does-a-freight-forwarder-do.jpg',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'What Does a Freight Forwarder Do',
+      'Freight Forwarder UK',
+      'International Freight Forwarding',
+      'Freight Forwarding Services',
+      'Customs Clearance',
+      'UK Freight Forwarding',
+      'International Shipping',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '17',
     slug: 'understanding-commodity-codes-for-exporters-uk',
