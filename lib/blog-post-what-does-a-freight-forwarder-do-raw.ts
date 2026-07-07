@@ -56,7 +56,7 @@ International shipping isn't governed by transport alone.
 
 Trade agreements, customs procedures, sanctions, import restrictions, product classifications, VAT requirements, and Incoterms® all influence how cargo moves across borders.
 
-Incoterms®, published by the International Chamber of Commerce (ICC), define which party is responsible for transportation costs, risk, insurance, and customs obligations throughout a shipment. Selecting the wrong Incoterm can result in unexpected costs, duplicated responsibilities, or disputes between buyers and sellers.
+Incoterms®, published by the International Chamber of Commerce (ICC), define which party is responsible for transportation costs, risk, insurance, and customs obligations throughout a shipment. Selecting the wrong Incoterm can result in unexpected costs, duplicated responsibilities, or disputes between buyers and sellers. See our [guide to Decoding Incoterms 2020](/blog/decoding-incoterms-2020-definitive-guide) for a deeper breakdown.
 
 A knowledgeable freight forwarder helps businesses understand these responsibilities before shipments are dispatched, reducing commercial and operational risk.
 
@@ -116,7 +116,7 @@ Freight forwarding is no longer simply about moving cargo from one location to a
 
 It is about connecting [air freight](/services/air-freight), [sea freight](/services/sea-freight), [road freight](/services/land-transport), compliance, technology, communication, and expertise into a single coordinated process that supports reliable international trade.
 
-For growing businesses, choosing the right freight forwarder isn't just a logistics decision—it's a strategic investment in supply chain resilience.
+For growing businesses, choosing the right freight forwarder isn't just a logistics decision—it's a strategic investment in supply chain resilience. For a practical example of how this works on a major trade lane, read our [freight routes between the UK and Saudi Arabia](/blog/freight-routes-between-uk-and-saudi-arabia) guide, or explore [UK freight forwarding services](/blog/uk-freight-forwarding-services) in more detail.
 
 At Clarusto Logistics, we believe successful freight forwarding goes beyond transportation. It requires careful planning, regulatory expertise, proactive communication, and end-to-end coordination that helps businesses move with confidence across domestic and international supply chains.
 

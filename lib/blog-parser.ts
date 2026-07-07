@@ -31,7 +31,16 @@ function stripBulletPrefix(line: string): string {
 function isHeading(line: string): boolean {
   const text = line.trim();
   if (!text) return false;
-  if (text.endsWith(':')) return true;
+  // Bullet or numbered list items are never section headings
+  if (/^[-*•]\s+/.test(text)) return false;
+  if (/^\d+[\).\s-]+\S/.test(text)) return false;
+  // Markdown links belong in paragraph or list content
+  if (/\[[^\]]+\]\([^)]+\)/.test(text)) return false;
+  if (text.endsWith(':')) {
+    // Short labels only (e.g. "Major UK Airports:"), not intro sentences
+    if (text.length <= 55 && !/,/.test(text)) return true;
+    return false;
+  }
   if (text.length > 90) return false;
   if (/^(https?:\/\/|source:)/i.test(text)) return false;
   if (/^\d+[\).\s-]+[A-Za-z].{6,}$/.test(text) && !/[.!?]$/.test(text)) return true;
@@ -44,11 +53,7 @@ function isListLikeLine(line: string): boolean {
   if (!text) return false;
   if (/^[-*•]\s+/.test(text)) return true;
   if (/^\d+[\).\s-]+/.test(text)) return true;
-  if (text.length > 80) return false;
-  if (/[.!?]$/.test(text)) return false;
-  if (isHeading(text)) return false;
-  const words = text.split(/\s+/).length;
-  return words >= 2 && words <= 12;
+  return false;
 }
 
 function pushSection(
@@ -134,6 +139,11 @@ export function parseRawBlogText(rawText: string): ParsedBlog {
       continue;
     }
 
+    if (isListLikeLine(line)) {
+      currentList.push(stripBulletPrefix(line));
+      continue;
+    }
+
     if (isHeading(line)) {
       pushSection(sections, currentHeading, currentContent, currentList, pendingImage);
       pendingImage = undefined;
@@ -143,11 +153,7 @@ export function parseRawBlogText(rawText: string): ParsedBlog {
       continue;
     }
 
-    if (isListLikeLine(line)) {
-      currentList.push(stripBulletPrefix(line));
-    } else {
-      currentContent.push(line);
-    }
+    currentContent.push(line);
   }
 
   pushSection(sections, currentHeading, currentContent, currentList, pendingImage);

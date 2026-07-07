@@ -5,7 +5,7 @@ As trade between the United Kingdom and Saudi Arabia continues to grow, business
 
 According to the UK Department for Business and Trade, Saudi Arabia remains one of the UK's largest trading partners in the Middle East, with bilateral trade exceeding £13 billion in the year ending Q4 2025. At the same time, Saudi Arabia's Vision 2030 programme continues to increase demand for imported machinery, construction materials, healthcare products and manufacturing equipment.
 
-Whether you're exporting full container loads (FCL), less-than-container loads (LCL) or urgent air cargo, understanding the available freight routes helps you make informed logistics decisions.
+Whether you're exporting full container loads (FCL), less-than-container loads (LCL) or urgent air cargo, understanding the available freight routes helps you make informed logistics decisions. If you are new to international logistics, start with [what a freight forwarder actually does](/blog/what-does-a-freight-forwarder-do) and our broader [international shipping process guide](/blog/international-shipping-process-guide-2026).
 
 Main Freight Routes Between the UK and Saudi Arabia
 
@@ -118,7 +118,7 @@ Businesses typically require:
 - Packing List
 - Bill of Lading or Air Waybill
 - Certificate of Origin
-- Harmonised System (HS) Codes
+- Harmonised System (HS) Codes — see our [commodity codes guide for UK exporters](/blog/understanding-commodity-codes-for-exporters-uk)
 - Import permits (where applicable)
 
 Saudi Arabia's Zakat, Tax and Customs Authority (ZATCA) oversees customs procedures and import compliance. Incorrect documentation or product classification may result in shipment delays or additional charges. Working with experienced [customs clearance](/services/customs-clearance) support helps ensure shipments move without unnecessary hold-ups.
@@ -133,7 +133,7 @@ Choosing the right freight solution depends on your business priorities:
 - Project logistics → Multimodal Transport
 - Balanced cost and speed → Multimodal Transport
 
-Working with an experienced freight forwarder helps businesses select the most suitable route while ensuring compliance with customs regulations and reducing supply chain risks.
+Working with an experienced [freight forwarder](/blog/what-does-a-freight-forwarder-do) helps businesses select the most suitable route while ensuring compliance with customs regulations and reducing supply chain risks.
 
 Final Thoughts
 
