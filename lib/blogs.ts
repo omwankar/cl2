@@ -8,6 +8,7 @@ import { UK_FREIGHT_FORWARDING_BLOG_RAW } from './blog-post-uk-freight-forwardin
 import { COMMODITY_CODES_2026_BLOG_RAW } from './blog-post-commodity-codes-2026-raw';
 import { WHAT_DOES_A_FREIGHT_FORWARDER_DO_BLOG_RAW } from './blog-post-what-does-a-freight-forwarder-do-raw';
 import { FREIGHT_ROUTES_UK_SAUDI_ARABIA_BLOG_RAW } from './blog-post-freight-routes-uk-saudi-arabia-raw';
+import { FUTURE_OF_LOGISTICS_DECISIONS_BLOG_RAW } from './blog-post-future-of-logistics-decisions-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -34,6 +35,40 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '20',
+    slug: 'future-of-logistics-decision-intelligence',
+    metaTitle:
+      'The Future of Logistics Will Be Defined by Decisions, Not Distance | Clarusto Logistics',
+    metaDescription:
+      'Discover why decision intelligence is reshaping logistics and how UK businesses can build more resilient, cost-effective supply chains through smarter logistics decisions.',
+    title:
+      'The Future of Logistics: Why Decision Intelligence Is the New Competitive Advantage',
+    excerpt:
+      'Cost, speed and distance no longer define supply chain success. Discover why decision intelligence—combining expertise, data and commercial insight—is becoming the new competitive advantage in UK and global logistics.',
+    rawText: FUTURE_OF_LOGISTICS_DECISIONS_BLOG_RAW,
+    content: [],
+    date: 'Jul 09, 2026',
+    readTime: '7 min read',
+    category: 'Supply Chain',
+    image: '/blog-future-of-logistics-decision-intelligence-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Future of Logistics',
+      'Decision Intelligence',
+      'UK Logistics',
+      'Supply Chain Resilience',
+      'Freight Forwarding',
+      'International Logistics',
+      'Supply Chain Strategy',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '19',
     slug: 'freight-routes-between-uk-and-saudi-arabia',
