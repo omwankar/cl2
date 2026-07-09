@@ -78,10 +78,10 @@ Businesses that embrace this mindset will be better positioned to navigate uncer
 
 References
 
-1. Logistics UK. The Logistics Report 2025: https://logistics.org.uk/research-hub/reports/logistics-report
-2. Logistics UK. UK's £170 billion logistics sector is the unsung hero of the economy: https://logistics.org.uk/media/press-releases/2025/june/uk-s-170-billion-logistics-sector-is-unsung-hero-o
-3. Heathrow Airport. Cargo and UK Trade Statistics: https://www.heathrow.com/company/cargo
-4. World Bank. Logistics Performance Index: https://lpi.worldbank.org
+- [Logistics UK. The Logistics Report 2025](https://logistics.org.uk/research-hub/reports/logistics-report)
+- [Logistics UK. UK's £170 billion logistics sector is the unsung hero of the economy](https://logistics.org.uk/media/press-releases/2025/june/uk-s-170-billion-logistics-sector-is-unsung-hero-o)
+- [Heathrow Airport. Cargo and UK Trade Statistics](https://www.heathrow.com/company/cargo)
+- [World Bank. Logistics Performance Index](https://lpi.worldbank.org)
 
 FAQs:
 

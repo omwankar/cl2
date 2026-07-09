@@ -122,11 +122,11 @@ At Clarusto Logistics, we believe successful freight forwarding goes beyond tran
 
 References
 
-1. UK Government – Freight Forwarding: Moving Goods: https://www.gov.uk/guidance/freight-forwarding-moving-goods
-2. UK Government – Freight Forwarding: Managing Risk: https://www.gov.uk/guidance/freight-forwarding-managing-risk
-3. International Chamber of Commerce (ICC) – Incoterms® 2020: https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/
-4. U.S. International Trade Administration – Know Your Incoterms: https://www.trade.gov/know-your-incoterms
-5. World Trade Organization – Logistics Services Overview: https://www.wto.org/english/tratop_e/serv_e/transport_e/transport_auxiliary_e.htm
+- [UK Government – Freight Forwarding: Moving Goods](https://www.gov.uk/guidance/freight-forwarding-moving-goods)
+- [UK Government – Freight Forwarding: Managing Risk](https://www.gov.uk/guidance/freight-forwarding-managing-risk)
+- [International Chamber of Commerce (ICC) – Incoterms® 2020](https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/)
+- [U.S. International Trade Administration – Know Your Incoterms](https://www.trade.gov/know-your-incoterms)
+- [World Trade Organization – Logistics Services Overview](https://www.wto.org/english/tratop_e/serv_e/transport_e/transport_auxiliary_e.htm)
 
 FAQs:
 

@@ -147,10 +147,10 @@ At Clarusto Logistics, we help businesses move cargo between the UK and Saudi Ar
 
 Sources & References
 
-1. UK Department for Business and Trade – Saudi Arabia Trade and Investment Factsheet: https://www.gov.uk/government/statistics/trade-and-investment-factsheets-partner-names-starting-with-s/saudi-arabia-trade-and-investment-factsheet
-2. International Air Transport Association (IATA) – Air Cargo Market Insights: https://www.iata.org
-3. Zakat, Tax and Customs Authority (ZATCA) – Saudi Customs & Import Regulations: https://zatca.gov.sa
-4. BIMCO – Maritime Market Analysis & Shipping Intelligence: https://www.bimco.org
+- [UK Department for Business and Trade – Saudi Arabia Trade and Investment Factsheet](https://www.gov.uk/government/statistics/trade-and-investment-factsheets-partner-names-starting-with-s/saudi-arabia-trade-and-investment-factsheet)
+- [International Air Transport Association (IATA) – Air Cargo Market Insights](https://www.iata.org)
+- [Zakat, Tax and Customs Authority (ZATCA) – Saudi Customs & Import Regulations](https://zatca.gov.sa)
+- [BIMCO – Maritime Market Analysis & Shipping Intelligence](https://www.bimco.org)
 
 FAQs:
 
