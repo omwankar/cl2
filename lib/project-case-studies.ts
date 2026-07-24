@@ -42,6 +42,359 @@ export type ProjectCaseStudy = {
 
 export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
   {
+    slug: 'behu-customs-clearance-trucking-riyadh',
+    title: 'Customs Clearance and Trucking Delivery for Behu Ltd',
+    category: 'Customs · Inland Trucking Saudi Arabia',
+    client: 'Behu Ltd., Riyadh',
+    subheading:
+      'Compliant Saudi customs clearance and coordinated trucking delivery for industrial equipment and consumer goods imports into Riyadh.',
+    excerpt:
+      'Clarusto supported Behu Ltd. with documentation control, SASO/Fasah compliance, and tracked trucking delivery to reduce demurrage risk and strengthen import reliability in Saudi Arabia.',
+    result: 'Faster clearance · Lower demurrage risk',
+    heroImage: '/projects/behu-customs-riyadh-hero.png',
+    publishedAt: '2026-07-20',
+    location: 'Saudi Arabia · Riyadh',
+    metaTitle: 'Behu Ltd Customs Clearance & Trucking Delivery | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics managed Saudi customs clearance and trucking delivery for Behu Ltd in Riyadh with SASO compliance, Fasah integration, and reduced demurrage risk.',
+    ogImage: '/projects/behu-customs-riyadh-hero.png',
+    background: [
+      'Behu Ltd., a growing company based in Riyadh, specialises in industrial equipment and consumer goods imports. Rising shipment volumes and increasingly complex Saudi import regulations created documentation discrepancies and clearance delays that put cost and schedule performance at risk.',
+      'Clarusto Logistics was engaged to design and execute a more controlled customs clearance and delivery workflow, giving Behu a single operational partner for compliant import handling and inland movement.',
+    ],
+    objective: [
+      'Deliver duly compliant customs clearance with accurate documentation and HS-code control.',
+      'Track consignments closely to avoid demurrage, storage charges, and avoidable delays.',
+      'Improve supply-chain predictability through proactive compliance checks and local regulatory expertise.',
+    ],
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Higher volumes and incomplete documentation created clearance risk under Saudi import rules, including SASO and conformity requirements.',
+        activities: [],
+        challenges: [
+          'SASO certification and quality-standard checks for products entering Saudi Arabia.',
+          'Conformity assessment and import documentation readiness before arrival.',
+          'Accurate HS-code classification, labelling, and origin/destination detail.',
+          'Commercial invoice discrepancies and incomplete paperwork.',
+          'Limited real-time monitoring increasing demurrage and storage exposure.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto standardised documentation, integrated with Saudi customs platforms, and monitored clearance through to trucking delivery.',
+        activities: [
+          'Pre-arrival document verification against Saudi customs requirements.',
+          'Integration with Saudi customs platforms such as Fasah via electronic data exchange.',
+          'Accurate product classification and duty evaluation.',
+          'Process redesign and documentation standardisation for repeat shipments.',
+          'Continuous monitoring through clearance and inland trucking delivery.',
+        ],
+        challenges: [],
+        execution: [
+          'Completed an initial audit of Behu’s import documentation and compliance gaps.',
+          'Standardised paperwork and clearance workflows before vessel/truck arrival.',
+          'Submitted declarations through connected customs systems for faster approvals.',
+          'Coordinated release and inland trucking with tracked handovers to Riyadh.',
+        ],
+        image: {
+          src: '/projects/behu-customs-riyadh-execution.png',
+          alt: 'Customs documentation and trucking coordination for Behu Ltd imports in Saudi Arabia',
+          caption:
+            'Execution — document control, Fasah-linked clearance, and coordinated inland delivery.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Lower demurrage and storage exposure through earlier document readiness.',
+      'Avoided penalties linked to compliance and classification errors.',
+      'Improved documentation accuracy and Saudi import adherence.',
+      'Faster delivery timelines and stronger supply-chain predictability.',
+      'Clearer importer–logistics communication across the clearance cycle.',
+    ],
+    conclusion: [
+      'The Behu Ltd. engagement shows how Clarusto Logistics turns complex Saudi clearance requirements into a controlled, repeatable process. By combining compliance expertise, digital customs integration, and proactive delivery coordination, Clarusto helped convert clearance risk into a more reliable import operation.',
+    ],
+  },
+  {
+    slug: 'customs-clearance-king-abdullah-port-mixed-cargo',
+    title: 'Customs Clearance for Mixed Infrastructure Cargo at King Abdullah Port',
+    category: 'Customs · Mixed Project Cargo Saudi Arabia',
+    client: 'Commercial development project importer',
+    subheading:
+      'Time-sensitive customs clearance for mixed telecom, electrical, and HVAC cargo through King Abdullah Port with SABER, SASO, and ZATCA coordination.',
+    excerpt:
+      'Clarusto cleared a multi-category infrastructure shipment—IP cameras, copper pipes, HVAC components, and optical fibre—through King Abdullah Port without avoidable storage penalties or transit disruption.',
+    result: 'Multi-category clearance · No storage penalties',
+    heroImage: '/projects/king-abdullah-port-customs-hero.jpg',
+    publishedAt: '2026-07-18',
+    location: 'King Abdullah Port → Saudi Arabia',
+    metaTitle: 'King Abdullah Port Mixed Cargo Customs Clearance | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics cleared mixed telecom, electrical, and HVAC infrastructure cargo at King Abdullah Port with SABER, SASO, Fasah, and ZATCA compliance.',
+    ogImage: '/projects/king-abdullah-port-customs-hero.jpg',
+    background: [
+      'Clarusto Logistics supported customs clearance and onward movement of a time-sensitive infrastructure shipment into Saudi Arabia. The consignment included telecom, electrical, and HVAC components such as IP cameras, copper pipes, horn loudspeakers, swirl air outlets, hand volume dampers, and optical fibre cables.',
+      'The cargo formed part of a commercial development project and required careful handling because regulated and non-regulated items sat in the same shipment, each with different compliance pathways.',
+    ],
+    objective: [
+      'Clear a mixed-category shipment in one controlled cycle while meeting ZATCA, SASO/SABER, and Fasah requirements.',
+      'Protect the project timeline by avoiding inspection delays, storage charges, and partial-release disruption within limited free-time windows.',
+    ],
+    objectiveImage: {
+      src: '/projects/king-abdullah-port-customs-cargo.jpg',
+      alt: 'Open containers with mixed infrastructure cargo at King Abdullah Port',
+      caption:
+        'Mixed cargo — telecom, HVAC, and industrial components prepared for clearance.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Multiple product categories in one consignment increased HS-code complexity, certificate requirements, and the risk of partial clearance delays.',
+        activities: [],
+        challenges: [
+          'Multiple product categories within a single shipment.',
+          'Separate HS-code classification for each product line.',
+          'SABER and SASO-related compliance requirements.',
+          'ZATCA customs coordination and Fasah declaration accuracy.',
+          'Limited free time for loading/offloading with penalty exposure after free hours.',
+          'Heavy 40′ container movements constrained by inland routing and weight limits.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto used pre-shipment compliance planning, product-level documentation, and local customs coordination to clear the mixed cargo in one cycle.',
+        activities: [
+          'Pre-shipment compliance planning and SABER pathway assessment.',
+          'Importer-of-Record / local registration alignment where required.',
+          'Product-wise HS-code classification and segmented documentation packs.',
+          'Preparation of commercial invoice, certificate of origin, SABER certificates, and technical datasheets.',
+          'Fasah declaration filing and coordinated inspection with ZATCA.',
+        ],
+        challenges: [],
+        execution: [
+          'Built a product-level document pack before arrival to reduce mismatch risk at the border.',
+          'Filed Fasah declarations with supporting technical and compliance documents.',
+          'Managed duty structure and VAT obligations while coordinating inspection and release.',
+          'Supported onward transit toward the project destination without avoidable dwell.',
+        ],
+        image: {
+          src: '/projects/king-abdullah-port-customs-execution.jpg',
+          alt: 'Customs clearance execution for mixed cargo at King Abdullah Port',
+          caption:
+            'Execution — product-level documentation, Fasah filing, and inspection coordination.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful clearance of a multi-category shipment in a single cycle.',
+      'Compliance with applicable Saudi import and quality requirements.',
+      'Reduced risk of inspection-related delay.',
+      'No disruption to planned onward transit.',
+      'No avoidable storage penalties.',
+    ],
+    outcomesImage: {
+      src: '/projects/king-abdullah-port-customs-results.jpg',
+      alt: 'Cleared mixed infrastructure cargo ready for onward Saudi delivery',
+      caption:
+        'Results — mixed cargo cleared and released for project delivery.',
+    },
+    conclusion: [
+      'This project demonstrates Clarusto Logistics’ ability to manage complex customs clearance in a demanding Saudi regulatory environment. Pre-shipment planning, product-level documentation, and local execution support helped move a time-sensitive infrastructure shipment through King Abdullah Port with minimal disruption.',
+    ],
+  },
+  {
+    slug: 'empty-plastic-bottle-supply-netherlands-uk',
+    title: 'Empty Plastic Bottle Supply from the Netherlands to the UK',
+    category: 'Road Freight · Recycling Supply Chain',
+    client: 'Plastic recycling operator, Worcester (UK)',
+    subheading:
+      'Palletised empty plastic bottle supply from the EU to Worcester with Brexit-aware customs, FTL planning, and damage-free stacking.',
+    excerpt:
+      'Clarusto moved 70 pallets of recycled empty plastic bottles (3,500–3,800 kg) from the Netherlands to Worcester within a 3–5 day window using optimised FTL road freight and controlled palletisation.',
+    result: '70 pallets delivered · No freight damage',
+    heroImage: '/projects/empty-plastic-bottles-nl-uk-hero.png',
+    publishedAt: '2026-07-15',
+    location: 'Netherlands → Worcester, UK',
+    metaTitle: 'Empty Plastic Bottle Supply Netherlands to UK | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics supplied palletised empty plastic bottles from the Netherlands to Worcester, UK with FTL road freight, Brexit customs planning, and damage-free stacking.',
+    ogImage: '/projects/empty-plastic-bottles-nl-uk-hero.png',
+    background: [
+      'A Clarusto partner referral introduced a Worcester-based plastics recycling operator that needed a reliable supply of recycled empty plastic bottles from the EU. Each delivery covered about 70 pallets with a palletised weight of 3,500–3,800 kilograms.',
+      'Clarusto surveyed UK and EU sourcing and transport options, then executed an end-to-end road logistics plan covering collection, border formalities, and timed delivery into the UK production schedule.',
+    ],
+    objective: [
+      'Meet consented delivery windows within a 3–5 day duration.',
+      'Optimise transport cost while protecting bottles from crush, shrink-wrap failure, and deformation.',
+      'Complete effective EU–UK border and customs clearance for a repeatable supply pattern.',
+    ],
+    objectiveImage: {
+      src: '/projects/empty-plastic-bottles-nl-uk-overview.jpg',
+      alt: 'Warehouse overview of palletised empty plastic bottle supply',
+      caption:
+        'Overview — high-volume palletised empty bottle inventory prepared for dispatch.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Lightweight bulk cargo needed dense stacking without damage, while Brexit customs and production deadlines left little margin for delay.',
+        activities: [],
+        challenges: [
+          'Customs complexity following Brexit for EU–UK movements.',
+          'Tight delivery deadlines tied to the client’s production line.',
+          'Bulk-yet-lightweight load density and pallet utilisation risk.',
+          'Stacking and shrink-wrap methods that can deform empty bottles.',
+          'Correct commercial invoicing and product classification.',
+          'Vehicle configuration for efficient loading and offloading.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto used FTL road freight, cubic palletisation, anti-shrink protection, and live tracking to protect quality and schedule.',
+        activities: [
+          'FTL combined-load planning for maximum space utilisation.',
+          'Cubic palletisation and controlled vertical stacking.',
+          'Anti-shrink wrapping to preserve bottle form in transit.',
+          'Export/import declaration packs aligned to EU–UK requirements.',
+          'Route survey, live tracking, and consignee follow-up to the delivery window.',
+        ],
+        challenges: [],
+        execution: [
+          'Selected FTL road freight to balance cost per pallet against transit reliability.',
+          'Engineered stacking patterns that reduced crush risk while improving cube use.',
+          'Completed border documentation ahead of movement to limit holds.',
+          'Monitored transit in real time through to Worcester handover.',
+        ],
+        image: {
+          src: '/projects/empty-plastic-bottles-nl-uk-execution.png',
+          alt: 'Forklift handling palletised empty plastic bottles for UK delivery',
+          caption:
+            'Execution — controlled warehouse handling and FTL dispatch planning.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Improved cost efficiency through planned FTL utilisation.',
+      'Delivery aligned to the client’s production and inventory needs.',
+      'Reduced transport cost via engineered stacking and cube planning.',
+      'No freight damage and a clean customs-cleared EU–UK flow.',
+      'A repeatable model for future recycling inbound supply.',
+    ],
+    outcomesImage: {
+      src: '/projects/empty-plastic-bottles-nl-uk-results.png',
+      alt: 'Successful empty plastic bottle supply delivery into the UK',
+      caption:
+        'Results — damage-free palletised bottles delivered into Worcester.',
+    },
+    conclusion: [
+      'This project shows how Clarusto Logistics combines border readiness, pallet engineering, and timed road freight to keep lightweight bulk recycling inputs moving reliably from the Netherlands into the UK. The same controlled model now supports ongoing partnered supply-chain growth.',
+    ],
+  },
+  {
+    slug: 'dammam-riyadh-container-delivery',
+    title: 'Same-Day Container Delivery from Dammam to Riyadh',
+    category: 'Inland Trucking · Saudi Container Delivery',
+    client: 'Behu Ltd.',
+    subheading:
+      'Single-day inland delivery plan for 4 × 40FT FL and 3 × 40HC containers from Dammam to Riyadh with coordinated port release and trucking.',
+    excerpt:
+      'Clarusto planned and executed a same-day Dammam–Riyadh container delivery for Behu Ltd.—seven containers moved by road across an ~400 km corridor with customs, port, and fleet coordination.',
+    result: '7 containers · Same-day road delivery plan',
+    heroImage: '/projects/dammam-riyadh-container-delivery-hero.jpg',
+    publishedAt: '2026-07-12',
+    location: 'Dammam → Riyadh, Saudi Arabia',
+    metaTitle: 'Dammam to Riyadh Same-Day Container Delivery | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics delivered 4 × 40FT and 3 × 40HC containers from Dammam to Riyadh in a same-day inland trucking plan for Behu Ltd.',
+    ogImage: '/projects/dammam-riyadh-container-delivery-hero.jpg',
+    background: [
+      'Following earlier successful work with Behu Ltd., Clarusto Logistics was asked to plan inland delivery of 4 × 40FT FL and 3 × 40HC containers into Riyadh. Dammam and Jeddah were both considered; the agreed plan focused on Dammam–Riyadh for operational fit.',
+      'The client required delivery in a single day across an estimated 400 km corridor, with port handling, customs release, and trailer capacity tightly sequenced.',
+    ],
+    objective: [
+      'Provide safe, cost-efficient, time-bound delivery within a one-day window.',
+      'Coordinate port discharge, customs release, and road fleet so containers move without avoidable demurrage or detention.',
+      'Maintain live visibility and compliant handling across GCC port and highway conditions.',
+    ],
+    objectiveImage: {
+      src: '/projects/dammam-riyadh-container-delivery-overview.jpg',
+      alt: 'Overview of Dammam to Riyadh inland container delivery planning',
+      caption:
+        'Overview — corridor planning for a same-day multi-container road move.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Port occupancy, paperwork gaps, traffic peaks, and trailer availability all threatened a same-day multi-container handover into Riyadh.',
+        activities: [],
+        challenges: [
+          'Port occupancy and inspection timing delaying container release.',
+          'Documentation gaps creating clearance inefficiency.',
+          'Peak-hour congestion and weather events such as sandstorms on highway corridors.',
+          'Strict GCC and dry-port operating rules affecting timelines.',
+          'Potential shortage of trailers/machinery for simultaneous lift and dispatch.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto combined 40HC and 40FL movements in one fleet plan, staged trailers for shuttle flexibility, and controlled cost exposure across port and trucking charges.',
+        activities: [
+          'Combined transit plan for 40HC and 40FL containers without unnecessary segregation.',
+          'Fleet plan of up to 20 trailers / shuttle model based on route and congestion.',
+          'Avoidance of peak congestion and seasonal surge windows where possible.',
+          'Monitoring for extreme weather and highway closures.',
+          'Clear cost control across port handling, trucking, fuel surcharge, and customs.',
+        ],
+        challenges: [],
+        execution: [
+          'Pre-booked trailer capacity against the release window to protect the same-day plan.',
+          'Assigned customs specialists to accelerate discharge and gate-out.',
+          'Dispatched a hybrid trucking model to absorb traffic variability into Riyadh.',
+          'Tracked movements live through to consignee handover.',
+        ],
+        image: {
+          src: '/projects/dammam-riyadh-container-delivery-execution.png',
+          alt: 'Inland trucking execution for Dammam to Riyadh container delivery',
+          caption:
+            'Execution — staged trailer fleet and live corridor monitoring.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Result-oriented same-day delivery plan for seven containers.',
+      'Optimised resource use through a hybrid trucking model.',
+      'Route survey reduced obstruction risk on the Dammam–Riyadh corridor.',
+      'Specialist customs coordination supported faster discharge and end delivery.',
+      'Controlled exposure to detention and demurrage through timed release.',
+    ],
+    outcomesImage: {
+      src: '/projects/dammam-riyadh-container-delivery-results.png',
+      alt: 'Completed inland container delivery from Dammam into Riyadh',
+      caption:
+        'Results — multi-container road delivery completed under the planned window.',
+    },
+    conclusion: [
+      'Clarusto Logistics turned a demanding same-day inland brief into a controlled Dammam–Riyadh operation. Route planning, customs specialists, and flexible trailer capacity kept Behu Ltd.’s containers moving with clear cost control and minimal disruption.',
+    ],
+  },
+  {
     slug: 'vehicle-import-handling-aqaba-amman-jordan',
     title: 'Vehicle Import Handling and Inland Delivery from Aqaba to Amman',
     category: 'Automotive · EV Import Logistics',
