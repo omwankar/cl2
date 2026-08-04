@@ -9,6 +9,7 @@ import { COMMODITY_CODES_2026_BLOG_RAW } from './blog-post-commodity-codes-2026-
 import { WHAT_DOES_A_FREIGHT_FORWARDER_DO_BLOG_RAW } from './blog-post-what-does-a-freight-forwarder-do-raw';
 import { FREIGHT_ROUTES_UK_SAUDI_ARABIA_BLOG_RAW } from './blog-post-freight-routes-uk-saudi-arabia-raw';
 import { FUTURE_OF_LOGISTICS_DECISIONS_BLOG_RAW } from './blog-post-future-of-logistics-decisions-raw';
+import { DANGEROUS_GOODS_SHIPPING_GUIDE_2026_BLOG_RAW } from './blog-post-dangerous-goods-shipping-guide-2026-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -35,6 +36,38 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '21',
+    slug: 'dangerous-goods-shipping-guide-2026',
+    metaTitle: 'Dangerous Goods Shipping Guide 2026 | UK Compliance | Clarusto Logistics',
+    metaDescription:
+      'Learn how to ship dangerous goods safely in 2026. Understand ADR, IMDG and IATA regulations, packaging, labelling, documentation and compliance requirements.',
+    title: 'Dangerous Goods Shipping Guide 2026: Staying Safe, Compliant and Efficient',
+    excerpt:
+      'Stay compliant with dangerous goods shipping in 2026. Learn the latest ADR, IMDG and IATA regulations, packaging, labelling and documentation requirements.',
+    rawText: DANGEROUS_GOODS_SHIPPING_GUIDE_2026_BLOG_RAW,
+    content: [],
+    date: 'Aug 04, 2026',
+    readTime: '10 min read',
+    category: 'Customs & Compliance',
+    image: '/blog-dangerous-goods-shipping-guide-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Dangerous Goods Shipping',
+      'Dangerous Goods Transport UK',
+      'Hazardous Goods Logistics',
+      'ADR Regulations',
+      'IMDG Code',
+      'IATA Dangerous Goods Regulations',
+      'Lithium Battery Shipping',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '20',
     slug: 'future-of-logistics-decision-intelligence',
