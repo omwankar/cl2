@@ -9,6 +9,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { OrganizationJsonLd } from '@/components/organization-json-ld'
 import { FloatingCallButton } from '@/components/floating-call-button'
+import { MetaPixelRouteTracker } from '@/components/meta-pixel-route-tracker'
 import { PAGE_SEO } from '@/lib/page-seo'
 import { SEO } from '@/lib/seo'
 import './globals.css'
@@ -164,6 +165,7 @@ export default function RootLayout({
 
         {/* Structured Data */}
         <OrganizationJsonLd />
+        <MetaPixelRouteTracker />
 
         {/* Main Content */}
         <main id="main-content">{children}</main>

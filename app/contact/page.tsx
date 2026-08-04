@@ -15,6 +15,7 @@ import {
   UK_OFFICE_LNG,
 } from '@/lib/constants';
 import { OfficeLocationsSection } from '@/components/office-locations-section';
+import { MetaContactLink } from '@/components/meta-contact-link';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -155,24 +156,26 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-amber-500 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-foreground">Phone</p>
-                      <a
+                      <MetaContactLink
                         href={PRIMARY_CONTACT_PHONE_HREF}
+                        contactMethod="phone"
                         className="text-muted-foreground text-sm underline-offset-2 hover:underline"
                       >
                         {PRIMARY_CONTACT_PHONE_DISPLAY}
-                      </a>
+                      </MetaContactLink>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-amber-500 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
-                      <a
+                      <MetaContactLink
                         href={PRIMARY_CONTACT_EMAIL_HREF}
+                        contactMethod="email"
                         className="text-muted-foreground text-sm underline-offset-2 hover:underline"
                       >
                         {PRIMARY_CONTACT_EMAIL}
-                      </a>
+                      </MetaContactLink>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

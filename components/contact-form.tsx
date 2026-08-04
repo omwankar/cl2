@@ -23,6 +23,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { SERVICES } from '@/lib/constants';
+import { trackMetaLead } from '@/lib/meta-pixel';
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, 'First name must be at least 2 characters'),
@@ -59,6 +60,10 @@ export function ContactForm() {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log('Form submitted:', values);
+      trackMetaLead({
+        content_name: 'Contact inquiry',
+        content_category: values.serviceType || 'general',
+      });
       setSubmitStatus('success');
       form.reset();
       // Reset success message after 5 seconds

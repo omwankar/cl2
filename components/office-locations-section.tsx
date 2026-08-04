@@ -10,6 +10,7 @@ import {
   Minus,
   Plus,
 } from 'lucide-react';
+import { trackMetaContact } from '@/lib/meta-pixel';
 
 type OfficeLocation = {
   id: number;
@@ -139,6 +140,12 @@ export function OfficeLocationsSection({
                         {office.phone && (
                           <a
                             href={`tel:${office.phone}`}
+                            onClick={() =>
+                              trackMetaContact({
+                                content_name: 'phone',
+                                content_category: office.city,
+                              })
+                            }
                             className="flex items-start gap-2 underline-offset-2 hover:underline"
                           >
                             <Phone className="mt-0.5 h-4 w-4 text-white/80" />
@@ -149,6 +156,12 @@ export function OfficeLocationsSection({
                         {office.email && (
                           <a
                             href={`mailto:${office.email}`}
+                            onClick={() =>
+                              trackMetaContact({
+                                content_name: 'email',
+                                content_category: office.city,
+                              })
+                            }
                             className="flex items-start gap-2 underline-offset-2 hover:underline"
                           >
                             <Mail className="mt-0.5 h-4 w-4 text-white/80" />
