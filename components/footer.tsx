@@ -104,14 +104,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/clarusto-logistics-brochure.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-500 transition-colors"
-                >
-                  Company Brochure (PDF)
-                </a>
+                <Link href="/brochure" className="hover:text-amber-500 transition-colors">
+                  Company Brochure
+                </Link>
               </li>
             </ul>
           </div>

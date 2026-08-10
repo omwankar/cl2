@@ -141,5 +141,6 @@ export const seoRoutes = [
   '/contract-logistics-uk',
   '/container-logistics-uk',
   '/faq',
+  '/brochure',
   '/supply-chain-management',
 ];
