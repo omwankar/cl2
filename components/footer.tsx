@@ -103,6 +103,16 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <a
+                  href="/clarusto-logistics-brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-500 transition-colors"
+                >
+                  Company Brochure (PDF)
+                </a>
+              </li>
             </ul>
           </div>
 
