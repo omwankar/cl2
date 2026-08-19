@@ -10,6 +10,8 @@ import { WHAT_DOES_A_FREIGHT_FORWARDER_DO_BLOG_RAW } from './blog-post-what-does
 import { FREIGHT_ROUTES_UK_SAUDI_ARABIA_BLOG_RAW } from './blog-post-freight-routes-uk-saudi-arabia-raw';
 import { FUTURE_OF_LOGISTICS_DECISIONS_BLOG_RAW } from './blog-post-future-of-logistics-decisions-raw';
 import { DANGEROUS_GOODS_SHIPPING_GUIDE_2026_BLOG_RAW } from './blog-post-dangerous-goods-shipping-guide-2026-raw';
+import { OIL_GAS_LOGISTICS_CHALLENGES_BLOG_RAW } from './blog-post-oil-gas-logistics-challenges-raw';
+import { JIT_LOGISTICS_MANUFACTURING_CHALLENGES_BLOG_RAW } from './blog-post-jit-logistics-manufacturing-challenges-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -36,6 +38,70 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '23',
+    slug: 'logistics-challenges-in-oil-gas-projects',
+    metaTitle: 'Oil & Gas Project Logistics Challenges | Clarusto Logistics',
+    metaDescription:
+      'Explore oil & gas logistics challenges including heavy cargo, route planning, customs, multimodal transport, safety and time-critical project delivery.',
+    title:
+      'Logistics Challenges in Oil & Gas Projects: Managing Complex Cargo from Origin to Site',
+    excerpt:
+      'Oil and gas projects involve complex logistics, from oversized equipment and specialist handling to customs, multimodal transport and demanding project schedules. Discover the key challenges and how effective project logistics planning can help keep critical cargo moving safely and efficiently.',
+    rawText: OIL_GAS_LOGISTICS_CHALLENGES_BLOG_RAW,
+    content: [],
+    date: 'Aug 19, 2026',
+    readTime: '10 min read',
+    category: 'Project Cargo',
+    image: '/blog-oil-gas-logistics-challenges-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Oil and Gas Logistics',
+      'Project Cargo',
+      'Heavy Lift Logistics',
+      'Multimodal Transport',
+      'Energy Sector Logistics',
+      'Oversized Cargo',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
+  {
+    id: '22',
+    slug: 'jit-logistics-manufacturing-challenges',
+    metaTitle: '5 JIT Logistics Challenges Disrupting Manufacturing | Clarusto',
+    metaDescription:
+      'Discover 5 JIT logistics challenges that can disrupt manufacturing and learn how UK businesses can improve delivery reliability, visibility and resilience.',
+    title:
+      '5 Logistics Challenges That Can Disrupt Just-in-Time Manufacturing — And How to Stay Ahead',
+    excerpt:
+      'Just-in-time manufacturing depends on precise, reliable logistics. Discover five key challenges that can disrupt production and practical ways manufacturers can build greater supply chain resilience.',
+    rawText: JIT_LOGISTICS_MANUFACTURING_CHALLENGES_BLOG_RAW,
+    content: [],
+    date: 'Aug 19, 2026',
+    readTime: '8 min read',
+    category: 'Supply Chain',
+    image: '/blog-jit-logistics-manufacturing-challenges-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'JIT Logistics',
+      'Just In Time Manufacturing',
+      'Supply Chain Resilience',
+      'Manufacturing Logistics',
+      'Customs Clearance',
+      'Shipment Visibility',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '21',
     slug: 'dangerous-goods-shipping-guide-2026',
