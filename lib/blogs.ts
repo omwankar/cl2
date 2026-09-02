@@ -12,6 +12,8 @@ import { FUTURE_OF_LOGISTICS_DECISIONS_BLOG_RAW } from './blog-post-future-of-lo
 import { DANGEROUS_GOODS_SHIPPING_GUIDE_2026_BLOG_RAW } from './blog-post-dangerous-goods-shipping-guide-2026-raw';
 import { OIL_GAS_LOGISTICS_CHALLENGES_BLOG_RAW } from './blog-post-oil-gas-logistics-challenges-raw';
 import { JIT_LOGISTICS_MANUFACTURING_CHALLENGES_BLOG_RAW } from './blog-post-jit-logistics-manufacturing-challenges-raw';
+import { FCL_VS_LCL_SHIPPING_BLOG_RAW } from './blog-post-fcl-vs-lcl-shipping-raw';
+import { CARGO_INSURANCE_EXPLAINED_UK_BLOG_RAW } from './blog-post-cargo-insurance-explained-uk-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -38,6 +40,68 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '25',
+    slug: 'fcl-vs-lcl-shipping-guide',
+    metaTitle: 'FCL vs LCL Shipping: Complete Guide for Businesses',
+    metaDescription:
+      'Understand FCL vs LCL shipping, including costs, transit times, benefits and when to choose each option for international freight.',
+    title: 'FCL vs LCL Shipping: Which Is Right for Your Business?',
+    excerpt:
+      'Choosing between Full Container Load (FCL) and Less than Container Load (LCL) affects cost, transit time and cargo handling. Learn the key differences and how to decide which ocean freight option fits your shipment.',
+    rawText: FCL_VS_LCL_SHIPPING_BLOG_RAW,
+    content: [],
+    date: 'Sep 02, 2026',
+    readTime: '8 min read',
+    category: 'International Shipping',
+    image: '/blog-fcl-vs-lcl-shipping-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'FCL vs LCL Shipping',
+      'FCL Shipping',
+      'LCL Shipping',
+      'Full Container Load',
+      'Less than Container Load',
+      'Ocean Freight',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
+  {
+    id: '24',
+    slug: 'cargo-insurance-explained-uk',
+    metaTitle: 'Cargo Insurance Explained: UK Importer & Exporter Guide',
+    metaDescription:
+      'Learn how cargo insurance works in the UK, what it covers, how Incoterms affect insurance and how importers and exporters can protect goods in transit.',
+    title: 'Cargo Insurance Explained: A UK Guide for Importers & Exporters',
+    excerpt:
+      'Cargo insurance can protect UK businesses against covered loss or damage to goods in transit. Learn what cargo insurance covers, how Incoterms affect insurance and what importers and exporters should check before shipping.',
+    rawText: CARGO_INSURANCE_EXPLAINED_UK_BLOG_RAW,
+    content: [],
+    date: 'Sep 02, 2026',
+    readTime: '9 min read',
+    category: 'Customs & Compliance',
+    image: '/blog-cargo-insurance-explained-uk-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Cargo Insurance UK',
+      'Freight Insurance UK',
+      'Shipping Insurance UK',
+      'Marine Cargo Insurance',
+      'Incoterms Insurance',
+      'Goods in Transit Insurance',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '23',
     slug: 'logistics-challenges-in-oil-gas-projects',
