@@ -14,6 +14,7 @@ import { OIL_GAS_LOGISTICS_CHALLENGES_BLOG_RAW } from './blog-post-oil-gas-logis
 import { JIT_LOGISTICS_MANUFACTURING_CHALLENGES_BLOG_RAW } from './blog-post-jit-logistics-manufacturing-challenges-raw';
 import { FCL_VS_LCL_SHIPPING_BLOG_RAW } from './blog-post-fcl-vs-lcl-shipping-raw';
 import { CARGO_INSURANCE_EXPLAINED_UK_BLOG_RAW } from './blog-post-cargo-insurance-explained-uk-raw';
+import { OCEAN_FREIGHT_SHIPPING_GUIDE_BLOG_RAW } from './blog-post-ocean-freight-shipping-guide-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -40,6 +41,37 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '26',
+    slug: 'ocean-freight-shipping-guide',
+    metaTitle: 'Ocean Freight Shipping: Complete Guide for Importers & Exporters',
+    metaDescription:
+      'Learn how ocean freight shipping works, including costs, containers, customs, transit times and documentation. A practical guide for importers and exporters.',
+    title: 'Ocean Freight Shipping: A Complete Guide for Importers and Exporters',
+    excerpt:
+      'Ocean freight shipping is a reliable and cost-effective way to transport large volumes of goods across international markets. Discover how sea freight works, shipping costs, container options, documentation, customs clearance, transit times and how to choose the right ocean freight partner.',
+    rawText: OCEAN_FREIGHT_SHIPPING_GUIDE_BLOG_RAW,
+    content: [],
+    date: 'Sep 10, 2026',
+    readTime: '11 min read',
+    category: 'International Shipping',
+    image: '/blog-ocean-freight-shipping-guide-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Ocean Freight Shipping',
+      'Sea Freight Shipping',
+      'Ocean Freight Services',
+      'International Ocean Freight',
+      'Ocean Freight Forwarding',
+      'Ocean Freight Costs',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '25',
     slug: 'fcl-vs-lcl-shipping-guide',
