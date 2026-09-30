@@ -15,6 +15,7 @@ import { JIT_LOGISTICS_MANUFACTURING_CHALLENGES_BLOG_RAW } from './blog-post-jit
 import { FCL_VS_LCL_SHIPPING_BLOG_RAW } from './blog-post-fcl-vs-lcl-shipping-raw';
 import { CARGO_INSURANCE_EXPLAINED_UK_BLOG_RAW } from './blog-post-cargo-insurance-explained-uk-raw';
 import { OCEAN_FREIGHT_SHIPPING_GUIDE_BLOG_RAW } from './blog-post-ocean-freight-shipping-guide-raw';
+import { TRUE_COST_OF_WAREHOUSING_BLOG_RAW } from './blog-post-true-cost-of-warehousing-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -41,6 +42,38 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '27',
+    slug: 'true-cost-of-warehousing',
+    metaTitle: 'The True Cost of Warehousing: It’s More Than Rent',
+    metaDescription:
+      'Discover the true cost of warehousing, from rent and labour to inventory, handling, transport, technology and wider supply-chain costs.',
+    title: 'The True Cost of Warehousing: It’s More Than Rent',
+    excerpt:
+      'Warehousing costs go far beyond rent. From labour and handling to inventory, utilities, insurance, technology and transportation, every warehouse decision can affect the wider supply chain. Discover how to calculate the true cost of warehousing and why smarter logistics planning can improve efficiency, visibility and overall supply-chain performance.',
+    rawText: TRUE_COST_OF_WAREHOUSING_BLOG_RAW,
+    content: [],
+    date: 'Sep 30, 2026',
+    readTime: '10 min read',
+    category: 'Warehousing & Supply Chain',
+    image: '/blog-true-cost-of-warehousing-2026.jpg',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Warehousing',
+      'Supply Chain',
+      'Logistics',
+      'Inventory Management',
+      'Freight Forwarding',
+      'Warehouse Management',
+      'Warehousing Costs',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '26',
     slug: 'ocean-freight-shipping-guide',
