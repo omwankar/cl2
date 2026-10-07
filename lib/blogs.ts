@@ -16,6 +16,7 @@ import { FCL_VS_LCL_SHIPPING_BLOG_RAW } from './blog-post-fcl-vs-lcl-shipping-ra
 import { CARGO_INSURANCE_EXPLAINED_UK_BLOG_RAW } from './blog-post-cargo-insurance-explained-uk-raw';
 import { OCEAN_FREIGHT_SHIPPING_GUIDE_BLOG_RAW } from './blog-post-ocean-freight-shipping-guide-raw';
 import { TRUE_COST_OF_WAREHOUSING_BLOG_RAW } from './blog-post-true-cost-of-warehousing-raw';
+import { POUCH_SORTATION_MODERN_WAREHOUSING_BLOG_RAW } from './blog-post-pouch-sortation-modern-warehousing-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -42,6 +43,37 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '28',
+    slug: 'pouch-sortation-modern-warehousing',
+    metaTitle: 'Beyond Conveyors: How Pouch Sortation Is Changing Warehousing',
+    metaDescription:
+      'Discover how pouch sortation can improve warehouse efficiency, space utilisation, order fulfilment and returns while supporting smarter supply chains.',
+    title: 'Beyond Conveyors: How Pouch Sortation Is Changing Modern Warehousing',
+    excerpt:
+      'Pouch sortation is changing how modern warehouses move, buffer and sort individual items. Discover how this automated approach can improve warehouse space utilisation, fulfilment, returns and operational efficiency—and where it fits within a connected supply chain.',
+    rawText: POUCH_SORTATION_MODERN_WAREHOUSING_BLOG_RAW,
+    content: [],
+    date: 'Oct 07, 2026',
+    readTime: '8 min read',
+    category: 'Warehousing & Supply Chain',
+    image: '/blog-pouch-sortation-modern-warehousing-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Pouch Sortation',
+      'Warehouse Automation',
+      'Pouch Sorter',
+      'E-commerce Fulfilment',
+      'Warehouse Efficiency',
+      'Modern Warehousing',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '27',
     slug: 'true-cost-of-warehousing',
