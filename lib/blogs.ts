@@ -17,6 +17,7 @@ import { CARGO_INSURANCE_EXPLAINED_UK_BLOG_RAW } from './blog-post-cargo-insuran
 import { OCEAN_FREIGHT_SHIPPING_GUIDE_BLOG_RAW } from './blog-post-ocean-freight-shipping-guide-raw';
 import { TRUE_COST_OF_WAREHOUSING_BLOG_RAW } from './blog-post-true-cost-of-warehousing-raw';
 import { POUCH_SORTATION_MODERN_WAREHOUSING_BLOG_RAW } from './blog-post-pouch-sortation-modern-warehousing-raw';
+import { HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW } from './blog-post-hs-code-errors-quarterly-revenue-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -43,6 +44,37 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '29',
+    slug: 'hs-code-errors-quarterly-revenue',
+    metaTitle: 'HS Code Errors: How One Mistake Can Impact Quarterly Revenue',
+    metaDescription:
+      'Discover how incorrect HS codes can increase customs duty, trigger penalties, delay shipments and damage quarterly profits. Learn how to reduce classification risks.',
+    title: "One Incorrect HS Code Can Affect an Entire Quarter's Revenue",
+    excerpt:
+      'One incorrect HS code can do more than delay a shipment. It can create repeated duty discrepancies, unexpected compliance costs and pressure on quarterly margins. Discover why classification accuracy matters in 2026 and five practical steps importers can take to reduce risk.',
+    rawText: HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW,
+    content: [],
+    date: 'Oct 14, 2026',
+    readTime: '9 min read',
+    category: 'Customs & Compliance',
+    image: '/blog-hs-code-errors-quarterly-revenue-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'HS Code Errors',
+      'HS Code Classification',
+      'UK Customs Compliance',
+      'Commodity Code Errors',
+      'Customs Duty',
+      'Customs Clearance',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '28',
     slug: 'pouch-sortation-modern-warehousing',

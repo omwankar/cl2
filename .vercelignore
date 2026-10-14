@@ -1,0 +1,9 @@
+tmp
+node_modules
+.next
+.git
+.snowflake
+.v0-trash
+*.log
+.DS_Store
+.env*.local
