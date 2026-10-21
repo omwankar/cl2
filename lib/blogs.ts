@@ -18,6 +18,7 @@ import { OCEAN_FREIGHT_SHIPPING_GUIDE_BLOG_RAW } from './blog-post-ocean-freight
 import { TRUE_COST_OF_WAREHOUSING_BLOG_RAW } from './blog-post-true-cost-of-warehousing-raw';
 import { POUCH_SORTATION_MODERN_WAREHOUSING_BLOG_RAW } from './blog-post-pouch-sortation-modern-warehousing-raw';
 import { HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW } from './blog-post-hs-code-errors-quarterly-revenue-raw';
+import { HOW_TO_CALCULATE_LANDED_COST_IMPORTED_GOODS_BLOG_RAW } from './blog-post-how-to-calculate-landed-cost-imported-goods-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -44,6 +45,39 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '30',
+    slug: 'how-to-calculate-landed-cost-imported-goods',
+    metaTitle: "Landed Cost Calculation: A UK Importer's Guide",
+    metaDescription:
+      'Learn how to calculate landed cost for UK imports, including freight, customs duty, import VAT and destination charges.',
+    title: 'How to Calculate the Total Landed Cost of Imported Goods',
+    excerpt:
+      'Landed cost is more than the supplier invoice. Learn how to calculate the total cost of importing into the UK, including freight, insurance, customs duty, import VAT, clearance and delivery — with a worked example and practical checklist.',
+    rawText: HOW_TO_CALCULATE_LANDED_COST_IMPORTED_GOODS_BLOG_RAW,
+    content: [],
+    date: 'Oct 21, 2026',
+    readTime: '8 min read',
+    category: 'Import & Export Guides',
+    image: '/blog-total-landed-cost-imported-goods-2026.jpg',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Landed Cost',
+      'Import Cost Planning',
+      'UK Imports',
+      'Customs Duty',
+      'Import VAT',
+      'Freight Forwarding',
+      'Customs Clearance',
+      'International Logistics',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '29',
     slug: 'hs-code-errors-quarterly-revenue',
