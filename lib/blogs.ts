@@ -19,6 +19,7 @@ import { TRUE_COST_OF_WAREHOUSING_BLOG_RAW } from './blog-post-true-cost-of-ware
 import { POUCH_SORTATION_MODERN_WAREHOUSING_BLOG_RAW } from './blog-post-pouch-sortation-modern-warehousing-raw';
 import { HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW } from './blog-post-hs-code-errors-quarterly-revenue-raw';
 import { HOW_TO_CALCULATE_LANDED_COST_IMPORTED_GOODS_BLOG_RAW } from './blog-post-how-to-calculate-landed-cost-imported-goods-raw';
+import { PHARMACEUTICAL_FREIGHT_COMPLIANCE_BLOG_RAW } from './blog-post-pharmaceutical-freight-compliance-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -45,6 +46,39 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '31',
+    slug: 'pharmaceutical-freight-compliance',
+    metaTitle:
+      'Pharmaceutical Freight Compliance: The Hidden Risks of Cold Chain Logistics',
+    metaDescription:
+      'Pharmaceutical cold chain logistics is growing, but transportation risks remain. Explore the data, GDP requirements and freight strategies protecting medicines worldwide.',
+    title:
+      'Pharmaceutical Freight Compliance: The Hidden Cost of Getting the Cold Chain Wrong',
+    excerpt:
+      'As temperature-sensitive medicines move through more complex international supply chains, coordinated handling, monitoring and contingency planning are essential to protect product quality.',
+    rawText: PHARMACEUTICAL_FREIGHT_COMPLIANCE_BLOG_RAW,
+    content: [],
+    date: 'Oct 26, 2026',
+    readTime: '10 min read',
+    category: 'Pharmaceutical Logistics',
+    image: '/blog-supply-chain.jpg',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Pharmaceutical Logistics',
+      'Pharmaceutical Freight Compliance',
+      'GDP Compliance',
+      'Pharmaceutical Cold Chain',
+      'Temperature-Controlled Transport',
+      'Healthcare Supply Chain',
+      'International Freight Forwarding',
+      'Pharmaceutical Shipping',
+    ],
+    featured: true,
+  },
   {
     id: '30',
     slug: 'how-to-calculate-landed-cost-imported-goods',
