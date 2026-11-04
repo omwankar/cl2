@@ -20,6 +20,7 @@ import { POUCH_SORTATION_MODERN_WAREHOUSING_BLOG_RAW } from './blog-post-pouch-s
 import { HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW } from './blog-post-hs-code-errors-quarterly-revenue-raw';
 import { HOW_TO_CALCULATE_LANDED_COST_IMPORTED_GOODS_BLOG_RAW } from './blog-post-how-to-calculate-landed-cost-imported-goods-raw';
 import { PHARMACEUTICAL_FREIGHT_COMPLIANCE_BLOG_RAW } from './blog-post-pharmaceutical-freight-compliance-raw';
+import { SUPPLY_CHAIN_RESILIENCE_KPIS_BLOG_RAW } from './blog-post-supply-chain-resilience-kpis-raw';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -46,6 +47,42 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '32',
+    slug: 'supply-chain-resilience-kpis',
+    metaTitle: '9 Resilience KPIs Every Supply Chain Should Track',
+    metaDescription:
+      'Discover 9 supply chain resilience KPIs to measure disruption risks, supplier reliability, recovery time and logistics continuity in 2026.',
+    title:
+      '9 Resilience KPIs Every Supply Chain Should Track: Measuring the Ability to Withstand Disruption',
+    excerpt:
+      'Efficiency shows how your supply chain performs on a normal day. Resilience reveals what happens when disruption strikes. Explore nine essential KPIs to assess vulnerabilities, measure recovery and build a supply chain better prepared for uncertainty.',
+    rawText: SUPPLY_CHAIN_RESILIENCE_KPIS_BLOG_RAW,
+    content: [],
+    date: 'Nov 04, 2026',
+    readTime: '10 min read',
+    category: 'Supply Chain Management',
+    image: '/blog-supply-chain-resilience-kpis-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'Supply Chain Resilience',
+      'Supply Chain Management',
+      'Logistics',
+      'Risk Management',
+      'Supply Chain KPIs',
+      'Freight Forwarding',
+      'Global Trade',
+      'Logistics Strategy',
+      'Business Continuity',
+      'Supply Chain Risk',
+      'Clarusto Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '31',
     slug: 'pharmaceutical-freight-compliance',
