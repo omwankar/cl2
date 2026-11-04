@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, CalendarDays, Clock3, User } from 'lucide-react';
 import type { BlogPost } from '@/lib/blogs';
-import { SITE_LAST_UPDATED_DISPLAY } from '@/lib/site-faqs';
 import { ResponsiveBlogImage } from '@/components/blog/ResponsiveBlogImage';
 
 type BlogHeroProps = {
@@ -45,9 +44,6 @@ export function BlogHero({ post }: BlogHeroProps) {
             <div className="inline-flex items-center gap-2">
               <Clock3 className="w-4 h-4" />
               <span>{post.readTime}</span>
-            </div>
-            <div className="inline-flex items-center gap-2 text-amber-200/90">
-              <span>Last updated: {SITE_LAST_UPDATED_DISPLAY}</span>
             </div>
           </div>
         </div>

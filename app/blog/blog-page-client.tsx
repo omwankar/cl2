@@ -27,29 +27,60 @@ type BlogPageClientProps = {
   initialPosts: BlogPost[];
 };
 
-const CATEGORY_ITEMS = [
-  { label: 'All Posts', icon: Globe, emoji: '🌍' },
-  { label: 'Freight & Shipping', icon: TrendingUp, emoji: '🚚' },
-  { label: 'Warehousing', icon: Package, emoji: '📦' },
-  { label: 'Air Cargo', icon: Plane, emoji: '✈️' },
-  { label: 'Ocean Freight', icon: Ship, emoji: '🚢' },
-  { label: 'Supply Chain', icon: Link2, emoji: '🔗' },
-  { label: 'Industry News', icon: Newspaper, emoji: '📊' },
-  { label: 'Tips & Guides', icon: Lightbulb, emoji: '💡' },
-  { label: 'Sustainability', icon: Leaf, emoji: '🌱' },
-  { label: 'Supply Chain & Logistics Insights', icon: Newspaper, emoji: '📦' },
-] as const;
+type CategoryItem = {
+  label: string;
+  icon: typeof Globe;
+  emoji: string;
+};
+
+const ALL_POSTS_CATEGORY: CategoryItem = {
+  label: 'All Posts',
+  icon: Globe,
+  emoji: '🌍',
+};
+
+const CATEGORY_META: Record<string, Omit<CategoryItem, 'label'>> = {
+  'Freight & Shipping': { icon: TrendingUp, emoji: '🚚' },
+  'Freight Forwarding': { icon: TrendingUp, emoji: '🚚' },
+  'International Shipping': { icon: Ship, emoji: '🚢' },
+  'Ocean Freight': { icon: Ship, emoji: '🚢' },
+  'Air Cargo': { icon: Plane, emoji: '✈️' },
+  Warehousing: { icon: Package, emoji: '📦' },
+  'Warehousing & Supply Chain': { icon: Package, emoji: '📦' },
+  'Supply Chain': { icon: Link2, emoji: '🔗' },
+  'Supply Chain Management': { icon: Link2, emoji: '🔗' },
+  'Supply Chain & Logistics Insights': { icon: Newspaper, emoji: '📦' },
+  'Customs & Compliance': { icon: Newspaper, emoji: '📋' },
+  'UK Trade & Compliance': { icon: Newspaper, emoji: '📋' },
+  'Import & Export Guides': { icon: Lightbulb, emoji: '💡' },
+  'Tips & Guides': { icon: Lightbulb, emoji: '💡' },
+  'Industry News': { icon: Newspaper, emoji: '📊' },
+  Sustainability: { icon: Leaf, emoji: '🌱' },
+  'Pharmaceutical Logistics': { icon: Package, emoji: '💊' },
+  'Project Cargo': { icon: Package, emoji: '📦' },
+};
+
+const DEFAULT_CATEGORY_META = { icon: Newspaper, emoji: '📰' };
 
 const categoryColors: Record<string, string> = {
   'Freight & Shipping': 'bg-orange-100 text-orange-700',
+  'Freight Forwarding': 'bg-orange-100 text-orange-700',
+  'International Shipping': 'bg-cyan-100 text-cyan-700',
   Warehousing: 'bg-blue-100 text-blue-700',
+  'Warehousing & Supply Chain': 'bg-blue-100 text-blue-700',
   'Air Cargo': 'bg-violet-100 text-violet-700',
   'Ocean Freight': 'bg-cyan-100 text-cyan-700',
   'Supply Chain': 'bg-indigo-100 text-indigo-700',
+  'Supply Chain Management': 'bg-indigo-100 text-indigo-700',
   'Industry News': 'bg-emerald-100 text-emerald-700',
   'Tips & Guides': 'bg-amber-100 text-amber-700',
+  'Import & Export Guides': 'bg-amber-100 text-amber-700',
   Sustainability: 'bg-green-100 text-green-700',
   'Supply Chain & Logistics Insights': 'bg-slate-100 text-slate-700',
+  'Customs & Compliance': 'bg-rose-100 text-rose-700',
+  'UK Trade & Compliance': 'bg-rose-100 text-rose-700',
+  'Pharmaceutical Logistics': 'bg-teal-100 text-teal-700',
+  'Project Cargo': 'bg-sky-100 text-sky-700',
 };
 
 const heroTitleWords = 'Insights That Move Your Business Forward'.split(' ');
@@ -94,6 +125,24 @@ export function BlogPageClient({
   const shipmentsCount = useCountUp(10000, statsVisible, 1800);
   const articlesCount = useCountUp(sortedPosts.length, statsVisible, 1800);
   const onTimeCount = useCountUp(98, statsVisible, 1800);
+
+  const categoryItems = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of sortedPosts) {
+      const category = post.category?.trim();
+      if (!category) continue;
+      counts.set(category, (counts.get(category) ?? 0) + 1);
+    }
+
+    const dynamicCategories = Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([label]) => {
+        const meta = CATEGORY_META[label] ?? DEFAULT_CATEGORY_META;
+        return { label, icon: meta.icon, emoji: meta.emoji } satisfies CategoryItem;
+      });
+
+    return [ALL_POSTS_CATEGORY, ...dynamicCategories];
+  }, [sortedPosts]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -141,14 +190,14 @@ export function BlogPageClient({
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { 'All Posts': sortedPosts.length };
-    for (const category of CATEGORY_ITEMS) {
+    for (const category of categoryItems) {
       if (category.label === 'All Posts') continue;
       counts[category.label] = sortedPosts.filter(
         (post) => post.category === category.label
       ).length;
     }
     return counts;
-  }, [sortedPosts]);
+  }, [categoryItems, sortedPosts]);
 
   const resetFilters = () => {
     setActiveCategory('All Posts');
@@ -274,7 +323,7 @@ export function BlogPageClient({
       <section className="sticky top-14 z-30 border-y border-slate-200 bg-[#F5F5F0]/95 max-md:backdrop-blur-none md:backdrop-blur">
         <div className="app-container py-3">
           <div className="hide-scrollbar flex gap-2 overflow-x-auto pb-1">
-            {CATEGORY_ITEMS.map((category) => {
+            {categoryItems.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.label;
               return (
@@ -515,7 +564,7 @@ export function BlogPageClient({
             <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
               <h3 className="font-bold text-lg mb-4">Categories</h3>
               <div className="space-y-2">
-                {CATEGORY_ITEMS.map((category) => (
+                {categoryItems.map((category) => (
                   <button
                     key={category.label}
                     type="button"
@@ -527,8 +576,8 @@ export function BlogPageClient({
                     }`}
                     aria-label={`Switch to ${category.label}`}
                   >
-                    <span>{category.label}</span>
-                    <span className="font-semibold text-slate-500">
+                    <span className="text-left pr-3">{category.label}</span>
+                    <span className="font-semibold text-slate-500 tabular-nums">
                       {categoryCounts[category.label] ?? 0}
                     </span>
                   </button>

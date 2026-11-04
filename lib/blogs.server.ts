@@ -3,11 +3,11 @@ import type { BlogPost } from './blogs';
 import { BLOG_POSTS } from './blogs';
 import { readBlogData } from './blog-storage';
 import { filterPublishedBlogs, isBlogPublished } from './blog-publish';
+import { getBlogTimestamp } from './blog-dates';
 import { generateSlugFromTitle } from './blog-parser';
 
 function getPostTimestamp(date: string): number {
-  const parsed = Date.parse(date);
-  return Number.isNaN(parsed) ? 0 : parsed;
+  return getBlogTimestamp(date);
 }
 
 export async function getAllBlogs(): Promise<BlogPost[]> {

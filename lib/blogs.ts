@@ -21,6 +21,7 @@ import { HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW } from './blog-post-hs-code-e
 import { HOW_TO_CALCULATE_LANDED_COST_IMPORTED_GOODS_BLOG_RAW } from './blog-post-how-to-calculate-landed-cost-imported-goods-raw';
 import { PHARMACEUTICAL_FREIGHT_COMPLIANCE_BLOG_RAW } from './blog-post-pharmaceutical-freight-compliance-raw';
 import { SUPPLY_CHAIN_RESILIENCE_KPIS_BLOG_RAW } from './blog-post-supply-chain-resilience-kpis-raw';
+import { getBlogTimestamp } from './blog-dates';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
 export type BlogPost = {
@@ -1212,8 +1213,7 @@ The UK Global Tariff and EU Common External Tariff underwent significant nomencl
 ];
 
 function getPostTimestamp(date: string): number {
-  const parsed = Date.parse(date);
-  return Number.isNaN(parsed) ? 0 : parsed;
+  return getBlogTimestamp(date);
 }
 
 export function getAllBlogs(): BlogPost[] {

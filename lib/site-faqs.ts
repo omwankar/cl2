@@ -4,8 +4,8 @@ export type SiteFaq = {
 };
 
 /** Visible site-wide last updated date (ISO + display). Refresh monthly per GEO audit. */
-export const SITE_LAST_UPDATED = '2026-05-22';
-export const SITE_LAST_UPDATED_DISPLAY = '22 May 2026';
+export const SITE_LAST_UPDATED = '2026-11-04';
+export const SITE_LAST_UPDATED_DISPLAY = '4 Nov 2026';
 
 export const HOMEPAGE_FAQS: SiteFaq[] = [
   {

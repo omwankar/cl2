@@ -9,7 +9,7 @@ import {
   INTERNATIONAL_SHIPPING_HOW_TO,
   INTERNATIONAL_SHIPPING_SLUG,
 } from '@/lib/blog-how-to';
-import { SITE_LAST_UPDATED } from '@/lib/site-faqs';
+import { blogDateToIso } from '@/lib/blog-dates';
 import { BlogHero } from '@/components/blog/BlogHero';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import {
@@ -66,7 +66,7 @@ export async function generateMetadata({
     ],
     openGraphType: 'article',
     locale: 'en-GB',
-    modifiedTime: `${SITE_LAST_UPDATED}T00:00:00.000Z`,
+    modifiedTime: blogDateToIso(post.date),
     exactTitle: Boolean(post.metaTitle),
   });
 }
@@ -123,8 +123,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           url: absoluteUrl('/clarusto-logo-dark.png'),
         },
       },
-      datePublished: new Date(post.date).toISOString(),
-      dateModified: `${SITE_LAST_UPDATED}T00:00:00.000Z`,
+      datePublished: blogDateToIso(post.date),
+      dateModified: blogDateToIso(post.date),
       description: post.metaDescription ?? parsedDescription,
       keywords: post.tags.map((tag) => tag.replace(/^#/, '')).join(', '),
       inLanguage: 'en-GB',
