@@ -16,8 +16,7 @@ import {
   generateSlugFromTitle,
   parseRawBlogText,
 } from '@/lib/blog-parser';
-import { BlogSection } from '@/components/blog/BlogSection';
-import { FAQSection } from '@/components/blog/FAQSection';
+import { BlogArticleBody } from '@/components/blog/BlogArticleBody';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,11 +48,16 @@ export async function generateMetadata({
 
   const rawInput = post.rawText ?? `${post.title}\n\n${post.content.join('\n\n')}`;
   const parsed = parseRawBlogText(rawInput);
+  const firstBodyText = parsed.blocks.find(
+    (block) =>
+      block.type === 'standfirst' ||
+      block.type === 'p' ||
+      block.type === 'lead'
+  );
   const parsedDescription =
-    parsed.sections
-      .flatMap((section) => section.content ?? [])
-      .find(Boolean)
-      ?.slice(0, 180) ?? post.excerpt;
+    (firstBodyText && 'text' in firstBodyText
+      ? firstBodyText.text.slice(0, 180)
+      : null) ?? post.excerpt;
 
   return SEO({
     title: post.metaTitle ?? `${post.title} | Clarusto Logistics`,
@@ -83,11 +87,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const rawInput = post.rawText ?? `${post.title}\n\n${post.content.join('\n\n')}`;
   const parsed = parseRawBlogText(rawInput);
+  const firstBodyText = parsed.blocks.find(
+    (block) =>
+      block.type === 'standfirst' ||
+      block.type === 'p' ||
+      block.type === 'lead'
+  );
   const parsedDescription =
-    parsed.sections
-      .flatMap((section) => section.content ?? [])
-      .find(Boolean)
-      ?.slice(0, 180) ?? post.excerpt;
+    (firstBodyText && 'text' in firstBodyText
+      ? firstBodyText.text.slice(0, 180)
+      : null) ?? post.excerpt;
 
   const relatedPosts = blogs.filter((item) => item.slug !== post.slug)
     .sort((a, b) => {
@@ -177,13 +186,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="bg-[#F5F5F0]">
         <BlogHero post={{ ...post, title: parsed.title, excerpt: post.excerpt }} />
         <section className="pt-28 pb-12 md:pb-16">
-          <div className="app-container max-w-6xl grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10">
-            <div className="space-y-6">
-              {parsed.sections.map((section, index) => (
-                <BlogSection key={`${section.heading}-${index}`} section={section} />
-              ))}
-              <FAQSection faqs={parsed.faqs} />
-            </div>
+          <div className="app-container max-w-6xl grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-10">
+            <BlogArticleBody blocks={parsed.blocks} faqs={parsed.faqs} />
             <BlogSidebar post={post} relatedPosts={relatedPosts} />
           </div>
         </section>

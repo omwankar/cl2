@@ -7,7 +7,7 @@ const SOURCE_WITH_URL =
 const BARE_URL = /https?:\/\/[^\s<>"')\]]+/gi;
 
 const linkClassName =
-  'font-medium text-amber-600 underline underline-offset-2 hover:text-amber-700 break-all';
+  'font-medium text-[#FF5C00] underline-offset-2 hover:underline break-words';
 
 function trimTrailingPunctuation(url: string): string {
   return url.replace(/[.,;:!?)]+$/, '');

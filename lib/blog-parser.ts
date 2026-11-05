@@ -2,7 +2,6 @@ export type ParsedBlogSection = {
   heading: string;
   content?: string[];
   list?: string[];
-  /** Paragraphs that appear after a list within the same section. */
   contentAfterList?: string[];
   image?: string;
 };
@@ -12,8 +11,26 @@ export type ParsedBlogFAQ = {
   answer: string;
 };
 
+export type BlogBlock =
+  | { type: 'standfirst'; text: string }
+  | { type: 'p'; text: string }
+  | { type: 'h2'; text: string; id: string }
+  | { type: 'h3'; text: string; id: string }
+  | { type: 'lead'; text: string }
+  | {
+      type: 'measure';
+      label: string;
+      items: string[];
+      takeaway?: string;
+    }
+  | { type: 'ul'; items: string[] }
+  | { type: 'takeaway'; text: string }
+  | { type: 'pullquote'; text: string }
+  | { type: 'toc'; items: Array<{ id: string; label: string }> };
+
 export type ParsedBlog = {
   title: string;
+  blocks: BlogBlock[];
   sections: ParsedBlogSection[];
   faqs: ParsedBlogFAQ[];
 };
@@ -21,7 +38,7 @@ export type ParsedBlog = {
 export function generateSlugFromTitle(title: string): string {
   return title
     .toLowerCase()
-    .replace(/['’"]/g, '')
+    .replace(/['\u2019"]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
@@ -30,41 +47,46 @@ function stripBulletPrefix(line: string): string {
   return line.replace(/^[-*•]\s+/, '').replace(/^\d+[\).\s-]+/, '').trim();
 }
 
-/** Numbered section titles like "1. Time to Recover (TTR)" — not short list bullets. */
+function isSeoNoiseLine(line: string): boolean {
+  return /^(seo\s*(title|package|parameters)?|meta\s*(title|description)|url\s*slug|primary keyword|secondary keywords?|blog excerpt|copy excerpt|suggested\s|h1:|tags?:)/i.test(
+    line.trim()
+  );
+}
+
+function isMeasureLabel(line: string): boolean {
+  return /^what to measure:?$/i.test(line.trim());
+}
+
+/** Numbered section titles like "1. Time to Recover (TTR)" — requires 1. or 1) */
 function isNumberedSectionHeading(line: string): boolean {
   const text = line.trim();
-  const match = text.match(/^\d+[\).\s-]+(.+)$/);
+  const match = text.match(/^\d+[.)]\s+(.+)$/);
   if (!match) return false;
   const title = match[1].trim();
   if (title.length < 8 || title.length > 90) return false;
   if (/[.!?]$/.test(title)) return false;
-  if (/^[-*•]/.test(title)) return false;
-  // Prefer title-like wording (starts with capital letter, not a full sentence)
   if (!/^[A-Z]/.test(title)) return false;
-  // Short numbered bullets like "1. Check documents" stay as lists unless clearly sectional
   if (title.length < 18 && !/[()]/.test(title) && title.split(/\s+/).length < 4) {
     return false;
   }
   return true;
 }
 
-function isHeading(line: string): boolean {
+function isH2Heading(line: string): boolean {
   const text = line.trim();
   if (!text) return false;
-  // Bullet list items are never section headings
+  if (isMeasureLabel(text)) return false;
   if (/^[-*•]\s+/.test(text)) return false;
-  // Numbered KPI/section titles are headings; short numbered bullets are not
-  if (/^\d+[\).\s-]+\S/.test(text)) return isNumberedSectionHeading(text);
-  // Markdown links belong in paragraph or list content
+  if (/^\d+[.)]\s+\S/.test(text)) return false;
   if (/\[[^\]]+\]\([^)]+\)/.test(text)) return false;
   if (text.endsWith(':')) {
-    // Short labels only (e.g. "Major UK Airports:"), not intro sentences
-    if (text.length <= 55 && !/,/.test(text)) return true;
-    return false;
+    // Short labels (e.g. "Key Trends:") become H2 — except measure labels
+    return text.length <= 55 && !/,/.test(text);
   }
   if (text.length > 90) return false;
   if (/^(https?:\/\/|source:)/i.test(text)) return false;
-  if (/^[A-Za-z0-9&(),\-\/\s]+$/.test(text) && !/[.!?]$/.test(text)) return true;
+  if (/[.!?]$/.test(text)) return false;
+  if (/^[A-Za-z0-9&(),\-\/\s]+$/.test(text)) return true;
   return false;
 }
 
@@ -72,38 +94,8 @@ function isListLikeLine(line: string): boolean {
   const text = line.trim();
   if (!text) return false;
   if (/^[-*•]\s+/.test(text)) return true;
-  if (/^\d+[\).\s-]+/.test(text)) {
-    // Numbered section headings must not be swallowed as list items
-    return !isNumberedSectionHeading(text);
-  }
+  if (/^\d+[.)]\s+/.test(text)) return !isNumberedSectionHeading(text);
   return false;
-}
-
-function pushSection(
-  sections: ParsedBlogSection[],
-  heading: string,
-  content: string[],
-  list: string[],
-  contentAfterList: string[],
-  image?: string
-) {
-  const hasBody =
-    content.length > 0 ||
-    list.length > 0 ||
-    contentAfterList.length > 0 ||
-    Boolean(image);
-
-  // Keep intentional divider headings (e.g. "9 Resilience KPIs...") even with no body yet.
-  if (!hasBody && (!heading || heading === 'Overview')) return;
-
-  sections.push({
-    heading,
-    content: content.length > 0 ? content : undefined,
-    list: list.length > 0 ? list : undefined,
-    contentAfterList:
-      contentAfterList.length > 0 ? contentAfterList : undefined,
-    image,
-  });
 }
 
 function parseFaqs(lines: string[]): ParsedBlogFAQ[] {
@@ -123,7 +115,7 @@ function parseFaqs(lines: string[]): ParsedBlogFAQ[] {
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
-    if (!line) continue;
+    if (!line || isSeoNoiseLine(line)) continue;
 
     const questionMatch = line.match(/^\d+\.\s*(.+\?)$/);
     if (questionMatch) {
@@ -132,7 +124,7 @@ function parseFaqs(lines: string[]): ParsedBlogFAQ[] {
       continue;
     }
 
-    if (line.endsWith('?')) {
+    if (line.endsWith('?') && !isListLikeLine(line)) {
       flush();
       currentQuestion = line;
       continue;
@@ -145,81 +137,226 @@ function parseFaqs(lines: string[]): ParsedBlogFAQ[] {
   return faqs;
 }
 
+function flushList(blocks: BlogBlock[], items: string[]) {
+  if (items.length === 0) return;
+  blocks.push({ type: 'ul', items: [...items] });
+  items.length = 0;
+}
+
+/**
+ * Parse raw blog text into ordered semantic blocks.
+ * Preserves source order: lead -> body -> measure label/list -> takeaway.
+ */
 export function parseRawBlogText(rawText: string): ParsedBlog {
   const lines = rawText.split(/\r?\n/).map((line) => line.trim());
   const nonEmpty = lines.filter(Boolean);
   const title = nonEmpty[0] ?? 'Untitled Blog';
 
-  const faqStartIndex = lines.findIndex((line) =>
-    /^faqs?/i.test(line.trim())
-  );
-
+  const faqStartIndex = lines.findIndex((line) => /^faqs?/i.test(line.trim()));
   const bodyLines =
     faqStartIndex >= 0 ? lines.slice(1, faqStartIndex) : lines.slice(1);
   const faqLines = faqStartIndex >= 0 ? lines.slice(faqStartIndex + 1) : [];
 
-  const sections: ParsedBlogSection[] = [];
-  let currentHeading = 'Overview';
-  let currentContent: string[] = [];
-  let currentList: string[] = [];
-  let currentContentAfterList: string[] = [];
-  let pendingImage: string | undefined;
+  const blocks: BlogBlock[] = [];
+  const pendingList: string[] = [];
+  let seenParagraph = false;
+  let awaitingLeadForH3 = false;
+  let inMeasure = false;
+  let measureLabel = 'What to measure:';
+  let measureItems: string[] = [];
+  let lastH2Id: string | null = null;
+
+  const finishMeasure = (takeaway?: string) => {
+    if (!inMeasure) return;
+    blocks.push({
+      type: 'measure',
+      label: measureLabel,
+      items: [...measureItems],
+      takeaway,
+    });
+    inMeasure = false;
+    measureItems = [];
+  };
 
   for (const line of bodyLines) {
-    if (!line) continue;
+    if (!line || isSeoNoiseLine(line)) continue;
 
     const imageMatch = line.match(/^\[image:\s*([^\]]+)\]$/i);
-    if (imageMatch) {
-      pendingImage = imageMatch[1].trim();
+    if (imageMatch) continue;
+
+    if (isMeasureLabel(line)) {
+      flushList(blocks, pendingList);
+      finishMeasure();
+      inMeasure = true;
+      measureLabel = line.endsWith(':') ? line : `${line}:`;
+      measureItems = [];
+      awaitingLeadForH3 = false;
       continue;
     }
 
-    if (isHeading(line)) {
-      pushSection(
-        sections,
-        currentHeading,
-        currentContent,
-        currentList,
-        currentContentAfterList,
-        pendingImage
-      );
-      pendingImage = undefined;
-      currentHeading = line.replace(/:$/, '').trim();
-      currentContent = [];
-      currentList = [];
-      currentContentAfterList = [];
+    if (isNumberedSectionHeading(line)) {
+      flushList(blocks, pendingList);
+      finishMeasure();
+      const id = generateSlugFromTitle(line);
+      blocks.push({ type: 'h3', text: line, id });
+      awaitingLeadForH3 = true;
+      continue;
+    }
+
+    if (isH2Heading(line)) {
+      flushList(blocks, pendingList);
+      finishMeasure();
+      const id = generateSlugFromTitle(line);
+      blocks.push({ type: 'h2', text: line, id });
+      lastH2Id = id;
+      awaitingLeadForH3 = false;
       continue;
     }
 
     if (isListLikeLine(line)) {
-      // If paragraphs already followed a previous list, start a new list cleanly
-      // by keeping post-list paragraphs where they are and appending to list.
-      currentList.push(stripBulletPrefix(line));
+      const item = stripBulletPrefix(line);
+      if (inMeasure) {
+        measureItems.push(item);
+      } else {
+        pendingList.push(item);
+      }
+      awaitingLeadForH3 = false;
       continue;
     }
 
-    if (currentList.length > 0) {
-      currentContentAfterList.push(line);
-    } else {
-      currentContent.push(line);
+    if (inMeasure) {
+      finishMeasure(line);
+      awaitingLeadForH3 = false;
+      continue;
+    }
+
+    flushList(blocks, pendingList);
+
+    if (awaitingLeadForH3 && line.endsWith('?')) {
+      blocks.push({ type: 'lead', text: line });
+      awaitingLeadForH3 = false;
+      continue;
+    }
+    awaitingLeadForH3 = false;
+
+    if (!seenParagraph) {
+      blocks.push({ type: 'standfirst', text: line });
+      seenParagraph = true;
+      continue;
+    }
+
+    if (
+      lastH2Id === 'the-real-measure-of-resilience-is-what-happens-next' &&
+      /^A resilient supply chain is not one that never fails/i.test(line)
+    ) {
+      blocks.push({ type: 'pullquote', text: line });
+      continue;
+    }
+
+    blocks.push({ type: 'p', text: line });
+  }
+
+  flushList(blocks, pendingList);
+  finishMeasure();
+
+  const tocItems = blocks
+    .filter((b): b is Extract<BlogBlock, { type: 'h3' }> => b.type === 'h3')
+    .map((b) => ({ id: b.id, label: b.text }));
+
+  if (tocItems.length > 0) {
+    const firstH2Index = blocks.findIndex((b) => b.type === 'h2');
+    const firstH3Index = blocks.findIndex((b) => b.type === 'h3');
+    const insertAt =
+      firstH2Index >= 0
+        ? firstH2Index + 1
+        : firstH3Index >= 0
+          ? firstH3Index
+          : -1;
+    if (insertAt >= 0) {
+      blocks.splice(insertAt, 0, { type: 'toc', items: tocItems });
     }
   }
 
-  pushSection(
-    sections,
-    currentHeading,
-    currentContent,
-    currentList,
-    currentContentAfterList,
-    pendingImage
-  );
   const faqs = parseFaqs(faqLines);
+  const sections = blocksToLegacySections(blocks);
 
   return {
     title,
+    blocks,
     sections,
     faqs,
   };
+}
+
+function blocksToLegacySections(blocks: BlogBlock[]): ParsedBlogSection[] {
+  const sections: ParsedBlogSection[] = [];
+  let current: ParsedBlogSection | null = null;
+
+  const pushCurrent = () => {
+    if (!current) return;
+    if (
+      !current.content?.length &&
+      !current.list?.length &&
+      !current.contentAfterList?.length
+    ) {
+      if (current.heading && current.heading !== 'Overview') {
+        sections.push(current);
+      }
+    } else {
+      sections.push(current);
+    }
+    current = null;
+  };
+
+  for (const block of blocks) {
+    if (block.type === 'toc') continue;
+
+    if (block.type === 'h2' || block.type === 'h3') {
+      pushCurrent();
+      current = { heading: block.text, content: [] };
+      continue;
+    }
+
+    if (!current) {
+      current = { heading: 'Overview', content: [] };
+    }
+
+    if (block.type === 'measure') {
+      current.list = [...(current.list ?? []), ...block.items];
+      if (block.takeaway) {
+        current.contentAfterList = [
+          ...(current.contentAfterList ?? []),
+          block.takeaway,
+        ];
+      }
+      continue;
+    }
+
+    if (block.type === 'ul') {
+      current.list = [...(current.list ?? []), ...block.items];
+      continue;
+    }
+
+    if (
+      block.type === 'p' ||
+      block.type === 'standfirst' ||
+      block.type === 'lead' ||
+      block.type === 'takeaway' ||
+      block.type === 'pullquote'
+    ) {
+      if (current.list?.length) {
+        current.contentAfterList = [
+          ...(current.contentAfterList ?? []),
+          block.text,
+        ];
+      } else {
+        current.content = [...(current.content ?? []), block.text];
+      }
+    }
+  }
+
+  pushCurrent();
+  return sections;
 }
 
 export const SAMPLE_RAW_BLOG_INPUT = `Future of Last-Mile Logistics in 2026
