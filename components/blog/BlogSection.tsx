@@ -33,7 +33,7 @@ export function BlogSection({ section }: BlogSectionProps) {
       ))}
 
       {section.list && section.list.length > 0 && (
-        <ul className="mt-3 list-disc pl-6 space-y-2 text-base md:text-lg text-foreground/90">
+        <ul className="mt-3 mb-4 list-disc pl-6 space-y-2 text-base md:text-lg text-foreground/90 last:mb-0">
           {section.list.map((item, index) => (
             <li key={`${section.heading}-li-${index}`}>
               <InlineRichText text={item} />
@@ -41,6 +41,15 @@ export function BlogSection({ section }: BlogSectionProps) {
           ))}
         </ul>
       )}
+
+      {section.contentAfterList?.map((paragraph, index) => (
+        <p
+          key={`${section.heading}-ap-${index}`}
+          className="text-base md:text-lg text-foreground/90 leading-loose mb-4 last:mb-0"
+        >
+          <InlineRichText text={paragraph} />
+        </p>
+      ))}
     </section>
   );
 }

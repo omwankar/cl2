@@ -2,6 +2,8 @@ export type ParsedBlogSection = {
   heading: string;
   content?: string[];
   list?: string[];
+  /** Paragraphs that appear after a list within the same section. */
+  contentAfterList?: string[];
   image?: string;
 };
 
@@ -28,12 +30,31 @@ function stripBulletPrefix(line: string): string {
   return line.replace(/^[-*•]\s+/, '').replace(/^\d+[\).\s-]+/, '').trim();
 }
 
+/** Numbered section titles like "1. Time to Recover (TTR)" — not short list bullets. */
+function isNumberedSectionHeading(line: string): boolean {
+  const text = line.trim();
+  const match = text.match(/^\d+[\).\s-]+(.+)$/);
+  if (!match) return false;
+  const title = match[1].trim();
+  if (title.length < 8 || title.length > 90) return false;
+  if (/[.!?]$/.test(title)) return false;
+  if (/^[-*•]/.test(title)) return false;
+  // Prefer title-like wording (starts with capital letter, not a full sentence)
+  if (!/^[A-Z]/.test(title)) return false;
+  // Short numbered bullets like "1. Check documents" stay as lists unless clearly sectional
+  if (title.length < 18 && !/[()]/.test(title) && title.split(/\s+/).length < 4) {
+    return false;
+  }
+  return true;
+}
+
 function isHeading(line: string): boolean {
   const text = line.trim();
   if (!text) return false;
-  // Bullet or numbered list items are never section headings
+  // Bullet list items are never section headings
   if (/^[-*•]\s+/.test(text)) return false;
-  if (/^\d+[\).\s-]+\S/.test(text)) return false;
+  // Numbered KPI/section titles are headings; short numbered bullets are not
+  if (/^\d+[\).\s-]+\S/.test(text)) return isNumberedSectionHeading(text);
   // Markdown links belong in paragraph or list content
   if (/\[[^\]]+\]\([^)]+\)/.test(text)) return false;
   if (text.endsWith(':')) {
@@ -43,7 +64,6 @@ function isHeading(line: string): boolean {
   }
   if (text.length > 90) return false;
   if (/^(https?:\/\/|source:)/i.test(text)) return false;
-  if (/^\d+[\).\s-]+[A-Za-z].{6,}$/.test(text) && !/[.!?]$/.test(text)) return true;
   if (/^[A-Za-z0-9&(),\-\/\s]+$/.test(text) && !/[.!?]$/.test(text)) return true;
   return false;
 }
@@ -52,7 +72,10 @@ function isListLikeLine(line: string): boolean {
   const text = line.trim();
   if (!text) return false;
   if (/^[-*•]\s+/.test(text)) return true;
-  if (/^\d+[\).\s-]+/.test(text)) return true;
+  if (/^\d+[\).\s-]+/.test(text)) {
+    // Numbered section headings must not be swallowed as list items
+    return !isNumberedSectionHeading(text);
+  }
   return false;
 }
 
@@ -61,13 +84,24 @@ function pushSection(
   heading: string,
   content: string[],
   list: string[],
+  contentAfterList: string[],
   image?: string
 ) {
-  if (content.length === 0 && list.length === 0 && !image) return;
+  const hasBody =
+    content.length > 0 ||
+    list.length > 0 ||
+    contentAfterList.length > 0 ||
+    Boolean(image);
+
+  // Keep intentional divider headings (e.g. "9 Resilience KPIs...") even with no body yet.
+  if (!hasBody && (!heading || heading === 'Overview')) return;
+
   sections.push({
     heading,
     content: content.length > 0 ? content : undefined,
     list: list.length > 0 ? list : undefined,
+    contentAfterList:
+      contentAfterList.length > 0 ? contentAfterList : undefined,
     image,
   });
 }
@@ -128,6 +162,7 @@ export function parseRawBlogText(rawText: string): ParsedBlog {
   let currentHeading = 'Overview';
   let currentContent: string[] = [];
   let currentList: string[] = [];
+  let currentContentAfterList: string[] = [];
   let pendingImage: string | undefined;
 
   for (const line of bodyLines) {
@@ -139,24 +174,45 @@ export function parseRawBlogText(rawText: string): ParsedBlog {
       continue;
     }
 
-    if (isListLikeLine(line)) {
-      currentList.push(stripBulletPrefix(line));
-      continue;
-    }
-
     if (isHeading(line)) {
-      pushSection(sections, currentHeading, currentContent, currentList, pendingImage);
+      pushSection(
+        sections,
+        currentHeading,
+        currentContent,
+        currentList,
+        currentContentAfterList,
+        pendingImage
+      );
       pendingImage = undefined;
       currentHeading = line.replace(/:$/, '').trim();
       currentContent = [];
       currentList = [];
+      currentContentAfterList = [];
       continue;
     }
 
-    currentContent.push(line);
+    if (isListLikeLine(line)) {
+      // If paragraphs already followed a previous list, start a new list cleanly
+      // by keeping post-list paragraphs where they are and appending to list.
+      currentList.push(stripBulletPrefix(line));
+      continue;
+    }
+
+    if (currentList.length > 0) {
+      currentContentAfterList.push(line);
+    } else {
+      currentContent.push(line);
+    }
   }
 
-  pushSection(sections, currentHeading, currentContent, currentList, pendingImage);
+  pushSection(
+    sections,
+    currentHeading,
+    currentContent,
+    currentList,
+    currentContentAfterList,
+    pendingImage
+  );
   const faqs = parseFaqs(faqLines);
 
   return {
