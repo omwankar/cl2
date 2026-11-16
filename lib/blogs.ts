@@ -21,6 +21,7 @@ import { HS_CODE_ERRORS_QUARTERLY_REVENUE_BLOG_RAW } from './blog-post-hs-code-e
 import { HOW_TO_CALCULATE_LANDED_COST_IMPORTED_GOODS_BLOG_RAW } from './blog-post-how-to-calculate-landed-cost-imported-goods-raw';
 import { PHARMACEUTICAL_FREIGHT_COMPLIANCE_BLOG_RAW } from './blog-post-pharmaceutical-freight-compliance-raw';
 import { SUPPLY_CHAIN_RESILIENCE_KPIS_BLOG_RAW } from './blog-post-supply-chain-resilience-kpis-raw';
+import { UK_EXPORT_CUSTOMS_GUIDE_BLOG_RAW } from './blog-post-uk-export-customs-guide-raw';
 import { getBlogTimestamp } from './blog-dates';
 import { filterPublishedBlogs, SCHEDULED_BLOG_PUBLISH_AT } from './blog-publish';
 
@@ -48,6 +49,41 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '33',
+    slug: 'uk-export-customs-guide',
+    metaTitle: 'UK Export Customs: 2026 Guide to Rules & Compliance',
+    metaDescription:
+      'Understand UK export customs procedures, documentation, CDS declarations and 2026 regulatory changes. Discover how to avoid delays and export confidently.',
+    title:
+      'UK Export Customs in 2026: A Practical Guide to Compliance, Documentation and Avoiding Delays',
+    excerpt:
+      'UK export customs requirements are evolving in 2026. From CDS declarations and export documentation to new trade agreements and customs compliance, discover what UK exporters need to know to avoid delays and manage international shipments more effectively.',
+    rawText: UK_EXPORT_CUSTOMS_GUIDE_BLOG_RAW,
+    content: [],
+    date: 'Nov 16, 2026',
+    readTime: '10 min read',
+    category: 'Customs & Compliance',
+    image: '/blog-uk-export-customs-guide-2026.png',
+    author: {
+      name: 'Editorial Desk',
+      avatar: 'https://i.pravatar.cc/120?img=60',
+    },
+    tags: [
+      'UK Export Customs',
+      'Export Customs Clearance',
+      'UK Customs Regulations',
+      'Export Documentation',
+      'Customs Declaration Service',
+      'International Trade',
+      'Freight Forwarding',
+      'Customs Compliance',
+      'UK Export Regulations',
+      'Global Logistics',
+    ],
+    featured: true,
+  },
+
   {
     id: '32',
     slug: 'supply-chain-resilience-kpis',
