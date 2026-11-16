@@ -838,6 +838,776 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         'Conclusion — live apple saplings delivered to final door in Delhi.',
     },
   },
+  {
+    slug: 'linde-heavy-lift-delivery-saudi-arabia',
+    title: 'End-to-End Delivery of Heavy Lift Cargo to Saudi Arabia',
+    category: 'Heavy Lift · Multimodal Project Cargo',
+    client: 'LINDE',
+    subheading:
+      'Sea and SPMT inland movement of oversized European equipment to Dammam Industrial City 2 for LINDE.',
+    excerpt:
+      'Clarusto moved heavy-lift equipment from Europe to Dammam Industrial City 2 for LINDE — heavy-lift vessel stowage, route surveys, and multi-axle hydraulic trailers with full shipment visibility.',
+    result: '23-day sea transit · On-time site delivery',
+    heroImage: '/projects/linde-saudi-hero.jpg',
+    publishedAt: '2026-11-10',
+    location: 'Europe → Dammam Industrial City 2, Saudi Arabia',
+    metaTitle: 'LINDE Heavy Lift Delivery to Saudi Arabia | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics delivered heavy-lift cargo for LINDE from Europe to Dammam Industrial City 2 using heavy-lift vessels and SPMT inland haulage.',
+    ogImage: '/projects/linde-saudi-hero.jpg',
+    background: [
+      'Clarusto successfully managed the transportation of heavy lift cargo for LINDE, a global leader in industrial gases and engineering solutions. The project involved moving oversized equipment from Europe to Dammam Industrial City 2, Saudi Arabia, using a combination of sea and land transportation.',
+      'Due to the size and weight of the cargo, the project required detailed planning, specialized equipment, and close coordination across multiple transportation stages to ensure safe, timely delivery with complete visibility.',
+    ],
+    objective: [
+      'Deliver oversized industrial equipment safely from Europe to Dammam Industrial City 2.',
+      'Integrate sea freight, heavy haulage, route planning, and cargo monitoring into one coordinated operation.',
+      'Maintain regulatory compliance and uninterrupted movement through port, customs, and inland stages.',
+    ],
+    objectiveImage: {
+      src: '/projects/linde-saudi-media2.jpg',
+      alt: 'Heavy-lift cargo preparation for LINDE Saudi Arabia delivery',
+      caption: 'Overview — oversized equipment prepared for multimodal heavy-lift movement.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Heavy-lift cargo needed specialized lifting, secure stowage, multimodal handovers, and Saudi industrial-corridor access under extreme weather conditions.',
+        activities: [],
+        challenges: [
+          'Specialized lifting equipment and secure stowage for oversized, high-tonnage cargo.',
+          'Coordinating sea freight, port operations, customs, and on-site delivery without schedule slip.',
+          'Navigating industrial corridors and road maneuverability constraints in Saudi Arabia.',
+          'Operating under high temperatures and sand exposure during inland haulage.',
+          'Detailed planning at every stage to protect project timelines at destination.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto combined heavy-lift vessel loading, route surveys, SPMT inland haulage, and continuous stakeholder coordination.',
+        activities: [
+          'Origin-port loading with specialized heavy-lift systems onto vessels with onboard cranes.',
+          'Secure sea fastening and stowage for the ocean voyage.',
+          'Detailed inland route surveys and infrastructure assessments.',
+          'Multi-axle hydraulic trailer (SPMT) deployment for final delivery.',
+          'Coordination with shipping lines, transport providers, port authorities, and customs.',
+        ],
+        challenges: [],
+        execution: [
+          'After manufacturing completion in Europe, cargo was loaded onto a heavy-lift vessel using specialized lifting equipment.',
+          'Sea freight completed with arrival in Saudi Arabia within 23 days; cargo was unloaded with heavy-duty handling systems.',
+          'SPMTs moved the load to Dammam Industrial City 2 on pre-approved routes with continuous monitoring.',
+          'Documentation and shipment tracking supported visibility and compliance at every stage.',
+        ],
+        image: {
+          src: '/projects/linde-saudi-media3.jpg',
+          alt: 'SPMT inland haulage of LINDE heavy-lift cargo in Saudi Arabia',
+          caption:
+            'Execution — sea-to-land handover and multi-axle inland delivery to Dammam Industrial City 2.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'On-time delivery of heavy lift cargo to the project site.',
+      'Successful coordination of sea and land transportation activities.',
+      'Safe handling of oversized cargo throughout the logistics process.',
+      'Accurate shipment tracking and improved operational visibility.',
+      'Reduced transportation delays through detailed planning and route assessments.',
+      'Efficient cargo movement from origin to final destination.',
+      'Strong collaboration between logistics partners, transport providers, and project stakeholders.',
+    ],
+    outcomesImage: {
+      src: '/projects/linde-saudi-media4.jpg',
+      alt: 'Successful LINDE heavy-lift delivery outcomes in Saudi Arabia',
+      caption: 'Results — oversized cargo delivered safely to Dammam Industrial City 2.',
+    },
+    conclusion: [
+      'The LINDE project highlights Clarusto’s capability in large-scale heavy-lift logistics that require specialized equipment, multimodal transportation, and detailed planning.',
+      'Through effective coordination, route engineering, specialized transport solutions, and close management of every stage, Clarusto delivered the cargo to Dammam Industrial City 2 safely, efficiently, and within schedule.',
+    ],
+  },
+  {
+    slug: 'al-masana-warehousing-dammam',
+    title: 'Warehousing and Logistics Management for Al Masana Water & Sewage Project',
+    category: 'Warehousing · Industrial Project Support',
+    client: 'ABB Contracting Co.',
+    subheading:
+      'Packing, storage, inventory control, and dispatch support for ABB on the Al Masana Water & Sewage scope in Dammam Industrial City 2.',
+    excerpt:
+      'Clarusto established structured warehousing for ABB Contracting Co. on the Al Masana Water & Sewage project — SOPs, packing stations, WMS visibility, and faster dispatch in Dammam Industrial City 2.',
+    result: 'Improved inventory visibility · On-timeline completion',
+    heroImage: '/projects/reine-masana-hero.jpg',
+    publishedAt: '2026-11-08',
+    location: 'Dammam Industrial City 2, Saudi Arabia',
+    metaTitle: 'Al Masana Warehousing Case Study | Clarusto Logistics',
+    metaDescription:
+      'Case study: Clarusto Logistics managed warehousing, packing, inventory, and dispatch for ABB Contracting Co. on the Al Masana Water & Sewage project in Dammam.',
+    ogImage: '/projects/reine-masana-hero.jpg',
+    background: [
+      'Clarusto managed warehousing operations for the Al Masana Water & Sewage infrastructure scope in Dammam Industrial City 2, Saudi Arabia. The scope included packing, storage, inventory management, and dispatch support for ABB Contracting Co.',
+      'The requirement was to establish an efficient warehouse system capable of supporting material handling while ensuring proper storage, accurate inventory control, and timely dispatch within the project timeline.',
+    ],
+    objective: [
+      'Improve storage utilization and packing consistency for infrastructure materials.',
+      'Introduce SOPs and technology-backed inventory visibility for material control.',
+      'Support timely dispatch with structured warehouse workflows for ABB Contracting Co.',
+    ],
+    objectiveImage: {
+      src: '/projects/reine-masana-media1.png',
+      alt: 'Industrial materials handling supporting Al Masana project logistics',
+      caption: 'Overview — project materials prepared for controlled warehouse handling.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Large-scale water and sewage materials needed organized warehousing to replace manual, inefficient storage and packing workflows.',
+        activities: [],
+        challenges: [
+          'Dependence on manual handling processes impacting operational efficiency.',
+          'Limited storage optimization and space utilization.',
+          'Inefficient packing procedures causing delays and inconsistencies.',
+          'Dispatch risk from unstructured warehouse workflows.',
+          'Need for improved inventory visibility and material control.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto introduced organized storage, dedicated packing stations, SOPs, WMS tracking, and coordinated dispatch with ABB.',
+        activities: [
+          'Organized storage practices to maximize warehouse space.',
+          'Standardized packing procedures and dedicated packing stations.',
+          'SOPs for consistent warehouse operations.',
+          'Technology-based inventory tracking and material movement management.',
+          'Improved coordination between warehouse teams and project stakeholders.',
+        ],
+        challenges: [],
+        execution: [
+          'Implemented ASRS-supported storage efficiency and reduced manual process dependency.',
+          'Introduced a Warehouse Management System for real-time inventory tracking and visibility.',
+          'Used conveyor systems and dedicated packing stations to standardize preparation and dispatch.',
+          'Managed operations through defined procedures and continuous communication with ABB Contracting Co.',
+        ],
+        image: {
+          src: '/projects/reine-masana-media2.png',
+          alt: 'Warehousing execution for Al Masana Water & Sewage project materials',
+          caption:
+            'Execution — structured packing, storage, and dispatch support for ABB.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Improved warehouse organization and storage utilization.',
+      'Enhanced inventory visibility and tracking accuracy.',
+      'Faster packing and dispatch processes.',
+      'Reduced manual handling inefficiencies.',
+      'Improved material flow through optimized warehouse operations.',
+      'Better coordination between warehouse teams and stakeholders.',
+      'Successful completion within the required timeline.',
+    ],
+    conclusion: [
+      'The Al Masana Water & Sewage project highlights Clarusto’s capability in efficient warehousing and logistics for large-scale industrial operations.',
+      'Through process improvement, warehouse technology, standardized procedures, and effective coordination, Clarusto enhanced storage, packing, and inventory management while supporting ABB Contracting Co.’s operational requirements.',
+    ],
+  },
+  {
+    slug: 'vehicle-logistics-jeddah-gcc-distribution',
+    title: 'End-to-End Vehicle Logistics Management for Automotive Distribution',
+    category: 'Automotive · GCC Vehicle Distribution',
+    client: 'Automotive distribution partner, Jeddah',
+    subheading:
+      'RORO and container vehicle handling through Jeddah Islamic Port with bonded storage, PDI, and GCC regional distribution.',
+    excerpt:
+      'Clarusto ran Jeddah hub vehicle logistics for 400–500 units per month — RORO and 40’ HQ unstuffing, bonded yard storage, PDI, and car-carrier delivery across GCC and neighboring markets.',
+    result: '400–500 vehicles/month · Multi-market distribution',
+    heroImage: '/projects/gcc-vehicles-jeddah-hero.png',
+    publishedAt: '2026-11-06',
+    location: 'Jeddah → GCC & neighboring markets',
+    metaTitle: 'Jeddah GCC Vehicle Logistics Case Study | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics managed RORO and container vehicle handling, bonded storage, PDI, and GCC distribution from Jeddah Islamic Port.',
+    ogImage: '/projects/gcc-vehicles-jeddah-hero.png',
+    background: [
+      'Clarusto managed vehicle logistics for an automotive distribution requirement in Jeddah, Saudi Arabia. Imported vehicles arrived through both RORO vessels and container shipments via Jeddah Islamic Port.',
+      'The scope covered terminal pickup, container unstuffing, bonded storage, Pre-Delivery Inspection (PDI), inventory management, and final transportation to GCC and neighboring markets including Riyadh, Muscat, Doha, Kuwait City, Baghdad, and Amman, averaging 400–500 vehicles per month.',
+    ],
+    objective: [
+      'Establish a reliable Jeddah hub for high-volume RORO and containerized vehicle handling.',
+      'Protect vehicle condition through bonded storage, inventory control, and PDI before dispatch.',
+      'Support cross-border delivery across GCC and neighboring markets with specialized car carriers.',
+    ],
+    objectiveImage: {
+      src: '/projects/gcc-vehicles-jeddah-media1.png',
+      alt: 'Containerized vehicle unstuffing for Jeddah automotive distribution',
+      caption: 'Overview — multi-vehicle container handling at the Jeddah hub.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'High-volume automotive logistics needed one controlled process for RORO, container unstuffing, bonded storage, and cross-border delivery.',
+        activities: [],
+        challenges: [
+          'Handling vehicles through both RORO and containerized shipments.',
+          'Managing container unstuffing for multiple vehicles inside 40’ HQ containers.',
+          'Providing secure bonded storage for imported vehicles.',
+          'Maintaining vehicle condition during handling, storage, and transportation.',
+          'Managing cross-border delivery requirements across different countries.',
+          'Coordinating port operations, storage facilities, inspection teams, and transport partners.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto ran an integrated Jeddah hub covering port collection, unstuffing, bonded yard, PDI, and regional car-carrier distribution.',
+        activities: [
+          'Vehicle collection from RORO and container terminals.',
+          'Container unstuffing and vehicle handling operations.',
+          'Bonded yard storage and inventory management.',
+          'Pre-Delivery Inspection (PDI) before dispatch.',
+          'Transportation through specialized vehicle carrier trucks.',
+          'Cross-border delivery support across GCC and neighboring markets.',
+        ],
+        challenges: [],
+        execution: [
+          'Vehicles arriving by RORO and container were collected from Jeddah Islamic Port and transferred to bonded storage.',
+          'Containerized shipments were unstuffed from 40’ HQ multi-vehicle configurations under controlled handling.',
+          'PDI was completed before dispatch; car carriers handled regional distribution with flexible options for smaller lots.',
+          'Continuous coordination between port, warehouse, inspection, and transport teams kept the flow uninterrupted.',
+        ],
+        image: {
+          src: '/projects/gcc-vehicles-jeddah-media2.png',
+          alt: 'Bonded vehicle yard and GCC distribution from Jeddah',
+          caption:
+            'Execution — bonded storage, PDI readiness, and regional vehicle dispatch.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful handling of RORO and containerized vehicle shipments.',
+      'Efficient container unstuffing and vehicle transfer operations.',
+      'Improved vehicle visibility through organized inventory management.',
+      'Smooth coordination between port, storage, and transportation activities.',
+      'Reliable distribution support across GCC and neighboring markets.',
+      'Capability to manage high-volume automotive logistics operations.',
+    ],
+    conclusion: [
+      'The Jeddah vehicle distribution operation highlights Clarusto’s capability in end-to-end automotive logistics.',
+      'Through port handling, bonded storage, vehicle inspection, and regional transportation coordination, Clarusto delivered a structured solution for efficient multi-market vehicle distribution.',
+    ],
+  },
+  {
+    slug: 'air-freight-destination-chicago-stirling',
+    title: 'Air Freight Destination Handling and Final Delivery — Chicago to Stirling',
+    category: 'Air Freight · Final-Mile Delivery',
+    client: 'DAP consignee, Stirling (Scotland)',
+    subheading:
+      'Glasgow Airport collection and dedicated final delivery to Stirling for a DAP air freight shipment from Chicago.',
+    excerpt:
+      'Clarusto handled destination air freight for a ~112 kg palletized shipment from Chicago O’Hare to Stirling via Glasgow Airport under DAP terms with minimal airport dwell.',
+    result: 'On-time Stirling delivery · No cargo damage',
+    heroImage: '/projects/chicago-stirling-air-hero.png',
+    publishedAt: '2026-11-04',
+    location: 'Chicago, USA → Stirling, Scotland',
+    metaTitle: 'Chicago to Stirling Air Freight Delivery | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics managed DAP destination handling from Chicago to Stirling via Glasgow Airport with dedicated final-mile delivery.',
+    ogImage: '/projects/chicago-stirling-air-hero.png',
+    background: [
+      'Clarusto managed destination handling and final delivery of an air freight shipment from Chicago, United States, to Stirling, Scotland under DAP (Delivered at Place) terms.',
+      'The cargo was a palletized shipment of approximately 112 kilograms requiring timely collection from Glasgow Airport and delivery to the consignee’s address in Stirling.',
+    ],
+    objective: [
+      'Collect cargo promptly on arrival at Glasgow Airport under DAP terms.',
+      'Schedule dedicated final-mile transport to Stirling with full shipment visibility.',
+      'Minimize airport dwell and communication gaps between origin, destination, and consignee.',
+    ],
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'A small but time-sensitive DAP air shipment needed precise airport release, communication, and final-mile scheduling.',
+        activities: [],
+        challenges: [
+          'Coordinating cargo collection upon arrival at Glasgow Airport.',
+          'Managing destination handling procedures under DAP shipment terms.',
+          'Ensuring timely communication between origin, destination, and consignee.',
+          'Scheduling final delivery within the required timeframe.',
+          'Maintaining shipment visibility throughout transportation.',
+          'Avoiding delays from cargo release and airport handling procedures.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto prepared destination handling in advance, collected promptly at Glasgow, and ran dedicated transport to Stirling.',
+        activities: [
+          'Airport cargo collection at Glasgow Airport.',
+          'Coordination of destination handling activities.',
+          'Delivery planning and scheduling with the consignee.',
+          'Dedicated transportation from Glasgow to Stirling.',
+          'Continuous shipment monitoring and communication.',
+          'Efficient documentation and operational coordination.',
+        ],
+        challenges: [],
+        execution: [
+          'After departure from Chicago O’Hare, Clarusto coordinated with origin and destination stakeholders ahead of Glasgow arrival.',
+          'On release, collection minimized airport dwell; transport was pre-arranged for immediate movement to Stirling.',
+          'Continuous communication kept scheduling accurate through final delivery with no handling issues.',
+        ],
+        image: {
+          src: '/projects/chicago-stirling-air-execution.png',
+          alt: 'Air freight destination handling and final-mile delivery in Scotland',
+          caption:
+            'Execution — Glasgow Airport collection and dedicated delivery to Stirling.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful airport collection and final delivery execution.',
+      'Smooth coordination between origin and destination teams.',
+      'Efficient handling under DAP shipment terms.',
+      'Timely delivery to the consignee in Stirling.',
+      'Reliable shipment visibility and communication throughout the process.',
+      'Safe transportation with no cargo damage or handling issues.',
+    ],
+    conclusion: [
+      'This air freight shipment highlights Clarusto’s capability in destination logistics and final-mile delivery across international supply chains.',
+      'Proactive coordination, efficient handling, and reliable transportation ensured seamless cargo movement from the United States to Scotland.',
+    ],
+  },
+  {
+    slug: 'pharma-ddp-customs-clearance-france',
+    title: 'Import Customs Clearance and DDP Distribution of Pharmaceutical Cargo — France',
+    category: 'Pharmaceuticals · Customs & DDP Delivery',
+    client: 'Pharmaceutical consignee, France',
+    subheading:
+      'Le Havre customs clearance and DDP final-mile delivery for non-hazardous medicine cargo with empty container return.',
+    excerpt:
+      'Clarusto cleared and delivered 216 cases / 18 pallets (4,579.2 kg) of pharmaceutical cargo at Le Havre under DDP — documentation control, final delivery, and empty container return.',
+    result: 'Compliant clearance · Timely DDP delivery',
+    heroImage: '/projects/pharma-france-ddp-hero.png',
+    publishedAt: '2026-11-02',
+    location: 'Le Havre → France consignee',
+    metaTitle: 'France Pharma DDP Customs Clearance Case Study | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics managed pharmaceutical import clearance at Le Havre and DDP distribution with empty container return in France.',
+    ogImage: '/projects/pharma-france-ddp-hero.png',
+    background: [
+      'Clarusto managed import clearance and final distribution of a pharmaceutical shipment received at Le Havre, France — non-hazardous medicine cargo of 216 cases on 18 pallets totaling 4,579.2 KGS.',
+      'The scope included customs clearance, DDP delivery coordination, final-mile transportation, and timely empty container return to the shipping line depot under strict pharmaceutical import controls.',
+    ],
+    objective: [
+      'Clear pharmaceutical cargo compliantly under French import regulations.',
+      'Execute DDP delivery with full visibility and protected shipment integrity.',
+      'Avoid storage, demurrage, and detention through fast release and empty return.',
+    ],
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Pharmaceutical imports demanded accurate documentation, duty handling, and tightly timed release to protect schedule and cost.',
+        activities: [],
+        challenges: [
+          'Customs clearance for pharmaceutical cargo under French import regulations.',
+          'Complete and accurate documentation to prevent customs delays.',
+          'DDP delivery coordination with full supply-chain visibility.',
+          'Managing duties, taxes, and import processing requirements.',
+          'Avoiding storage, detention, and demurrage through efficient cargo release.',
+          'Timely empty container return to prevent shipping line penalties.',
+          'Maintaining shipment integrity throughout transportation and delivery.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto ran pre-arrival document checks, Le Havre clearance, DDP transport, and empty container return as one cycle.',
+        activities: [
+          'Pre-arrival review and verification of import documentation.',
+          'Customs clearance management at Le Havre Port.',
+          'Coordination with customs and terminal authorities for cargo release.',
+          'DDP delivery planning and transportation management.',
+          'Continuous milestone tracking and final delivery scheduling.',
+          'Empty container return coordination with shipping line requirements.',
+        ],
+        challenges: [],
+        execution: [
+          'On arrival at Le Havre, Clarusto initiated clearance and verified pharmaceutical import documentation.',
+          'After approval, DDP transport moved cargo from port to consignee with continuous monitoring.',
+          'Empty container was returned promptly to the designated depot to close the logistics cycle without detention risk.',
+        ],
+        image: {
+          src: '/projects/pharma-france-ddp-execution.png',
+          alt: 'Pharmaceutical DDP delivery and customs coordination in France',
+          caption:
+            'Execution — Le Havre clearance, DDP delivery, and container return.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful customs clearance of pharmaceutical cargo.',
+      'Timely DDP delivery to the final consignee.',
+      'Full compliance with French import and customs regulations.',
+      'Accurate management of import documentation and cargo release.',
+      'Reduced risk of storage, demurrage, and detention charges.',
+      'Efficient coordination between all logistics stakeholders.',
+      'Timely return of the empty container to the shipping line.',
+      'Secure handling and transportation of pharmaceutical products.',
+    ],
+    conclusion: [
+      'This pharmaceutical import project demonstrates Clarusto’s expertise in regulated cargo and end-to-end international logistics.',
+      'Effective customs coordination, proactive shipment management, and compliant documentation ensured safe, timely movement from Le Havre Port to final destination.',
+    ],
+  },
+  {
+    slug: 'methanol-dangerous-goods-chemanol-jubail',
+    title: 'Specialized Dangerous Goods Transportation: Methanol for Chemanol Jubail',
+    category: 'Dangerous Goods · Chemical Logistics',
+    client: 'Methanol chemicals manufacturer (via Deugro)',
+    subheading:
+      'UN1230 methanol packaging and multimodal DG transport for the Chemanol Jubail Project in Saudi Arabia.',
+    excerpt:
+      'Clarusto packaged and moved methanol (UN1230) for Chemanol Jubail via Deugro — UN-approved IBCs, hazard labeling, land and air DG compliance, and GPS-tracked transit with zero leakage.',
+    result: 'Zero leakage · Full DG compliance',
+    heroImage: '/projects/methanol-chemanol-hero.jpg',
+    publishedAt: '2026-10-30',
+    location: 'To Jubail, Saudi Arabia',
+    metaTitle: 'Methanol DG Transport Chemanol Jubail | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics handled UN1230 methanol packaging and dangerous goods transport for the Chemanol Jubail Project with zero leakage.',
+    ogImage: '/projects/methanol-chemanol-hero.jpg',
+    background: [
+      'Clarusto managed packaging and transportation of methanol chemicals for the Chemanol Jubail Project in Jubail, Saudi Arabia, through Deugro for a leading methanol chemicals manufacturer.',
+      'Methanol is highly flammable and toxic (UN1230). The shipment required strict dangerous goods compliance, approved packaging, and continuous monitoring across land transport and air freight.',
+    ],
+    objective: [
+      'Move methanol safely under UN1230 with approved packaging and complete DG documentation.',
+      'Prevent leakage, evaporation, contamination, and product loss across multimodal legs.',
+      'Maintain hazard communication, route risk controls, and partner compliance throughout transit.',
+    ],
+    objectiveImage: {
+      src: '/projects/methanol-chemanol-media1.jpg',
+      alt: 'Specialized packaging prepared for methanol dangerous goods shipment',
+      caption: 'Overview — approved packaging prepared for hazardous chemical movement.',
+    },
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'UN1230 methanol required secure containment, full DG documentation, and multimodal safety controls.',
+        activities: [],
+        challenges: [
+          'Safe movement of bulk methanol classified as a dangerous good under UN1230.',
+          'Minimizing leakage, evaporation, contamination, and product loss.',
+          'Complete documentation for international hazardous materials regulations.',
+          'Secure packaging able to withstand long-distance multimodal transport.',
+          'Proper hazard identification and environmental/safety adherence.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto used UN-approved IBCs, leak-proof containment, certified partners, inspections, and GPS tracking.',
+        activities: [
+          'Correct UN1230 classification with required dangerous goods documentation.',
+          'Approved packaging systems matched to hazardous characteristics.',
+          'Clear hazard labeling and stakeholder handling briefings.',
+          'Route assessments and preventive safety measures.',
+          'GPS-enabled tracking for visibility and cargo security.',
+        ],
+        challenges: [],
+        execution: [
+          'Shipped in UN-approved packaging and Intermediate Bulk Containers designed for hazardous chemicals.',
+          'Applied corrosion-resistant, leak-proof systems with additional containment layers.',
+          'Performed regular inspections and pressure checks with certified logistics partners.',
+          'Evaluated routes before each stage to avoid densely populated and environmentally sensitive areas where possible.',
+        ],
+        image: {
+          src: '/projects/methanol-chemanol-media2.jpg',
+          alt: 'Dangerous goods methanol handling for Chemanol Jubail',
+          caption:
+            'Execution — compliant DG packaging, monitoring, and multimodal transport to Jubail.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Full compliance with environmental, safety, and dangerous goods regulations.',
+      'Smooth customs and port clearances throughout transportation.',
+      'Zero leakage, emissions, or product loss during transit.',
+      'Safe handling of cargo across all transportation stages.',
+      'Improved shipment visibility and security through GPS tracking.',
+      'Increased confidence among clients and logistics partners on a high-risk shipment.',
+    ],
+    conclusion: [
+      'The Chemanol Jubail Project demonstrates Clarusto’s capability in hazardous chemical shipments that demand strict regulatory compliance and specialized planning.',
+      'Approved packaging, risk management, continuous monitoring, and partner coordination delivered methanol safely and efficiently to Jubail, Saudi Arabia.',
+    ],
+  },
+  {
+    slug: 'stockton-export-container-haulage-uk',
+    title: 'Transportation of Export Containers from Stockton-on-Tees to UK Ports',
+    category: 'Inland Haulage · UK Export Logistics',
+    client: 'UK export shipper, Stockton-on-Tees',
+    subheading:
+      'Inland container collection and timed delivery from Stockton-on-Tees to Felixstowe and Southampton for vessel cut-offs.',
+    excerpt:
+      'Clarusto hauled export containers from Stockton-on-Tees to Felixstowe and Southampton — dedicated trucking, port booking coordination, and cut-off-aligned scheduling.',
+    result: 'On-schedule port delivery · Reduced cut-off risk',
+    heroImage: '/projects/stockton-uk-export-hero.jpg',
+    publishedAt: '2026-10-28',
+    location: 'Stockton-on-Tees → Felixstowe & Southampton',
+    metaTitle: 'Stockton to UK Ports Export Haulage | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics managed inland export container transportation from Stockton-on-Tees to Felixstowe and Southampton ports.',
+    ogImage: '/projects/stockton-uk-export-hero.jpg',
+    background: [
+      'Clarusto managed inland transportation of export containers from Stockton-on-Tees, United Kingdom, to major export gateways including Felixstowe Port and Southampton Port.',
+      'The scope covered container collection from the client’s facility, inland haulage, port delivery coordination, and movement monitoring against vessel cut-off and terminal booking requirements.',
+    ],
+    objective: [
+      'Collect and deliver export containers in line with vessel cut-off schedules.',
+      'Coordinate multi-port deliveries while controlling haulage cost and resource use.',
+      'Maintain visibility and flexibility across container sizes and booking constraints.',
+    ],
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Long-distance inland export moves had to hit multiple port bookings without missing vessel cut-offs.',
+        activities: [],
+        challenges: [
+          'Coordinating container collection within planned shipping timelines.',
+          'Managing deliveries to multiple export ports based on vessel schedules.',
+          'Ensuring compliance with port booking and terminal requirements.',
+          'Minimizing delays from loading schedules, traffic, and operational constraints.',
+          'Flexibility for different container sizes and shipment requirements.',
+          'Efficient utilization of transportation resources while controlling costs.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto assigned dedicated haulage, optimized routes, and aligned deliveries to terminal acceptance windows.',
+        activities: [
+          'Collection of containers from the client’s facility in Stockton-on-Tees.',
+          'Dedicated trucking arrangements for inland transportation.',
+          'Route planning to optimize transit efficiency.',
+          'Coordination with port terminals and booking systems.',
+          'Monitoring of container movement throughout transit.',
+          'Scheduling deliveries in line with vessel cut-off requirements.',
+        ],
+        challenges: [],
+        execution: [
+          'After cargo readiness, containers were collected and schedules aligned to export and port operating procedures.',
+          'Dedicated haulage and route planning minimized transit delay risk.',
+          'Port and terminal coordination enabled timely acceptance while progress was monitored against export deadlines.',
+        ],
+        image: {
+          src: '/projects/stockton-uk-export-execution.png',
+          alt: 'UK inland export container haulage to Felixstowe and Southampton',
+          caption:
+            'Execution — timed inland haulage from Stockton-on-Tees to UK export ports.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful transportation of export containers from Stockton-on-Tees to UK export ports.',
+      'Timely port deliveries aligned with vessel schedules.',
+      'Efficient coordination between transportation and port operations.',
+      'Improved visibility throughout the inland transportation process.',
+      'Reduced risk of export delays and missed vessel cut-offs.',
+      'Reliable execution of container haulage activities.',
+    ],
+    conclusion: [
+      'This inland container project highlights Clarusto’s expertise in UK export logistics and domestic haulage.',
+      'Detailed planning, coordinated execution, and continuous monitoring moved containers efficiently from facility to major UK export ports.',
+    ],
+  },
+  {
+    slug: 'oog-bogie-transport-india-netherlands',
+    title: 'Transportation of Out-of-Gauge Bogie from India to the Netherlands',
+    category: 'Project Cargo · OOG Sea Freight',
+    client: 'OOG project cargo shipper',
+    subheading:
+      '20FT flat-rack sea freight for an out-of-gauge bogie from Nhava Sheva (JNPT) to Rotterdam.',
+    excerpt:
+      'Clarusto moved an OOG bogie from Nhava Sheva to Rotterdam on a 20FT flat rack — carrier approval, specialized lashing, and coordinated port handling at both ends.',
+    result: 'Damage-free OOG delivery · Carrier-compliant stowage',
+    heroImage: '/projects/oog-bogie-india-nl-hero.png',
+    publishedAt: '2026-10-24',
+    location: 'Nhava Sheva, India → Rotterdam, Netherlands',
+    metaTitle: 'OOG Bogie Transport India to Netherlands | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics transported an out-of-gauge bogie from Nhava Sheva to Rotterdam on a 20FT flat rack with specialized securing.',
+    ogImage: '/projects/oog-bogie-india-nl-hero.png',
+    background: [
+      'Clarusto managed international transportation of an Out-of-Gauge (OOG) bogie from Nhava Sheva (JNPT), India, to Rotterdam, Netherlands. Cargo dimensions exceeded standard container width limitations.',
+      'The bogie was loaded onto a 20FT flat-rack container and moved by sea freight, requiring specialized planning, equipment selection, and cargo securing throughout.',
+    ],
+    objective: [
+      'Secure carrier approval and suitable flat-rack equipment for OOG dimensions.',
+      'Apply compliant lashing and handling at origin and destination ports.',
+      'Complete sea freight to Rotterdam without damage or stowage disruption.',
+    ],
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Oversized bogie dimensions required non-standard equipment, carrier approval, and specialized securing.',
+        activities: [],
+        challenges: [
+          'Managing cargo dimensions exceeding standard container width limitations.',
+          'Securing carrier approval for Out-of-Gauge cargo transportation.',
+          'Selecting suitable equipment for safe loading and transportation.',
+          'Ensuring proper lashing to prevent cargo movement during transit.',
+          'Coordinating specialized handling at origin and destination ports.',
+          'Managing port operations and vessel stowage for oversized cargo.',
+          'Minimizing risks associated with non-standard freight handling.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto selected a 20FT flat rack, verified dimensions, secured OOG booking approval, and executed specialized lashing.',
+        activities: [
+          'Selection of a 20FT Flat Rack container suitable for oversized cargo.',
+          'Detailed cargo assessment and dimensional verification.',
+          'Planning of loading and securing arrangements.',
+          'Coordination with shipping lines for OOG booking approval.',
+          'Arrangement of export handling and port operations.',
+          'Specialized lashing and continuous shipment monitoring.',
+        ],
+        challenges: [],
+        execution: [
+          'Cargo dimensions and handling needs were evaluated; a 20FT flat rack was selected to accommodate width.',
+          'The bogie was secured with specialized lashing inspected against shipping-line and international safety standards.',
+          'Export handling at Nhava Sheva and discharge coordination in Rotterdam kept the specialized move on track.',
+        ],
+        image: {
+          src: '/projects/oog-bogie-india-nl-execution.png',
+          alt: 'Out-of-gauge flat-rack sea freight from India to the Netherlands',
+          caption:
+            'Execution — flat-rack OOG securing and sea freight to Rotterdam.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful transportation of Out-of-Gauge cargo without damage.',
+      'Safe loading and securing of the bogie unit on a Flat Rack container.',
+      'Compliance with carrier, port, and transportation requirements.',
+      'Smooth coordination between origin and destination operations.',
+      'Efficient management of specialized cargo handling procedures.',
+      'Successful execution of international sea freight for oversized cargo.',
+    ],
+    conclusion: [
+      'The OOG bogie shipment from India to the Netherlands highlights Clarusto’s expertise in oversized and specialized project cargo.',
+      'Detailed planning, coordination, and strict securing standards delivered a reliable solution tailored to non-standard freight requirements.',
+    ],
+  },
+  {
+    slug: 'food-import-customs-clearance-india-uk',
+    title: 'Food Import Customs Clearance and Final Delivery: India to the United Kingdom',
+    category: 'Food Logistics · UK Import Customs',
+    client: 'Food importer, Wembley (London)',
+    subheading:
+      'FCL ambient food import from Nhava Sheva to Wembley via Southampton — multi-HS clearance and inland delivery.',
+    excerpt:
+      'Clarusto cleared and delivered an FCL of rice, pulses, spices, dry fruits, and packaged foods from India to Wembley via Southampton with pre-arrival document control.',
+    result: 'Compliant multi-HS clearance · On-time Wembley delivery',
+    heroImage: '/projects/food-import-india-uk-hero.png',
+    publishedAt: '2026-10-22',
+    location: 'Nhava Sheva, India → Wembley, London (via Southampton)',
+    metaTitle: 'India to UK Food Import Customs Case Study | Clarusto',
+    metaDescription:
+      'Case study: Clarusto Logistics managed FCL food import customs clearance at Southampton and final delivery to Wembley from India.',
+    ogImage: '/projects/food-import-india-uk-hero.png',
+    background: [
+      'Clarusto managed import clearance and final distribution of a full container load (FCL) from Nhava Sheva, India, to Wembley, London, United Kingdom.',
+      'The shipment covered mixed ambient food products — rice, pulses, spices, dry fruits, and packaged foods — requiring strict UK customs and regulatory control. Scope included Southampton clearance, terminal handling, and inland delivery to Wembley.',
+    ],
+    objective: [
+      'Clear multiple food commodities under correct HS classifications without avoidable holds.',
+      'Meet UK food import compliance and potential port health inspection requirements.',
+      'Release and deliver the container from Southampton to Wembley on schedule.',
+    ],
+    transportModes: [
+      {
+        title: 'The Challenge',
+        summary:
+          'Mixed food products needed multi-HS documentation readiness and tightly managed UK import compliance.',
+        activities: [],
+        challenges: [
+          'Customs clearance for multiple food products under different HS classifications.',
+          'Complete and accurate documentation prior to cargo arrival.',
+          'Meeting UK import compliance requirements for food products.',
+          'Managing potential port health inspections and regulatory checks.',
+          'Coordinating terminal handling and container release procedures.',
+          'Maintaining delivery schedules while minimizing port-related delays.',
+          'Preventing extra costs from inspections, storage, or customs holds.',
+        ],
+        execution: [],
+      },
+      {
+        title: 'Approach & Execution',
+        summary:
+          'Clarusto ran pre-arrival document review, Southampton clearance, terminal release, and dedicated inland delivery to Wembley.',
+        activities: [
+          'Pre-arrival review of shipping documents.',
+          'Customs clearance management at Southampton Port.',
+          'Accurate commodity classification and declaration procedures.',
+          'Coordination with authorities for import compliance requirements.',
+          'Terminal handling and container release management.',
+          'Inland transportation planning from Southampton to Wembley.',
+          'Continuous shipment monitoring and status updates.',
+        ],
+        challenges: [],
+        execution: [
+          'Before arrival, Clarusto reviewed the commercial invoice, packing list, bill of lading, and supporting import documents.',
+          'At Southampton, clearance and commodity declarations were coordinated for efficient processing and release.',
+          'After terminal release, dedicated transport delivered the container to the consignee’s facility in Wembley.',
+        ],
+        image: {
+          src: '/projects/food-import-india-uk-execution.png',
+          alt: 'UK food import customs clearance and inland delivery to Wembley',
+          caption:
+            'Execution — Southampton clearance and inland delivery to Wembley.',
+        },
+      },
+    ],
+    coordinationOutcomes: [],
+    keyOutcomes: [
+      'Successful customs clearance of mixed food products.',
+      'Compliance with applicable UK import regulations and documentation requirements.',
+      'Efficient terminal handling and container release.',
+      'Smooth transportation from Southampton Port to Wembley.',
+      'Timely delivery to the consignee’s facility.',
+      'Reduced risk of customs delays and operational disruptions.',
+      'Effective coordination across customs, port, and transportation activities.',
+    ],
+    conclusion: [
+      'This India–UK food import demonstrates Clarusto’s expertise in international food logistics and customs clearance.',
+      'Detailed planning, regulatory compliance, and coordinated execution moved the cargo efficiently from origin to final destination.',
+    ],
+  },
 ];
 
 export function getProjectCaseStudy(slug: string) {
