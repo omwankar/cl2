@@ -36,75 +36,7 @@ export default function ProjectsPage() {
       badgeMeta: study.location,
     }));
 
-  const caseStudies: ProjectListItem[] = [
-    ...featuredCaseStudies,
-    {
-      id: 'placeholder-mfg',
-      title: 'Heavy Industry Route Stabilization',
-      category: 'Manufacturing & Heavy Industry',
-      description:
-        'Planned and executed multimodal deliveries for high-weight industrial consignments with documented customs support and controlled handover windows.',
-      result: 'Lower transit variation across complex lanes',
-      image: '/projects/project-21.png',
-      badgeTag: 'MFG',
-      badgeMeta: 'Heavy Industry',
-    },
-    {
-      id: 'placeholder-og',
-      title: 'Oil & Gas Mission-Critical Movements',
-      category: 'Oil & Gas',
-      description:
-        'Delivered time-bound energy-sector cargo with strict checkpoint compliance, route planning, and real-time operational visibility.',
-      result: 'Improved schedule reliability for critical loads',
-      image: '/projects/project-22.png',
-      badgeTag: 'O&G',
-      badgeMeta: 'Energy Sector',
-    },
-    {
-      id: 'placeholder-rtl',
-      title: 'Retail & E-commerce Fulfillment Upgrade',
-      category: 'Retail & E-commerce',
-      description:
-        'Connected warehousing, cross-border freight, and regional distribution to support scalable order volumes for retail growth.',
-      result: 'Faster dispatch and tighter fulfillment consistency',
-      image: '/projects/project-23.png',
-      badgeTag: 'RTL',
-      badgeMeta: 'Retail',
-    },
-    {
-      id: 'placeholder-fmcg',
-      title: 'FMCG Distribution Network Alignment',
-      category: 'FMCG',
-      description:
-        'Built a repeatable replenishment flow across regional hubs with frequent shipment cycles and service-level tracking.',
-      result: 'Reduced stockout risk across delivery regions',
-      image: '/projects/project-24.png',
-      badgeTag: 'FMCG',
-      badgeMeta: 'Consumer Goods',
-    },
-    {
-      id: 'placeholder-auto',
-      title: 'Automotive Components Corridor',
-      category: 'Automotive',
-      description:
-        'Coordinated road, sea, and warehouse interfaces for recurring component movements with predictable ETA performance.',
-      result: 'Higher delivery precision for production timelines',
-      image: '/projects/project-25.png',
-      badgeTag: 'AUTO',
-      badgeMeta: 'Automotive',
-    },
-    {
-      id: 'placeholder-phr',
-      title: 'Pharma & Healthcare Handling Program',
-      category: 'Pharmaceuticals & Healthcare',
-      description:
-        'Executed controlled handling workflows and compliant documentation for sensitive healthcare and regulated shipments.',
-      result: 'Stronger compliance confidence and shipment traceability',
-      image: '/projects/project-26.png',
-      badgeTag: 'PHR',
-      badgeMeta: 'Healthcare',
-    },
-  ];
+  const caseStudies: ProjectListItem[] = featuredCaseStudies;
 
   const projectGallery = Array.from(
     { length: 12 },
