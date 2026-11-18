@@ -133,6 +133,7 @@ export const seoRoutes = [
   '/services',
   '/contact',
   '/projects',
+  '/track',
   '/blog',
   '/press-releases',
   '/clarusto-logistics-wins-global-startup-of-the-year-scotland-startup-awards-2026',

@@ -32,6 +32,30 @@ export const CLARUSTO_GROUP = {
   organizationId: 'https://www.clarusto.com/#organization',
 } as const;
 
+/** Industry memberships & affiliations shown in footer / about. */
+export const INDUSTRY_MEMBERSHIPS = [
+  {
+    name: 'BIFA',
+    fullName: 'British International Freight Association',
+    href: 'https://bifa.org/',
+  },
+  {
+    name: 'FIATA',
+    fullName: 'International Federation of Freight Forwarders Associations',
+    href: 'https://fiata.org/',
+  },
+  {
+    name: 'IATA',
+    fullName: 'International Air Transport Association',
+    href: 'https://www.iata.org/',
+  },
+  {
+    name: 'Logistics UK',
+    fullName: 'Logistics UK',
+    href: 'https://logistics.org.uk/',
+  },
+] as const;
+
 export const SERVICES: Service[] = [
   {
     id: 'air-freight',

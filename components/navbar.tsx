@@ -30,6 +30,7 @@ const navigation = [
     ],
   },
   { name: 'Projects', href: '/projects' },
+  { name: 'Track Shipment', href: '/track' },
   { name: 'Blogs & Insights', href: '/blog' },
   { name: 'Press Releases', href: '/press-releases' },
   { name: 'FAQ', href: '/faq' },

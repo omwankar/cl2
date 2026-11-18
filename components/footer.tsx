@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa6';
 import {
   CLARUSTO_GROUP,
+  INDUSTRY_MEMBERSHIPS,
   PRIMARY_CONTACT_EMAIL,
   PRIMARY_CONTACT_EMAIL_HREF,
   UK_OFFICE_ADDRESS_DISPLAY,
@@ -94,6 +95,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/track" className="hover:text-amber-500 transition-colors">
+                  Track Shipment
+                </Link>
+              </li>
+              <li>
                 <Link href="/faq" className="hover:text-amber-500 transition-colors">
                   FAQ
                 </Link>
@@ -170,7 +176,33 @@ export function Footer() {
           </div>
         </div>
 
-   
+        {/* Memberships & affiliations */}
+        <div className="mb-10 border-t border-white/10 pt-10">
+          <p className="mb-5 text-center font-mono text-[11px] uppercase tracking-[0.22em] text-amber-400">
+            Memberships &amp; Affiliations
+          </p>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {INDUSTRY_MEMBERSHIPS.map((org) => (
+              <li key={org.name}>
+                <a
+                  href={org.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={org.fullName}
+                  aria-label={`${org.fullName} (opens in a new tab)`}
+                  className="group flex h-full flex-col items-center justify-center gap-1 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-4 text-center transition-all hover:border-amber-400/45 hover:bg-amber-400/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                >
+                  <span className="font-[family-name:var(--font-bebas)] text-2xl tracking-wide text-white transition-colors group-hover:text-amber-400 sm:text-[1.65rem]">
+                    {org.name}
+                  </span>
+                  <span className="max-w-[12rem] text-[11px] leading-snug text-white/55">
+                    {org.fullName}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Copyright */}
         <div className="border-t border-primary-foreground border-opacity-20 pt-8 text-center text-sm opacity-75 space-y-2">

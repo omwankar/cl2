@@ -98,7 +98,7 @@ export default function AboutPage() {
               { icon: Award, number: '30+', label: 'Years of Excellence', sub: 'Est. 1992 in Saudi Arabia' },
               { icon: Users, number: '2,000+', label: 'Projects Delivered', sub: 'Across industries worldwide' },
               { icon: Globe, number: '5', label: 'Continents Covered', sub: 'Global reach, local expertise' },
-              { icon: Leaf, number: '6', label: 'Certifications', sub: 'IATA · ISO 9001 · BIFA · FORS · RHA · DVSA' },
+              { icon: Leaf, number: '8', label: 'Certifications', sub: 'IATA · FIATA · BIFA · Logistics UK · ISO 9001 · FORS · RHA · DVSA' },
             ].map((item, index) => {
               const Icon = item.icon;
               return (
@@ -203,7 +203,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold mb-3">Our Certifications</h2>
           <p className="text-white/60 mb-10">Globally recognised standards that back our commitment to quality</p>
           <div className="flex flex-wrap justify-center gap-4">
-            {['IATA Member', 'ISO 9001 Certified', 'BIFA Member', 'FORS Accredited', 'RHA Member', 'DVSA Earned Recognition'].map((cert) => (
+            {['IATA Member', 'FIATA Member', 'BIFA Member', 'Logistics UK Member', 'ISO 9001 Certified', 'FORS Accredited', 'RHA Member', 'DVSA Earned Recognition'].map((cert) => (
               <div key={cert} className="px-5 py-3 rounded-full border border-amber-400/40 text-amber-400 text-sm font-semibold hover:bg-amber-400 hover:text-[#0F1923] transition-all duration-300 cursor-default">
                 {cert}
               </div>
