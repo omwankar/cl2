@@ -26,7 +26,7 @@ function stopTitle(stop: TrackPortStop, isAir: boolean) {
     case 'postpod':
       return 'Post-POD';
     default:
-      return stop.role.toUpperCase();
+      return String(stop.role).toUpperCase();
   }
 }
 
