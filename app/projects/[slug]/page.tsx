@@ -6,8 +6,9 @@ import { ProjectCaseStudyView } from '@/components/projects/project-case-study-v
 import {
   getAllProjectSlugs,
   getProjectCaseStudy,
+  resolveCaseStudyImages,
 } from '@/lib/project-case-studies';
-import { SEO } from '@/lib/seo';
+import { SEO, absoluteUrl, siteConfig } from '@/lib/seo';
 
 type ProjectCaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -27,11 +28,14 @@ export async function generateMetadata({
     return { title: 'Project Not Found | Clarusto Logistics' };
   }
 
+  const images = resolveCaseStudyImages(study);
+  const ogImage = images[0]?.src || study.ogImage;
+
   return SEO({
     title: study.metaTitle,
     description: study.metaDescription,
     url: `/projects/${study.slug}`,
-    image: study.ogImage,
+    image: ogImage,
     keywords: [
       'Clarusto Logistics project',
       study.category,
@@ -53,8 +57,44 @@ export default async function ProjectCaseStudyPage({
     notFound();
   }
 
+  const images = resolveCaseStudyImages(study);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: study.title,
+    description: study.metaDescription,
+    image: images.map((image) => absoluteUrl(image.src)),
+    datePublished: study.publishedAt,
+    dateModified: study.publishedAt,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.domain,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.domain,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/clarusto-logo-dark.png'),
+      },
+    },
+    mainEntityOfPage: absoluteUrl(`/projects/${study.slug}`),
+    about: {
+      '@type': 'Thing',
+      name: study.category,
+      description: study.excerpt,
+    },
+    locationCreated: study.location,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <ProjectCaseStudyView study={study} />
       <Footer />

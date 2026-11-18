@@ -1,7 +1,7 @@
 export type ProjectGalleryImage = {
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
 };
 
 export type TransportModeSection = {
@@ -11,6 +11,32 @@ export type TransportModeSection = {
   challenges: string[];
   execution: string[];
   image?: ProjectGalleryImage;
+};
+
+export type ProjectStat = {
+  value: string;
+  label: string;
+  /** Numeric portion used for count-up animation when present */
+  countTo?: number;
+  prefix?: string;
+  suffix?: string;
+};
+
+export type ProjectScopeIcon =
+  | 'container'
+  | 'unloading'
+  | 'customs'
+  | 'inspection'
+  | 'truck'
+  | 'return'
+  | 'warehouse'
+  | 'ship'
+  | 'plane'
+  | 'check';
+
+export type ProjectScopeItem = {
+  label: string;
+  icon?: ProjectScopeIcon;
 };
 
 export type ProjectCaseStudy = {
@@ -38,6 +64,14 @@ export type ProjectCaseStudy = {
   conclusionImage?: ProjectGalleryImage;
   coordinationHeading?: string;
   outcomesHeading?: string;
+  /** Optional ordered gallery: [0] hero, [1] background, [2] challenge, [3] outcomes, [4+] gallery */
+  images?: ProjectGalleryImage[];
+  /** Optional hero stats strip; falls back to result + location when omitted */
+  stats?: ProjectStat[];
+  /** Optional scope-of-work chips; falls back to activities / objectives */
+  scopeItems?: ProjectScopeItem[];
+  /** Small badge overlaid on the background image */
+  locationBadge?: string;
 };
 
 export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
@@ -67,6 +101,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Track consignments closely to avoid demurrage, storage charges, and avoidable delays.',
       'Improve supply-chain predictability through proactive compliance checks and local regulatory expertise.',
     ],
+    objectiveImage: {
+      src: '/projects/behu-customs-riyadh-overview.png',
+      alt: "Customs documentation overview for Behu imports",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -102,9 +141,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/behu-customs-riyadh-execution.png',
-          alt: 'Customs documentation and trucking coordination for Behu Ltd imports in Saudi Arabia',
+          alt: "Execution of Fasah-linked clearance and trucking",
           caption:
-            'Execution — document control, Fasah-linked clearance, and coordinated inland delivery.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -116,6 +155,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Faster delivery timelines and stronger supply-chain predictability.',
       'Clearer importer–logistics communication across the clearance cycle.',
     ],
+    outcomesImage: {
+      src: '/projects/behu-customs-riyadh-outcomes.png',
+      alt: "Cleared Behu cargo ready for Riyadh delivery",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'The Behu Ltd. engagement shows how Clarusto Logistics turns complex Saudi clearance requirements into a controlled, repeatable process. By combining compliance expertise, digital customs integration, and proactive delivery coordination, Clarusto helped convert clearance risk into a more reliable import operation.',
     ],
@@ -146,10 +190,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Arrange container pickup, inland transportation to Riyadh, storage management beyond free time, and empty container returns.',
     ],
     objectiveImage: {
-      src: '/projects/king-abdullah-port-customs-cargo.jpg',
-      alt: 'Open containers with mixed infrastructure cargo at King Abdullah Port',
-      caption:
-        'Mixed cargo — telecom, HVAC, and industrial components prepared for clearance.',
+      src: '/projects/king-abdullah-port-customs-overview.jpg',
+      alt: "Open containers with multi-commodity cargo",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -188,9 +231,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/king-abdullah-port-customs-execution.jpg',
-          alt: 'Customs clearance execution for mixed cargo at King Abdullah Port',
+          alt: "Customs clearance execution at Saudi ports",
           caption:
-            'Execution — coordinated clearance and container handling across the two port locations.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -203,10 +246,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Timely final delivery to the Riyadh destination within operational requirements.',
     ],
     outcomesImage: {
-      src: '/projects/king-abdullah-port-customs-results.jpg',
-      alt: 'Cleared mixed infrastructure cargo ready for onward Saudi delivery',
-      caption:
-        'Results — mixed cargo cleared and delivered to Riyadh.',
+      src: '/projects/king-abdullah-port-customs-outcomes.jpg',
+      alt: "Cleared containers ready for Riyadh delivery",
+      caption: "Results — completed delivery and project outcomes.",
     },
     conclusion: [
       'The Riyadh container delivery operation demonstrates Clarusto Logistics’ capability in managing end-to-end import logistics across Saudi Arabian ports. Structured customs clearance, coordinated port handling, and reliable inland transportation supported the movement of a complex multi-commodity shipment from arrival through final delivery.',
@@ -240,9 +282,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     objectiveImage: {
       src: '/projects/empty-plastic-bottles-nl-uk-overview.jpg',
-      alt: 'Warehouse overview of palletised empty plastic bottle supply',
-      caption:
-        'Overview — high-volume palletised empty bottle inventory prepared for dispatch.',
+      alt: "Palletised bottle collection overview",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -280,9 +321,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/empty-plastic-bottles-nl-uk-execution.png',
-          alt: 'Forklift handling palletised empty plastic bottles for UK delivery',
+          alt: "Cross-border road execution NL to UK",
           caption:
-            'Execution — controlled warehouse handling and FTL dispatch planning.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -295,10 +336,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'A repeatable model for future recycling inbound supply.',
     ],
     outcomesImage: {
-      src: '/projects/empty-plastic-bottles-nl-uk-results.png',
-      alt: 'Successful empty plastic bottle supply delivery into the UK',
-      caption:
-        'Results — damage-free palletised bottles delivered into Worcester.',
+      src: '/projects/empty-plastic-bottles-nl-uk-outcomes.png',
+      alt: "Delivered bottle supply into UK production",
+      caption: "Results — completed delivery and project outcomes.",
     },
     conclusion: [
       'This project shows how Clarusto Logistics combines border readiness, pallet engineering, and timed road freight to keep lightweight bulk recycling inputs moving reliably from the Netherlands into the UK. The same controlled model now supports ongoing partnered supply-chain growth.',
@@ -332,9 +372,8 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     ],
     objectiveImage: {
       src: '/projects/dammam-riyadh-container-delivery-overview.jpg',
-      alt: 'Overview of Dammam to Riyadh inland container delivery planning',
-      caption:
-        'Overview — corridor planning for a same-day multi-container road move.',
+      alt: "Container staging for inland haulage",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -371,9 +410,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/dammam-riyadh-container-delivery-execution.png',
-          alt: 'Inland trucking execution for Dammam to Riyadh container delivery',
+          alt: "Same-day road execution Dammam to Riyadh",
           caption:
-            'Execution — staged trailer fleet and live corridor monitoring.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -386,10 +425,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Controlled exposure to detention and demurrage through timed release.',
     ],
     outcomesImage: {
-      src: '/projects/dammam-riyadh-container-delivery-results.png',
-      alt: 'Completed inland container delivery from Dammam into Riyadh',
-      caption:
-        'Results — multi-container road delivery completed under the planned window.',
+      src: '/projects/dammam-riyadh-container-delivery-outcomes.png',
+      alt: "Completed inland container delivery to Riyadh",
+      caption: "Results — completed delivery and project outcomes.",
     },
     conclusion: [
       'Clarusto Logistics turned a demanding same-day inland brief into a controlled Dammam–Riyadh operation. Route planning, customs specialists, and flexible trailer capacity kept Behu Ltd.’s containers moving with clear cost control and minimal disruption.',
@@ -408,6 +446,45 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     heroImage: '/projects/aqaba-amman-ev-import-hero.jpg',
     publishedAt: '2026-06-20',
     location: 'Aqaba → Amman, Jordan',
+    locationBadge: 'Port of Aqaba',
+    stats: [
+      { value: '8 × 40FT', label: 'Containers', countTo: 8, suffix: ' × 40FT' },
+      { value: '1 week', label: 'Delivery', countTo: 1, suffix: ' week' },
+      { value: 'Zero', label: 'Damage' },
+      { value: 'Aqaba → Amman', label: 'Route' },
+    ],
+    images: [
+      {
+        src: '/projects/aqaba-amman-ev-import-hero.jpg',
+        alt: 'EV import handling at Aqaba port',
+        caption: 'Aqaba port operations',
+      },
+      {
+        src: '/projects/aqaba-amman-overview.jpg',
+        alt: 'Vehicle destuffing and port handling overview',
+        caption: 'Port of Aqaba',
+      },
+      {
+        src: '/projects/aqaba-amman-execution.jpg',
+        alt: 'Inland EV transport execution to Amman',
+        caption: 'Inland delivery',
+      },
+      {
+        src: '/projects/aqaba-amman-outcomes.jpg',
+        alt: 'Completed Aqaba to Amman vehicle delivery',
+        caption: 'Project outcomes',
+      },
+      {
+        src: '/projects/aqaba-amman-results.jpg',
+        alt: 'Successful EV import logistics outcomes from Aqaba to Amman',
+        caption: 'On-time inland delivery',
+      },
+      {
+        src: '/projects/aqaba-amman-p1-img1.jpeg',
+        alt: 'Container handling supporting Aqaba EV import',
+        caption: 'Container operations',
+      },
+    ],
     metaTitle: 'EV Vehicle Import Aqaba to Amman Case Study | Clarusto',
     metaDescription:
       'How Clarusto Logistics managed electric vehicle import handling, customs coordination, and inland delivery from Aqaba to Amman for 8 × 40FT containers in Jordan.',
@@ -420,6 +497,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Importing containerized EVs requires precise coordination between port operations, customs authorities, transport providers, and handling teams. Delays in cargo release, inspections, documentation, or inland transportation can result in additional storage costs and operational disruptions.',
       'The project required a structured execution plan to ensure uninterrupted cargo movement while maintaining compliance with Jordanian customs and transport regulations.',
     ],
+    objectiveImage: {
+      src: '/projects/aqaba-amman-overview.jpg',
+      alt: "Vehicle destuffing and port handling overview",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -459,9 +541,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/aqaba-amman-execution.jpg',
-          alt: 'Electric vehicle import handling and inland delivery operation in Jordan',
+          alt: "Inland EV transport execution to Amman",
           caption:
-            'Execution — port collection, EV destuffing, and inland delivery from Aqaba to Amman.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -485,10 +567,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Smooth coordination between port operations, customs authorities, transport providers, and the consignee.',
     ],
     outcomesImage: {
-      src: '/projects/aqaba-amman-results.jpg',
-      alt: 'Successful EV import logistics outcomes from Aqaba to Amman',
-      caption:
-        'Results — on-time inland delivery and compliant empty container return.',
+      src: '/projects/aqaba-amman-outcomes.jpg',
+      alt: "Completed Aqaba to Amman vehicle delivery",
+      caption: "Results — completed delivery and project outcomes.",
     },
     conclusion: [
       'This project demonstrates Clarusto Logistics\' expertise in automotive import logistics, customs coordination, and inland transportation management for electric vehicle shipments.',
@@ -637,6 +718,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     objective: [
       'Transporting heavy industrial components across international borders required careful planning, strict regulatory compliance, and close coordination between multiple stakeholders. The weight and dimensions of the cargo demanded optimized container planning while ensuring compliance with shipping line and port restrictions.',
     ],
+    objectiveImage: {
+      src: '/projects/expansion-joints-overview.jpg',
+      alt: "Oversized expansion joint cargo overview",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -679,9 +765,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/expansion-joints-execution.jpg',
-          alt: 'Execution of heavy industrial expansion joint FCL shipment from China to Saudi Arabia',
+          alt: "Multimodal heavy cargo execution",
           caption:
-            'Execution — container planning, documentation control, and coordinated port-to-site delivery.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -706,10 +792,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Smooth execution of the shipment with zero operational disruptions.',
     ],
     outcomesImage: {
-      src: '/projects/expansion-joints-results.jpg',
-      alt: 'Successful delivery of axial metal expansion joints to Riyadh project site',
-      caption:
-        'Results — 130 expansion joints delivered safely and on schedule to Riyadh.',
+      src: '/projects/expansion-joints-outcomes.jpg',
+      alt: "Delivered industrial cargo in Saudi Arabia",
+      caption: "Results — completed delivery and project outcomes.",
     },
     conclusion: [
       'This project demonstrates Clarusto Logistics\' expertise in managing complex heavy industrial cargo through integrated international logistics solutions. By combining strategic cargo planning, regulatory compliance, documentation management, ocean freight coordination, customs clearance, and efficient inland transportation, Clarusto successfully delivered the shipment from China to Riyadh safely and on schedule.',
@@ -848,13 +933,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     excerpt:
       'Clarusto moved heavy-lift equipment from Europe to Dammam Industrial City 2 for LINDE — heavy-lift vessel stowage, route surveys, and multi-axle hydraulic trailers with full shipment visibility.',
     result: '23-day sea transit · On-time site delivery',
-    heroImage: '/projects/linde-saudi-hero.jpg',
+    heroImage: '/projects/linde-saudi-hero.png',
     publishedAt: '2026-11-10',
     location: 'Europe → Dammam Industrial City 2, Saudi Arabia',
     metaTitle: 'LINDE Heavy Lift Delivery to Saudi Arabia | Clarusto',
     metaDescription:
       'Case study: Clarusto Logistics delivered heavy-lift cargo for LINDE from Europe to Dammam Industrial City 2 using heavy-lift vessels and SPMT inland haulage.',
-    ogImage: '/projects/linde-saudi-hero.jpg',
+    ogImage: '/projects/linde-saudi-hero.png',
     background: [
       'Clarusto successfully managed the transportation of heavy lift cargo for LINDE, a global leader in industrial gases and engineering solutions. The project involved moving oversized equipment from Europe to Dammam Industrial City 2, Saudi Arabia, using a combination of sea and land transportation.',
       'Due to the size and weight of the cargo, the project required detailed planning, specialized equipment, and close coordination across multiple transportation stages to ensure safe, timely delivery with complete visibility.',
@@ -865,9 +950,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Maintain regulatory compliance and uninterrupted movement through port, customs, and inland stages.',
     ],
     objectiveImage: {
-      src: '/projects/linde-saudi-media2.jpg',
-      alt: 'Heavy-lift cargo preparation for LINDE Saudi Arabia delivery',
-      caption: 'Overview — oversized equipment prepared for multimodal heavy-lift movement.',
+      src: '/projects/linde-saudi-overview.png',
+      alt: "Heavy-lift equipment preparation overview",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -903,10 +988,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           'Documentation and shipment tracking supported visibility and compliance at every stage.',
         ],
         image: {
-          src: '/projects/linde-saudi-media3.jpg',
-          alt: 'SPMT inland haulage of LINDE heavy-lift cargo in Saudi Arabia',
+          src: '/projects/linde-saudi-execution.png',
+          alt: "SPMT inland heavy-lift execution",
           caption:
-            'Execution — sea-to-land handover and multi-axle inland delivery to Dammam Industrial City 2.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -921,9 +1006,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Strong collaboration between logistics partners, transport providers, and project stakeholders.',
     ],
     outcomesImage: {
-      src: '/projects/linde-saudi-media4.jpg',
-      alt: 'Successful LINDE heavy-lift delivery outcomes in Saudi Arabia',
-      caption: 'Results — oversized cargo delivered safely to Dammam Industrial City 2.',
+      src: '/projects/linde-saudi-outcomes.png',
+      alt: "Heavy-lift cargo delivered to Dammam site",
+      caption: "Results — completed delivery and project outcomes.",
     },
     conclusion: [
       'The LINDE project highlights Clarusto’s capability in large-scale heavy-lift logistics that require specialized equipment, multimodal transportation, and detailed planning.',
@@ -940,13 +1025,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     excerpt:
       'Clarusto established structured warehousing for ABB Contracting Co. on the Al Masana Water & Sewage project — SOPs, packing stations, WMS visibility, and faster dispatch in Dammam Industrial City 2.',
     result: 'Improved inventory visibility · On-timeline completion',
-    heroImage: '/projects/reine-masana-hero.jpg',
+    heroImage: '/projects/reine-masana-hero.png',
     publishedAt: '2026-11-08',
     location: 'Dammam Industrial City 2, Saudi Arabia',
     metaTitle: 'Al Masana Warehousing Case Study | Clarusto Logistics',
     metaDescription:
       'Case study: Clarusto Logistics managed warehousing, packing, inventory, and dispatch for ABB Contracting Co. on the Al Masana Water & Sewage project in Dammam.',
-    ogImage: '/projects/reine-masana-hero.jpg',
+    ogImage: '/projects/reine-masana-hero.png',
     background: [
       'Clarusto managed warehousing operations for the Al Masana Water & Sewage infrastructure scope in Dammam Industrial City 2, Saudi Arabia. The scope included packing, storage, inventory management, and dispatch support for ABB Contracting Co.',
       'The requirement was to establish an efficient warehouse system capable of supporting material handling while ensuring proper storage, accurate inventory control, and timely dispatch within the project timeline.',
@@ -957,9 +1042,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Support timely dispatch with structured warehouse workflows for ABB Contracting Co.',
     ],
     objectiveImage: {
-      src: '/projects/reine-masana-media1.png',
-      alt: 'Industrial materials handling supporting Al Masana project logistics',
-      caption: 'Overview — project materials prepared for controlled warehouse handling.',
+      src: '/projects/reine-masana-overview.png',
+      alt: "Project materials warehouse overview",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -995,10 +1080,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           'Managed operations through defined procedures and continuous communication with ABB Contracting Co.',
         ],
         image: {
-          src: '/projects/reine-masana-media2.png',
-          alt: 'Warehousing execution for Al Masana Water & Sewage project materials',
+          src: '/projects/reine-masana-execution.png',
+          alt: "Packing and dispatch warehouse execution",
           caption:
-            'Execution — structured packing, storage, and dispatch support for ABB.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1012,6 +1097,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Better coordination between warehouse teams and stakeholders.',
       'Successful completion within the required timeline.',
     ],
+    outcomesImage: {
+      src: '/projects/reine-masana-outcomes.png',
+      alt: "Organized inventory outcomes for ABB",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'The Al Masana Water & Sewage project highlights Clarusto’s capability in efficient warehousing and logistics for large-scale industrial operations.',
       'Through process improvement, warehouse technology, standardized procedures, and effective coordination, Clarusto enhanced storage, packing, and inventory management while supporting ABB Contracting Co.’s operational requirements.',
@@ -1044,9 +1134,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Support cross-border delivery across GCC and neighboring markets with specialized car carriers.',
     ],
     objectiveImage: {
-      src: '/projects/gcc-vehicles-jeddah-media1.png',
-      alt: 'Containerized vehicle unstuffing for Jeddah automotive distribution',
-      caption: 'Overview — multi-vehicle container handling at the Jeddah hub.',
+      src: '/projects/gcc-vehicles-jeddah-overview.png',
+      alt: "Bonded vehicle yard overview",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -1084,10 +1174,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           'Continuous coordination between port, warehouse, inspection, and transport teams kept the flow uninterrupted.',
         ],
         image: {
-          src: '/projects/gcc-vehicles-jeddah-media2.png',
-          alt: 'Bonded vehicle yard and GCC distribution from Jeddah',
+          src: '/projects/gcc-vehicles-jeddah-execution.jpg',
+          alt: "Car-carrier distribution execution",
           caption:
-            'Execution — bonded storage, PDI readiness, and regional vehicle dispatch.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1100,6 +1190,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Reliable distribution support across GCC and neighboring markets.',
       'Capability to manage high-volume automotive logistics operations.',
     ],
+    outcomesImage: {
+      src: '/projects/gcc-vehicles-jeddah-outcomes.png',
+      alt: "GCC multi-market vehicle delivery outcomes",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'The Jeddah vehicle distribution operation highlights Clarusto’s capability in end-to-end automotive logistics.',
       'Through port handling, bonded storage, vehicle inspection, and regional transportation coordination, Clarusto delivered a structured solution for efficient multi-market vehicle distribution.',
@@ -1131,6 +1226,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Schedule dedicated final-mile transport to Stirling with full shipment visibility.',
       'Minimize airport dwell and communication gaps between origin, destination, and consignee.',
     ],
+    objectiveImage: {
+      src: '/projects/chicago-stirling-air-overview.png',
+      alt: "Aircraft cargo loading overview",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -1167,9 +1267,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/chicago-stirling-air-execution.png',
-          alt: 'Air freight destination handling and final-mile delivery in Scotland',
+          alt: "Airport handling and final-mile execution",
           caption:
-            'Execution — Glasgow Airport collection and dedicated delivery to Stirling.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1182,6 +1282,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Reliable shipment visibility and communication throughout the process.',
       'Safe transportation with no cargo damage or handling issues.',
     ],
+    outcomesImage: {
+      src: '/projects/chicago-stirling-air-outcomes.png',
+      alt: "Warehouse handover outcomes in Scotland",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'This air freight shipment highlights Clarusto’s capability in destination logistics and final-mile delivery across international supply chains.',
       'Proactive coordination, efficient handling, and reliable transportation ensured seamless cargo movement from the United States to Scotland.',
@@ -1213,6 +1318,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Execute DDP delivery with full visibility and protected shipment integrity.',
       'Avoid storage, demurrage, and detention through fast release and empty return.',
     ],
+    objectiveImage: {
+      src: '/projects/pharma-france-ddp-overview.png',
+      alt: "Pharmaceutical cargo overview at Le Havre",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -1250,9 +1360,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/pharma-france-ddp-execution.png',
-          alt: 'Pharmaceutical DDP delivery and customs coordination in France',
+          alt: "Customs and DDP delivery execution",
           caption:
-            'Execution — Le Havre clearance, DDP delivery, and container return.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1267,6 +1377,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Timely return of the empty container to the shipping line.',
       'Secure handling and transportation of pharmaceutical products.',
     ],
+    outcomesImage: {
+      src: '/projects/pharma-france-ddp-outcomes.png',
+      alt: "Final pharma delivery outcomes in France",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'This pharmaceutical import project demonstrates Clarusto’s expertise in regulated cargo and end-to-end international logistics.',
       'Effective customs coordination, proactive shipment management, and compliant documentation ensured safe, timely movement from Le Havre Port to final destination.',
@@ -1282,13 +1397,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     excerpt:
       'Clarusto packaged and moved methanol (UN1230) for Chemanol Jubail via Deugro — UN-approved IBCs, hazard labeling, land and air DG compliance, and GPS-tracked transit with zero leakage.',
     result: 'Zero leakage · Full DG compliance',
-    heroImage: '/projects/methanol-chemanol-hero.jpg',
+    heroImage: '/projects/methanol-chemanol-hero.png',
     publishedAt: '2026-10-30',
     location: 'To Jubail, Saudi Arabia',
     metaTitle: 'Methanol DG Transport Chemanol Jubail | Clarusto',
     metaDescription:
       'Case study: Clarusto Logistics handled UN1230 methanol packaging and dangerous goods transport for the Chemanol Jubail Project with zero leakage.',
-    ogImage: '/projects/methanol-chemanol-hero.jpg',
+    ogImage: '/projects/methanol-chemanol-hero.png',
     background: [
       'Clarusto managed packaging and transportation of methanol chemicals for the Chemanol Jubail Project in Jubail, Saudi Arabia, through Deugro for a leading methanol chemicals manufacturer.',
       'Methanol is highly flammable and toxic (UN1230). The shipment required strict dangerous goods compliance, approved packaging, and continuous monitoring across land transport and air freight.',
@@ -1299,9 +1414,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Maintain hazard communication, route risk controls, and partner compliance throughout transit.',
     ],
     objectiveImage: {
-      src: '/projects/methanol-chemanol-media1.jpg',
-      alt: 'Specialized packaging prepared for methanol dangerous goods shipment',
-      caption: 'Overview — approved packaging prepared for hazardous chemical movement.',
+      src: '/projects/methanol-chemanol-overview.png',
+      alt: "UN-approved methanol packaging overview",
+      caption: "Overview — project cargo and handling context.",
     },
     transportModes: [
       {
@@ -1337,10 +1452,10 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
           'Evaluated routes before each stage to avoid densely populated and environmentally sensitive areas where possible.',
         ],
         image: {
-          src: '/projects/methanol-chemanol-media2.jpg',
-          alt: 'Dangerous goods methanol handling for Chemanol Jubail',
+          src: '/projects/methanol-chemanol-execution.png',
+          alt: "Dangerous goods multimodal execution",
           caption:
-            'Execution — compliant DG packaging, monitoring, and multimodal transport to Jubail.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1353,6 +1468,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Improved shipment visibility and security through GPS tracking.',
       'Increased confidence among clients and logistics partners on a high-risk shipment.',
     ],
+    outcomesImage: {
+      src: '/projects/methanol-chemanol-outcomes.png',
+      alt: "Safe methanol delivery outcomes Jubail",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'The Chemanol Jubail Project demonstrates Clarusto’s capability in hazardous chemical shipments that demand strict regulatory compliance and specialized planning.',
       'Approved packaging, risk management, continuous monitoring, and partner coordination delivered methanol safely and efficiently to Jubail, Saudi Arabia.',
@@ -1368,13 +1488,13 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     excerpt:
       'Clarusto hauled export containers from Stockton-on-Tees to Felixstowe and Southampton — dedicated trucking, port booking coordination, and cut-off-aligned scheduling.',
     result: 'On-schedule port delivery · Reduced cut-off risk',
-    heroImage: '/projects/stockton-uk-export-hero.jpg',
+    heroImage: '/projects/stockton-uk-export-hero.png',
     publishedAt: '2026-10-28',
     location: 'Stockton-on-Tees → Felixstowe & Southampton',
     metaTitle: 'Stockton to UK Ports Export Haulage | Clarusto',
     metaDescription:
       'Case study: Clarusto Logistics managed inland export container transportation from Stockton-on-Tees to Felixstowe and Southampton ports.',
-    ogImage: '/projects/stockton-uk-export-hero.jpg',
+    ogImage: '/projects/stockton-uk-export-hero.png',
     background: [
       'Clarusto managed inland transportation of export containers from Stockton-on-Tees, United Kingdom, to major export gateways including Felixstowe Port and Southampton Port.',
       'The scope covered container collection from the client’s facility, inland haulage, port delivery coordination, and movement monitoring against vessel cut-off and terminal booking requirements.',
@@ -1384,6 +1504,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Coordinate multi-port deliveries while controlling haulage cost and resource use.',
       'Maintain visibility and flexibility across container sizes and booking constraints.',
     ],
+    objectiveImage: {
+      src: '/projects/stockton-uk-export-overview.png',
+      alt: "Export container staging overview",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -1420,9 +1545,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/stockton-uk-export-execution.png',
-          alt: 'UK inland export container haulage to Felixstowe and Southampton',
+          alt: "Inland haulage to UK ports execution",
           caption:
-            'Execution — timed inland haulage from Stockton-on-Tees to UK export ports.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1435,6 +1560,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Reduced risk of export delays and missed vessel cut-offs.',
       'Reliable execution of container haulage activities.',
     ],
+    outcomesImage: {
+      src: '/projects/stockton-uk-export-outcomes.png',
+      alt: "On-time port delivery outcomes",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'This inland container project highlights Clarusto’s expertise in UK export logistics and domestic haulage.',
       'Detailed planning, coordinated execution, and continuous monitoring moved containers efficiently from facility to major UK export ports.',
@@ -1466,6 +1596,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Apply compliant lashing and handling at origin and destination ports.',
       'Complete sea freight to Rotterdam without damage or stowage disruption.',
     ],
+    objectiveImage: {
+      src: '/projects/oog-bogie-india-nl-overview.png',
+      alt: "Out-of-gauge cargo overview",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -1503,9 +1638,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/oog-bogie-india-nl-execution.png',
-          alt: 'Out-of-gauge flat-rack sea freight from India to the Netherlands',
+          alt: "Specialized OOG sea freight execution",
           caption:
-            'Execution — flat-rack OOG securing and sea freight to Rotterdam.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1518,6 +1653,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Efficient management of specialized cargo handling procedures.',
       'Successful execution of international sea freight for oversized cargo.',
     ],
+    outcomesImage: {
+      src: '/projects/oog-bogie-india-nl-outcomes.png',
+      alt: "Bogie delivery outcomes in the Netherlands",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'The OOG bogie shipment from India to the Netherlands highlights Clarusto’s expertise in oversized and specialized project cargo.',
       'Detailed planning, coordination, and strict securing standards delivered a reliable solution tailored to non-standard freight requirements.',
@@ -1549,6 +1689,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Meet UK food import compliance and potential port health inspection requirements.',
       'Release and deliver the container from Southampton to Wembley on schedule.',
     ],
+    objectiveImage: {
+      src: '/projects/food-import-india-uk-overview.png',
+      alt: "Dry food cargo overview",
+      caption: "Overview — project cargo and handling context.",
+    },
     transportModes: [
       {
         title: 'The Challenge',
@@ -1587,9 +1732,9 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
         ],
         image: {
           src: '/projects/food-import-india-uk-execution.png',
-          alt: 'UK food import customs clearance and inland delivery to Wembley',
+          alt: "UK customs clearance and delivery execution",
           caption:
-            'Execution — Southampton clearance and inland delivery to Wembley.',
+            "Execution — operational handling and movement.",
         },
       },
     ],
@@ -1603,6 +1748,11 @@ export const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       'Reduced risk of customs delays and operational disruptions.',
       'Effective coordination across customs, port, and transportation activities.',
     ],
+    outcomesImage: {
+      src: '/projects/food-import-india-uk-outcomes.png',
+      alt: "Food import delivery outcomes to Wembley",
+      caption: "Results — completed delivery and project outcomes.",
+    },
     conclusion: [
       'This India–UK food import demonstrates Clarusto’s expertise in international food logistics and customs clearance.',
       'Detailed planning, regulatory compliance, and coordinated execution moved the cargo efficiently from origin to final destination.',
@@ -1616,4 +1766,148 @@ export function getProjectCaseStudy(slug: string) {
 
 export function getAllProjectSlugs() {
   return PROJECT_CASE_STUDIES.map((study) => study.slug);
+}
+
+function dedupeImages(images: ProjectGalleryImage[]) {
+  const seen = new Set<string>();
+  return images.filter((image) => {
+    if (!image?.src || seen.has(image.src)) return false;
+    seen.add(image.src);
+    return true;
+  });
+}
+
+/**
+ * Resolves ordered case-study imagery for the detail layout.
+ * Prefer explicit `images`; otherwise derive from hero / section images.
+ */
+export function resolveCaseStudyImages(
+  study: ProjectCaseStudy
+): ProjectGalleryImage[] {
+  if (study.images && study.images.length > 0) {
+    return dedupeImages(study.images);
+  }
+
+  const challengeImage =
+    study.transportModes.find(
+      (mode) => mode.challenges.length > 0 && mode.image
+    )?.image ??
+    study.transportModes.find((mode) => mode.image)?.image;
+
+  return dedupeImages([
+    {
+      src: study.heroImage,
+      alt: `${study.title} — project hero`,
+      caption: study.location,
+    },
+    ...(study.objectiveImage ? [study.objectiveImage] : []),
+    ...(challengeImage ? [challengeImage] : []),
+    ...(study.outcomesImage ? [study.outcomesImage] : []),
+    ...(study.conclusionImage ? [study.conclusionImage] : []),
+  ]);
+}
+
+function guessScopeIcon(label: string): ProjectScopeIcon {
+  const t = label.toLowerCase();
+  if (/container|fcl|flat.?rack|pallet/.test(t)) return 'container';
+  if (/destuff|unload|unstuff|loading|pack/.test(t)) return 'unloading';
+  if (/custom|clearance|fasah|saso|hs.?code|document/.test(t)) return 'customs';
+  if (/inspect|pdi|survey|audit/.test(t)) return 'inspection';
+  if (/truck|inland|haul|road|carrier|delivery/.test(t)) return 'truck';
+  if (/empty|return|depot/.test(t)) return 'return';
+  if (/warehouse|storage|inventory|bonded/.test(t)) return 'warehouse';
+  if (/sea|vessel|port|ocean|roro/.test(t)) return 'ship';
+  if (/air|airport|flight/.test(t)) return 'plane';
+  return 'check';
+}
+
+export function resolveCaseStudyScope(
+  study: ProjectCaseStudy
+): ProjectScopeItem[] {
+  if (study.scopeItems && study.scopeItems.length > 0) {
+    return study.scopeItems.slice(0, 6);
+  }
+
+  const fromActivities = study.transportModes
+    .flatMap((mode) => mode.activities)
+    .filter(Boolean);
+  const fromCoordination = study.coordinationOutcomes.filter(Boolean);
+  const fromObjective = study.objective.filter(Boolean);
+  const source =
+    fromActivities.length > 0
+      ? fromActivities
+      : fromCoordination.length > 0
+        ? fromCoordination
+        : fromObjective;
+
+  return source.slice(0, 6).map((label) => {
+    const short =
+      label.length > 72 ? `${label.slice(0, 69).trimEnd()}…` : label;
+    return { label: short, icon: guessScopeIcon(label) };
+  });
+}
+
+function parseLeadingNumber(token: string): ProjectStat {
+  const trimmed = token.trim();
+  const match = trimmed.match(/^(\d+(?:\.\d+)?)\s*(.*)$/);
+  if (match) {
+    const [, num, rest] = match;
+    return {
+      value: trimmed,
+      label: rest || 'Highlight',
+      countTo: Number(num),
+      suffix: rest ? ` ${rest}` : undefined,
+    };
+  }
+  // Patterns like "8 × 40FT" or "Zero damage"
+  const multi = trimmed.match(/^(\d+)\s*[x×]\s*(.+)$/i);
+  if (multi) {
+    return {
+      value: trimmed,
+      label: multi[2],
+      countTo: Number(multi[1]),
+      suffix: ` × ${multi[2]}`,
+    };
+  }
+  return { value: trimmed, label: 'Highlight' };
+}
+
+export function resolveCaseStudyStats(study: ProjectCaseStudy): ProjectStat[] {
+  if (study.stats && study.stats.length > 0) {
+    return study.stats.slice(0, 4);
+  }
+
+  const fromResult = study.result
+    .split(/[·•|]/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .slice(0, 3)
+    .map(parseLeadingNumber);
+
+  return [
+    ...fromResult,
+    {
+      value: study.location,
+      label: 'Route',
+    },
+  ].slice(0, 4);
+}
+
+export function getRelatedProjectCaseStudies(
+  slug: string,
+  limit = 3
+): ProjectCaseStudy[] {
+  const others = PROJECT_CASE_STUDIES.filter((study) => study.slug !== slug);
+  const current = getProjectCaseStudy(slug);
+  if (!current) return others.slice(0, limit);
+
+  const sameCategory = others.filter((study) =>
+    study.category
+      .split(/[·,]/)
+      .some((part) =>
+        current.category.toLowerCase().includes(part.trim().toLowerCase())
+      )
+  );
+  const rest = others.filter((study) => !sameCategory.includes(study));
+  return [...sameCategory, ...rest].slice(0, limit);
 }

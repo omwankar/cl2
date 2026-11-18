@@ -208,6 +208,17 @@
     overscroll-behavior: contain;
   }
 
+  body[data-lightbox-open='true'] [data-floating-call] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-bounce {
+      animation: none;
+    }
+  }
+
   .text-heading-fluid {
     font-size: clamp(1.5rem, 5vw, 3rem);
     line-height: 1.15;
