@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Container,
@@ -289,104 +290,88 @@ export function TrackPageClient() {
   const hideOceanCarrier = mode === 'MAWB' || Boolean(detectedHint?.includes('air waybill'));
 
   return (
-    <div className="bg-[#0A0F1C]">
-      <section className="relative overflow-hidden border-b border-white/10 text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,184,0,0.16),transparent_42%)]" />
-        <div className="app-container relative py-10 md:py-14">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-400">
+    <div className="min-h-[70vh] bg-[#F3F5F8]">
+      <section className="relative overflow-hidden bg-[#0A0F1C] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(245,184,0,0.18),transparent_50%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#F3F5F8]" />
+        <div className="app-container relative pb-16 pt-10 md:pb-20 md:pt-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-300">
               <Ship className="h-3.5 w-3.5" />
               Live shipment tracking
             </p>
-            <h1 className="font-[family-name:var(--font-bebas)] text-[clamp(2.1rem,4.5vw,3.4rem)] leading-[0.95] tracking-wide">
-              PASTE THE NUMBER. WE DO THE REST.
+            <h1 className="font-[family-name:var(--font-bebas)] text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.92] tracking-wide">
+              PASTE THE NUMBER.
+              <span className="block text-amber-400">WE DO THE REST.</span>
             </h1>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-white/70 md:text-base">
-              Containers, bills of lading, and air waybills — tracked in one
-              Clarusto view.
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
+              Ocean containers, bills of lading, and air waybills — tracked in
+              one Clarusto view.
             </p>
           </div>
 
-          <div className="mx-auto mt-7 max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-white text-foreground shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
-            <div className="border-b border-border/70 bg-[#F7F8FA] px-4 py-3 sm:px-5">
-              <div className="flex gap-2 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {VERTICALS.map((vertical) => {
-                  const Icon = vertical.icon;
-                  const active = mode === vertical.id;
-                  return (
-                    <button
-                      key={vertical.id}
-                      type="button"
-                      onClick={() => {
-                        setMode(vertical.id);
-                        if (vertical.example && !number.trim()) {
-                          setNumber(vertical.example);
-                        }
-                      }}
-                      className={cn(
-                        'inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400',
-                        active
-                          ? 'border-amber-400 bg-amber-400 text-[#0F1923]'
-                          : 'border-border bg-white text-muted-foreground hover:border-amber-400/50 hover:text-foreground'
-                      )}
-                    >
-                      <Icon className="h-3.5 w-3.5" aria-hidden />
-                      <span className="font-medium">{vertical.label}</span>
-                      <span
-                        className={cn(
-                          'hidden text-xs sm:inline',
-                          active ? 'text-[#0F1923]/70' : 'opacity-60'
-                        )}
-                      >
-                        {vertical.hint}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
+          <div className="relative z-10 mx-auto mt-8 max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-white text-foreground shadow-[0_28px_80px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-2 gap-1 border-b border-border/60 bg-[#F7F8FA] p-1.5 sm:grid-cols-4">
+              {VERTICALS.map((vertical) => {
+                const Icon = vertical.icon;
+                const active = mode === vertical.id;
+                return (
+                  <button
+                    key={vertical.id}
+                    type="button"
+                    onClick={() => {
+                      setMode(vertical.id);
+                      if (vertical.example && !number.trim()) {
+                        setNumber(vertical.example);
+                      }
+                    }}
+                    className={cn(
+                      'inline-flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400',
+                      active
+                        ? 'bg-white font-semibold text-[#0F1923] shadow-sm'
+                        : 'text-muted-foreground hover:bg-white/70 hover:text-foreground'
+                    )}
+                  >
+                    <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                    <span className="truncate">{vertical.label}</span>
+                  </button>
+                );
+              })}
             </div>
 
-            <form onSubmit={onSubmit} className="space-y-4 p-4 sm:p-5">
+            <form onSubmit={onSubmit} className="space-y-4 p-5 sm:p-6">
               <div
                 className={cn(
-                  'grid gap-3',
+                  'grid items-end gap-3',
                   hideOceanCarrier
-                    ? 'md:grid-cols-[minmax(0,1fr)_9.5rem]'
-                    : 'md:grid-cols-[minmax(0,1.4fr)_minmax(11rem,0.85fr)_9.5rem]'
+                    ? 'sm:grid-cols-[minmax(0,1fr)_8.5rem]'
+                    : 'sm:grid-cols-[minmax(0,1.35fr)_minmax(10rem,0.8fr)_8.5rem]'
                 )}
               >
                 <div>
-                  <Label htmlFor="track-number">Tracking number</Label>
+                  <Label htmlFor="track-number" className="text-xs uppercase tracking-wide text-muted-foreground">
+                    Tracking number
+                  </Label>
                   <Input
                     id="track-number"
                     name="number"
                     value={number}
                     onChange={(e) => onNumberChange(e.target.value)}
-                    placeholder="e.g. MSKU0496560 or 020-12345675"
+                    placeholder="MSKU0496560 or 020-12345675"
                     autoComplete="off"
                     spellCheck={false}
-                    className="mt-2 h-11 font-mono uppercase"
+                    className="mt-1.5 h-12 border-border/80 font-mono text-base uppercase"
                     aria-required
                   />
-                  {detectedHint ? (
-                    <p className="mt-2 text-xs font-medium text-amber-700">
-                      {detectedHint}
-                    </p>
-                  ) : (
-                    <p className="mt-2 text-xs text-muted-foreground">
-                      Paste any common cargo reference.
-                    </p>
-                  )}
                 </div>
 
                 {!hideOceanCarrier ? (
                   <div>
-                    <Label htmlFor="track-carrier">Ocean carrier</Label>
+                    <Label htmlFor="track-carrier" className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Carrier
+                    </Label>
                     <Select value={sealine} onValueChange={setSealine}>
-                      <SelectTrigger
-                        id="track-carrier"
-                        className="mt-2 h-11 w-full"
-                      >
+                      <SelectTrigger id="track-carrier" className="mt-1.5 h-12 w-full">
                         <SelectValue placeholder="Auto-detect" />
                       </SelectTrigger>
                       <SelectContent className="max-h-72">
@@ -401,62 +386,54 @@ export function TrackPageClient() {
                         ))}
                       </SelectContent>
                     </Select>
-                    <p className="mt-2 text-xs text-muted-foreground">
-                      Optional for ocean cargo
-                    </p>
                   </div>
                 ) : null}
 
-                <div className="flex flex-col justify-end">
-                  <Button
-                    type="submit"
-                    className="h-11 w-full bg-amber-400 text-[#0F1923] hover:bg-amber-500"
-                    disabled={state.status === 'loading'}
-                  >
-                    {state.status === 'loading' ? (
-                      <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Tracking…
-                      </>
-                    ) : (
-                      <>
-                        <Search className="h-4 w-4" />
-                        Track
-                      </>
-                    )}
-                  </Button>
-                  <p className="mt-2 hidden text-xs text-transparent md:block">
-                    .
-                  </p>
-                </div>
+                <Button
+                  type="submit"
+                  className="h-12 w-full bg-amber-400 text-base font-semibold text-[#0F1923] hover:bg-amber-500"
+                  disabled={state.status === 'loading'}
+                >
+                  {state.status === 'loading' ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      …
+                    </>
+                  ) : (
+                    <>
+                      <Search className="h-4 w-4" />
+                      Track
+                    </>
+                  )}
+                </Button>
               </div>
 
+              {detectedHint ? (
+                <p className="text-xs font-medium text-amber-700">{detectedHint}</p>
+              ) : null}
+
               {recent.length > 0 ? (
-                <div className="border-t border-border/70 pt-3">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-2 border-t border-border/60 pt-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                     Recent
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {recent.map((item) => (
-                      <button
-                        key={`${item.number}-${item.type}-${item.sealine ?? 'auto'}-${item.at}`}
-                        type="button"
-                        onClick={() =>
-                          void runTrack({
-                            number: item.number,
-                            mode: modeFromApiType(item.type),
-                            sealine: item.sealine ?? 'AUTO',
-                          })
-                        }
-                        className="rounded-full border border-border bg-[#F7F8FA] px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-amber-400 hover:bg-amber-50"
-                      >
-                        {item.number}
-                        <span className="ml-1 text-muted-foreground">
-                          · {item.type}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
+                  </span>
+                  {recent.map((item) => (
+                    <button
+                      key={`${item.number}-${item.type}-${item.sealine ?? 'auto'}-${item.at}`}
+                      type="button"
+                      onClick={() =>
+                        void runTrack({
+                          number: item.number,
+                          mode: modeFromApiType(item.type),
+                          sealine: item.sealine ?? 'AUTO',
+                        })
+                      }
+                      className="rounded-full border border-border bg-[#F7F8FA] px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-amber-400 hover:bg-amber-50"
+                    >
+                      {item.number}
+                      <span className="ml-1 text-muted-foreground">· {item.type}</span>
+                    </button>
+                  ))}
                 </div>
               ) : null}
             </form>
@@ -464,47 +441,60 @@ export function TrackPageClient() {
         </div>
       </section>
 
-      <section className="bg-[#EEF1F5] py-8 md:py-10">
-        <div className="app-container max-w-5xl">
+      <section className="relative z-0 -mt-8 pb-12 md:pb-16">
+        <div className="app-container max-w-4xl">
           <div className="sr-only" aria-live="polite">
             {liveMessage}
           </div>
 
           {state.status === 'idle' ? (
-            <div className="rounded-2xl border border-dashed border-border/80 bg-white/80 px-5 py-8 shadow-sm sm:px-6">
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-400/15 text-amber-700">
+            <div className="overflow-hidden rounded-2xl border border-border/70 bg-white shadow-sm">
+              <div className="grid gap-0 md:grid-cols-[1.2fr_0.9fr]">
+                <div className="flex gap-3 p-5 sm:p-6">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-amber-400/15 text-amber-700">
                     <MapPinned className="h-5 w-5" />
                   </div>
                   <div>
-                    <h2 className="text-base font-semibold text-foreground">
+                    <h2 className="text-lg font-semibold text-foreground">
                       Ready when you are
                     </h2>
-                    <p className="mt-1 max-w-lg text-sm text-muted-foreground">
-                      Try a sample number or paste your own. Results stay on
-                      this page and remain shareable via the URL.
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      Try a sample number or paste your own. Results stay on this
+                      page and stay shareable via the URL.
                     </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {VERTICALS.filter((v) => v.id !== 'AUTO').map((vertical) => (
+                        <Button
+                          key={vertical.id}
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="bg-white"
+                          onClick={() =>
+                            void runTrack({
+                              number: vertical.example,
+                              mode: vertical.id,
+                              sealine: 'AUTO',
+                            })
+                          }
+                        >
+                          Try {vertical.label}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {VERTICALS.filter((v) => v.id !== 'AUTO').map((vertical) => (
-                    <Button
-                      key={vertical.id}
-                      type="button"
-                      variant="outline"
-                      className="bg-white"
-                      onClick={() =>
-                        void runTrack({
-                          number: vertical.example,
-                          mode: vertical.id,
-                          sealine: 'AUTO',
-                        })
-                      }
-                    >
-                      Try {vertical.label}
-                    </Button>
-                  ))}
+                <div className="flex flex-col justify-center gap-3 border-t border-border/60 bg-[#0A0F1C] p-5 text-white md:border-l md:border-t-0 sm:p-6">
+                  <p className="text-sm text-white/70">
+                    Planning a new move? Get a clear Clarusto quote for your
+                    lane.
+                  </p>
+                  <Button
+                    asChild
+                    className="w-full bg-amber-400 text-[#0F1923] hover:bg-amber-500 sm:w-auto"
+                  >
+                    <Link href="/contact">Book a Quote</Link>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -549,13 +539,16 @@ export function TrackPageClient() {
                     <RotateCcw className="h-4 w-4" />
                     Retry
                   </Button>
+                  <Button asChild variant="outline">
+                    <Link href="/contact">Book a Quote</Link>
+                  </Button>
                 </div>
               </div>
             </div>
           ) : null}
 
           {state.status === 'success' ? (
-            <div className="space-y-3">
+            <div className="space-y-4">
               {state.cached ? (
                 <p className="text-center text-xs text-muted-foreground">
                   Showing a recently cached result to keep tracking responsive.
@@ -587,6 +580,24 @@ export function TrackPageClient() {
                     <TrackDetailsAside shipment={state.data} />
                   </div>
                 </div>
+              </div>
+
+              <div className="flex flex-col items-start justify-between gap-4 overflow-hidden rounded-2xl border border-border/70 bg-[#0A0F1C] px-5 py-5 text-white shadow-sm sm:flex-row sm:items-center sm:px-6">
+                <div>
+                  <h3 className="text-base font-semibold">
+                    Need to move the next shipment?
+                  </h3>
+                  <p className="mt-1 text-sm text-white/65">
+                    Share your lane and cargo details — Clarusto will quote back
+                    quickly.
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  className="shrink-0 bg-amber-400 text-[#0F1923] hover:bg-amber-500"
+                >
+                  <Link href="/contact">Book a Quote</Link>
+                </Button>
               </div>
             </div>
           ) : null}

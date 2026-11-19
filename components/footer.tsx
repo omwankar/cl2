@@ -178,10 +178,10 @@ export function Footer() {
 
         {/* Memberships & affiliations */}
         <div className="mb-10 border-t border-white/10 pt-10">
-          <p className="mb-5 text-center font-mono text-[11px] uppercase tracking-[0.22em] text-amber-400">
+          <p className="mb-6 text-center font-mono text-[11px] uppercase tracking-[0.22em] text-amber-400">
             Memberships &amp; Affiliations
           </p>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
             {INDUSTRY_MEMBERSHIPS.map((org) => (
               <li key={org.name}>
                 <a
@@ -190,14 +190,14 @@ export function Footer() {
                   rel="noopener noreferrer"
                   title={org.fullName}
                   aria-label={`${org.fullName} (opens in a new tab)`}
-                  className="group flex h-[6.5rem] items-center justify-center rounded-2xl border border-white/10 bg-white px-4 py-4 transition-all hover:border-amber-400 hover:shadow-[0_0_0_1px_rgba(245,184,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                  className="group flex h-24 items-center justify-center rounded-xl border border-white/10 bg-white px-3 py-3 transition-all hover:-translate-y-0.5 hover:border-amber-400 hover:shadow-[0_8px_24px_rgba(245,184,0,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 sm:h-28 sm:px-4"
                 >
                   <Image
                     src={org.logo}
                     alt={org.fullName}
                     width={org.logoWidth}
                     height={org.logoHeight}
-                    className="max-h-14 w-auto max-w-[85%] object-contain"
+                    className="h-12 w-full max-w-[11rem] object-contain sm:h-14"
                   />
                 </a>
               </li>
