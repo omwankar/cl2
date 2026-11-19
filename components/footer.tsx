@@ -181,24 +181,31 @@ export function Footer() {
           <p className="mb-6 text-center font-mono text-[11px] uppercase tracking-[0.22em] text-amber-400">
             Memberships &amp; Affiliations
           </p>
-          <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {INDUSTRY_MEMBERSHIPS.map((org) => (
-              <li key={org.name}>
+              <li key={org.name} className="flex justify-center">
                 <a
                   href={org.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   title={org.fullName}
-                  aria-label={`${org.fullName} (opens in a new tab)`}
-                  className="group flex h-24 items-center justify-center rounded-xl border border-white/10 bg-white px-3 py-3 transition-all hover:-translate-y-0.5 hover:border-amber-400 hover:shadow-[0_8px_24px_rgba(245,184,0,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 sm:h-28 sm:px-4"
+                  aria-label={org.ariaLabel}
+                  className="group flex h-36 w-full max-w-[240px] flex-col items-center justify-center gap-2 rounded-xl bg-white p-6 opacity-80 grayscale transition duration-300 hover:-translate-y-1 hover:opacity-100 hover:shadow-lg hover:grayscale-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                 >
-                  <Image
-                    src={org.logo}
-                    alt={org.fullName}
-                    width={org.logoWidth}
-                    height={org.logoHeight}
-                    className="h-12 w-full max-w-[11rem] object-contain sm:h-14"
-                  />
+                  <span className="flex min-h-0 w-full flex-1 items-center justify-center">
+                    <Image
+                      src={org.logo}
+                      alt={org.ariaLabel}
+                      width={org.logoWidth}
+                      height={org.logoHeight}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </span>
+                  {'caption' in org && org.caption ? (
+                    <span className="shrink-0 text-xs font-semibold tracking-wider text-slate-700">
+                      {org.caption}
+                    </span>
+                  ) : null}
                 </a>
               </li>
             ))}
