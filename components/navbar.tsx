@@ -8,7 +8,10 @@ import { ChevronDown, Menu, Search, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-const primaryNav = [
+type NavLink = { name: string; href: string };
+type NavItem = NavLink & { submenu?: NavLink[] };
+
+const primaryNav: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   {
@@ -33,13 +36,13 @@ const primaryNav = [
   { name: 'Blog', href: '/blog' },
 ];
 
-const moreNav = [
+const moreNav: NavItem[] = [
   { name: 'Press Releases', href: '/press-releases' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
 ];
 
-const mobileNav = [...primaryNav, ...moreNav];
+const mobileNav: NavItem[] = [...primaryNav, ...moreNav];
 
 function isActivePath(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
@@ -260,7 +263,7 @@ export function Navbar() {
             <div className="flex flex-col px-3 py-3">
               {mobileNav.map((item) => (
                 <div key={item.name} className="border-b border-white/10 last:border-b-0">
-                  {'submenu' in item && item.submenu ? (
+                  {item.submenu ? (
                     <>
                       <button
                         type="button"
