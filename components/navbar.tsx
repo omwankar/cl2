@@ -30,7 +30,6 @@ const navigation = [
     ],
   },
   { name: 'Projects', href: '/projects' },
-  { name: 'Track Shipment', href: '/track' },
   { name: 'Blogs & Insights', href: '/blog' },
   { name: 'Press Releases', href: '/press-releases' },
   { name: 'FAQ', href: '/faq' },
@@ -140,6 +139,13 @@ export function Navbar() {
           >
             <Search className="h-4 w-4" />
           </Link>
+          <Button
+            asChild
+            variant="outline"
+            className="border-amber-400/70 bg-transparent text-amber-400 hover:bg-amber-400 hover:text-[#0F1923]"
+          >
+            <Link href="/track">Track Shipment</Link>
+          </Button>
           <Button asChild className="bg-amber-400 hover:bg-amber-500 text-[#0F1923]">
             <Link href="/contact">Get a Quote</Link>
           </Button>
@@ -214,7 +220,16 @@ export function Navbar() {
                   )}
                 </div>
               ))}
-              <div className="mt-3 px-2 pb-2">
+              <div className="mt-3 space-y-2 px-2 pb-2">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-12 w-full border-amber-400/70 bg-transparent text-base text-amber-400 hover:bg-amber-400 hover:text-[#0F1923]"
+                >
+                  <Link href="/track" onClick={() => setIsOpen(false)}>
+                    Track Shipment
+                  </Link>
+                </Button>
                 <Button
                   asChild
                   className="h-12 w-full bg-amber-400 text-base text-[#0F1923] hover:bg-amber-500"
@@ -225,7 +240,7 @@ export function Navbar() {
                 </Button>
                 <Link
                   href="/blog#blog-search"
-                  className="mt-2 flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-md border border-white/20 text-sm text-[#f0f0f0]"
+                  className="flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-md border border-white/20 text-sm text-[#f0f0f0]"
                   onClick={() => setIsOpen(false)}
                 >
                   <Search className="h-4 w-4" />

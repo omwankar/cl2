@@ -190,14 +190,15 @@ export function Footer() {
                   rel="noopener noreferrer"
                   title={org.fullName}
                   aria-label={`${org.fullName} (opens in a new tab)`}
-                  className="group flex h-full flex-col items-center justify-center gap-1 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-4 text-center transition-all hover:border-amber-400/45 hover:bg-amber-400/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                  className="group flex h-[6.5rem] items-center justify-center rounded-2xl border border-white/10 bg-white px-4 py-4 transition-all hover:border-amber-400 hover:shadow-[0_0_0_1px_rgba(245,184,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                 >
-                  <span className="font-[family-name:var(--font-bebas)] text-2xl tracking-wide text-white transition-colors group-hover:text-amber-400 sm:text-[1.65rem]">
-                    {org.name}
-                  </span>
-                  <span className="max-w-[12rem] text-[11px] leading-snug text-white/55">
-                    {org.fullName}
-                  </span>
+                  <Image
+                    src={org.logo}
+                    alt={org.fullName}
+                    width={org.logoWidth}
+                    height={org.logoHeight}
+                    className="max-h-14 w-auto max-w-[85%] object-contain"
+                  />
                 </a>
               </li>
             ))}

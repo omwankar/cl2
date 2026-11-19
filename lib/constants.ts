@@ -38,21 +38,33 @@ export const INDUSTRY_MEMBERSHIPS = [
     name: 'BIFA',
     fullName: 'British International Freight Association',
     href: 'https://bifa.org/',
+    logo: '/memberships/bifa.svg',
+    logoWidth: 180,
+    logoHeight: 60,
   },
   {
     name: 'FIATA',
     fullName: 'International Federation of Freight Forwarders Associations',
     href: 'https://fiata.org/',
+    logo: '/memberships/fiata.svg',
+    logoWidth: 72,
+    logoHeight: 72,
   },
   {
     name: 'IATA',
     fullName: 'International Air Transport Association',
     href: 'https://www.iata.org/',
+    logo: '/memberships/iata.svg',
+    logoWidth: 180,
+    logoHeight: 68,
   },
   {
     name: 'Logistics UK',
     fullName: 'Logistics UK',
     href: 'https://logistics.org.uk/',
+    logo: '/memberships/logistics-uk-dark.svg',
+    logoWidth: 180,
+    logoHeight: 28,
   },
 ] as const;
 
