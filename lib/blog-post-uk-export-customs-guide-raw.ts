@@ -191,4 +191,41 @@ Planning your next international shipment?
 Explore Clarusto Logistics' [services](/services) or [contact our team](/contact) to discuss your freight and logistics requirements.
 
 Clarusto Logistics – Connecting Continents, Delivering Excellence.
+
+FAQs:
+1. What documents are required to export goods from the UK?
+The main documents include a commercial invoice, packing list and export customs declaration. Depending on the goods and destination, exporters may also need certificates of origin, export licences, permits or product-specific certificates. Requirements should be checked before dispatch.
+
+2. Do I need an EORI number to export from the UK?
+Yes, most businesses exporting goods from Great Britain need a GB-prefixed EORI number to complete customs formalities. Businesses moving goods to or from Northern Ireland may have different requirements, including an XI-prefixed EORI number in certain circumstances.
+
+3. Are UK export customs declarations mandatory for every international shipment?
+Most commercial exports require a customs declaration before goods leave the UK, including exports to the EU. However, specific exceptions and simplified procedures may apply depending on the goods, destination and customs arrangements. Exporters should check the applicable HMRC guidance.
+
+4. What is the Customs Declaration Service (CDS) for UK exporters?
+The Customs Declaration Service (CDS) is HMRC's electronic platform for submitting and managing customs declarations. It captures details such as commodity codes, shipment values, exporter information, destination, quantities and transport arrangements. Accurate information helps avoid declaration errors and unnecessary border delays.
+
+5. How do I find the correct commodity code for exported goods?
+You can use the UK Trade Tariff service to identify the appropriate commodity code based on the product's material, composition, function and intended use. Do not automatically rely on codes supplied by overseas buyers or suppliers. Incorrect classification can create compliance issues and affect customs treatment.
+
+6. Can a UK freight forwarder handle export customs clearance?
+Yes. Exporters can appoint a freight forwarder or customs agent to prepare and submit export declarations on their behalf. However, businesses should agree the representative's responsibilities, provide accurate shipment information and understand whether representation is direct or indirect.
+
+7. What happens if export customs documentation contains incorrect information?
+Incorrect or inconsistent information can lead to customs queries, additional inspections, declaration amendments, shipment delays and potential penalties. Errors involving commodity codes, customs values, origin details or export licences can also create wider compliance and financial risks.
+
+8. Do UK exporters need proof of origin to benefit from free trade agreements?
+Yes, where preferential tariff treatment is being claimed, exporters must meet the relevant rules of origin and provide the prescribed proof or origin declaration. Simply shipping goods from the UK does not automatically make them UK-originating. The product's sourcing and manufacturing history matter.
+
+9. How can UK exporters avoid customs delays?
+Businesses can reduce avoidable delays by checking EORI details before shipping, confirming commodity codes and customs requirements, preparing accurate invoices and packing lists, verifying licences and certificates, ensuring consistency across customs declarations and shipping documents, and coordinating with freight forwarders and overseas importers before dispatch.
+
+10. Is UK export customs clearance different for air freight and sea freight?
+The core customs requirements are similar, but declaration timing, transport documentation and border procedures can differ. Air freight generally involves shorter pre-departure declaration timelines, while sea freight may require earlier submission depending on the cargo and destination. Exporters should coordinate with their carrier and customs representative.
+
+11. How long does UK export customs clearance take?
+There is no single fixed clearance time for every export shipment. Processing depends on declaration accuracy, the nature of the goods, regulatory requirements, customs checks and the departure location. Complete documentation and early preparation can help minimise avoidable delays.
+
+12. What is proof of export, and why is it important for UK businesses?
+Proof of export is evidence that goods have physically left the UK. It is important for VAT zero-rating purposes and demonstrating compliance with customs procedures. Exporters should retain appropriate departure confirmation and supporting commercial evidence in accordance with HMRC requirements.
 `;
